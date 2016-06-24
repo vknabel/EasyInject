@@ -20,5 +20,5 @@ It is intended to be lightweight and platform independent.
   s.source           = { :git => 'https://github.com/vknabel/EasyInject.git', :tag => s.version.to_s }
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
-  s.source_files = 'EasyInject.swift'
+  s.source_files = 'Sources/*.swift'
 end
