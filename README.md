@@ -50,10 +50,11 @@ extension Provider {
         return Provider<String, String>(for: "baseUrl")
     }
     static var networkService: Provider<String, NetworkService> {
-        return Provider<String, NetworkService>(for: "NetworkService")
+        // produces a key of `networkService(...) -> Network`.
+        return .derive()
     }
     static var dataManager: Provider<String, DataManager> {
-        return .detect() // this will use this file and function as key
+        return .derive()
     }
 }
 ```
@@ -145,7 +146,7 @@ Return: BaseUrl
 Start: DataManager
 Start: NetworkService
 Finish: NetworkService
-Error: keyNotProvided("NetworkService")
+Error: keyNotProvided("networkService(...) -> NetworkService")
 ```
 
 This behavior may be helpful when debugging your `LazyInjector` in order to detect dependency cycles.

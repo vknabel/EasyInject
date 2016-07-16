@@ -1,10 +1,10 @@
 public extension Provider {
-    /// Automatically generates `Provider#key` from the caller's file, function and column.
-    public static func detect<V: Providable>(
-        file: String = #file,
-        function: String = #function,
-        column: Int = #column) -> Provider<String, V> {
-        return Provider<String, V>(for: "\(file).\(function)#\(column)")
+    /// Automatically generates `Provider#key` from the caller's function and the detected type.
+    /// - Parameter function: The function where `.derive()` will be called from.
+    /// - Returns: A new `Provider` with a `String` as `ProvidableKey`,
+    /// containing type information and the caller's `function`.
+    public static func derive<V: Providable>(function: String = #function) -> Provider<String, V> {
+        return Provider<String, V>(for: "\(function)(...) -> \(V.self)")
     }
 }
 
