@@ -35,14 +35,12 @@
  ```
 
  ## Introduction
- In order to inject your dependencies, you first need to prepare your key by implementing `ProvidableKey`.
+ In order to inject your dependencies, you first need to prepare your key by implementing `Hashable`.
  */
 
 import EasyInject
 
-extension String: ProvidableKey {
-    // As all `String`s are `Hashable`, there's nothing to do here
-}
+// As all `String`s are `Hashable`, there's nothing to do here
 
 /*:
  Now we need to define our keys, by setting up `Provider`s with `String`s and our type hints.
@@ -55,7 +53,7 @@ extension Provider {
         return Provider<String, NetworkService>(for: "NetworkService")
     }
     static var dataManager: Provider<String, DataManager> {
-        return Provider<String, DataManager>(for: "DataManager")
+        return .detect()  // this will use this file and function as key.
     }
 }
 

@@ -2,7 +2,7 @@
 public protocol Providable { }
 
 /// `Providable`s will be associated to `ProvidableKey`s.
-public protocol ProvidableKey: Hashable { }
+public typealias ProvidableKey = Hashable
 
 /// Adds type information to a `ProvidableKey`.
 public struct Provider<K : ProvidableKey, V : Providable> {

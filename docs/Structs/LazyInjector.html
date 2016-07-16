@@ -14,7 +14,7 @@
     <a title="LazyInjector Struct Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">EasyInject Docs</a> (51% documented)</p>
+        <p><a href="../index.html">EasyInject Docs</a> (71% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -50,13 +50,13 @@
             <a href="../Functions.html">Functions</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:ZF10EasyInjectoi2eeu0_RxS_13ProvidableKey_S_10ProvidablerFTGVS_8Providerxq__GS2_xq___Sb">==(_:_:)</a>
+                <a href="../Functions.html#/s:ZF10EasyInjectoi2eeu0_Rxs8Hashable_S_10ProvidablerFTGVS_8Providerxq__GS2_xq___Sb">==(_:_:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:ZF10EasyInjectoi2eeu0_RxS_8InjectorxS_13ProvidableKey_S_10ProvidablerFTGCS_22LazilyInjectedProviderxq__GS3_xq___Sb">==(_:_:)</a>
+                <a href="../Functions.html#/s:ZF10EasyInjectoi2eeu0_RxS_8Injectorxs8Hashable_S_10ProvidablerFTGCS_22LazilyInjectedProviderxq__GS3_xq___Sb">==(_:_:)</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Functions.html#/s:ZF10EasyInjectoi2eeu0_RxS_8InjectorxS_13ProvidableKey_S_10ProvidablerFTGVS_24StrictlyInjectedProviderxq__GS3_xq___Sb">==(_:_:)</a>
+                <a href="../Functions.html#/s:ZF10EasyInjectoi2eeu0_RxS_8Injectorxs8Hashable_S_10ProvidablerFTGVS_24StrictlyInjectedProviderxq__GS3_xq___Sb">==(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -77,9 +77,6 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Protocols.html#/s:P10EasyInject13ProvidableKey">ProvidableKey</a>
               </li>
             </ul>
           </li>
@@ -103,6 +100,14 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Structs/StrictlyInjectedProvider.html">StrictlyInjectedProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Typealiases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a>
               </li>
             </ul>
           </li>
@@ -140,9 +145,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV10EasyInject12LazyInjector7resolveuRd__S_10ProvidablerFzT4fromGVS_8Providerxqd____qd__"></a>
+                    <a name="/s:FP10EasyInject15MutableInjector7resolveuRd__S_10ProvidablerFzT4fromGVS_8Providerwx3Keyqd____qd__"></a>
                     <a name="//apple_ref/swift/Method/resolve(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV10EasyInject12LazyInjector7resolveuRd__S_10ProvidablerFzT4fromGVS_8Providerxqd____qd__">resolve(from:)</a>
+                    <a class="token" href="#/s:FP10EasyInject15MutableInjector7resolveuRd__S_10ProvidablerFzT4fromGVS_8Providerwx3Keyqd____qd__">resolve(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -150,7 +155,40 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">resolve</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span><span class="o">&gt;</span><span class="p">(</span>
+        <span class="n">from</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt">Key</span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Value</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>provider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>Provider</code> that has been used previously.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The previously added <code><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></code>.</p>
 
                       </div>
                     </section>
@@ -159,9 +197,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV10EasyInject12LazyInjector7provideuRd__S_10ProvidablerFT3forGVS_8Providerxqd___12usingFactoryFzRGS0_x_qd___T_"></a>
+                    <a name="/s:FP10EasyInject15MutableInjector7provideuRd__S_10ProvidablerFT3forGVS_8Providerwx3Keyqd___12usingFactoryFzRxqd___T_"></a>
                     <a name="//apple_ref/swift/Method/provide(for:usingFactory:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV10EasyInject12LazyInjector7provideuRd__S_10ProvidablerFT3forGVS_8Providerxqd___12usingFactoryFzRGS0_x_qd___T_">provide(for:usingFactory:)</a>
+                    <a class="token" href="#/s:FP10EasyInject15MutableInjector7provideuRd__S_10ProvidablerFT3forGVS_8Providerwx3Keyqd___12usingFactoryFzRxqd___T_">provide(for:usingFactory:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -169,7 +207,53 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">mutating</span> <span class="kd">func</span> <span class="n">provide</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span><span class="o">&gt;</span><span class="p">(</span><span class="k">for</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt">Key</span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span><span class="p">,</span>
+                                 <span class="n">usingFactory</span> <span class="nv">factory</span><span class="p">:</span> <span class="p">(</span><span class="k">inout</span> <span class="kt">LazyInjector</span><span class="o">&lt;</span><span class="kt">Key</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Value</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>provider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code>Provider</code>, an <code>InjectedProvider</code> is constructed of.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>factory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Creates a value out of a new <code>Injector</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new <code><a href="../Protocols/Injector.html">Injector</a></code> with contents of <code>self</code> and the newly provided value.</p>
 
                       </div>
                     </section>
@@ -180,7 +264,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="https://github.com/vknabel/EasyInject" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-06-24)</p>
+          <p>&copy; 2016 <a class="link" href="https://github.com/vknabel/EasyInject" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-07-16)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

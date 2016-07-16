@@ -1,3 +1,13 @@
+public extension Provider {
+    /// Automatically generates `Provider#key` from the caller's file, function and column.
+    public static func detect<V: Providable>(
+        file: String = #file,
+        function: String = #function,
+        column: Int = #column) -> Provider<String, V> {
+        return Provider<String, V>(for: "\(file).\(function)#\(column)")
+    }
+}
+
 /// Derives `Injector#providing` for structs by using `Injector.provide`.
 public protocol InjectorDerivingFromMutableInjector: MutableInjector { }
 
