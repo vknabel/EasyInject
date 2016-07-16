@@ -21,9 +21,11 @@ public struct AnyMutableInjector<I: MutableInjector>: InjectorDerivingFromMutabl
     public mutating func provide<Value: Providable>(
         for provider: Provider<Key, Value>,
         usingFactory factory: (inout AnyMutableInjector<I>) throws -> Value) {
+        var this = self
+        defer { self = this }
         injector.provide(for: provider, usingFactory: { newMutable -> Value in
-            self.injector = newMutable
-            return try factory(&self)
+            this.injector = newMutable
+            return try factory(&this)
         })
     }
 }

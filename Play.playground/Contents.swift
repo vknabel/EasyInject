@@ -89,7 +89,7 @@ final class DataManager: Providable {
 
 var lazyInjector = LazyInjector<String>()
 lazyInjector.provide(for: .baseUrl, usingFactory: { _ in
-    print("Return: BasUrl")
+    print("Return: BaseUrl")
     return "https://my.base.url/"
 })
 lazyInjector.provide(for: .dataManager, usingFactory: DataManager.init)

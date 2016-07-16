@@ -18,7 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BAB8DA611D1D40D100293519 /* EasyInject.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = EasyInject.podspec; sourceTree = "<group>"; };
+		BAB8DA611D1D40D100293519 /* EasyInject.podspec */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text; path = EasyInject.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		__PBXFileRef_EasyInject.xcodeproj/Configs/Project.xcconfig /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Project.xcconfig; path = EasyInject.xcodeproj/Configs/Project.xcconfig; sourceTree = "<group>"; };
 		__PBXFileRef_EasyInject_Info.plist /* EasyInject_Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = EasyInject_Info.plist; path = EasyInject.xcodeproj/EasyInject_Info.plist; sourceTree = SOURCE_ROOT; };
 		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
