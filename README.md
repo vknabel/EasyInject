@@ -3,7 +3,7 @@ EasyInject is designed to be an easy to use, lightweight dependency injection li
 Instead of injecting instances for specific types, you provide instances for keys, without losing any type information.
 
 ## Installation
-EasyInject supports [Swift Package Manager](https://github.com/apple/swift-package-manager), [Carthage](https://github.com/Carthage/Carthage) and [CocoaPods](https://github.com/CocoaPods/CocoaPods).
+EasyInject is a Swift 3.0 only project and supports [Swift Package Manager](https://github.com/apple/swift-package-manager), [Carthage](https://github.com/Carthage/Carthage) and [CocoaPods](https://github.com/CocoaPods/CocoaPods).
 
 ### Swift Package Manager
 
@@ -175,14 +175,6 @@ do {
     print("Error: \(error)")
 }
 ```
-
-## ToDos
-- finish documentation
-- improve this Playground and set up README.md
-- write UnitTests
-- setup Travis CI
-- add `Injector.rejecting` and `MutableInjector.reject` and implement `Injector.rejecting` in `InjectorDerivingFromMutableInjector`
-- implement `InjectionError.cyclicDependency` and throw it in `LazyInjector`
 
 ## Author
 
