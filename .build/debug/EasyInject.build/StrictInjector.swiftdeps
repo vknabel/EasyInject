@@ -1,0 +1,155 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "StrictInjector"
+provides-nominal:
+- "V10EasyInject14StrictInjector"
+provides-member:
+- ["V10EasyInject14StrictInjector", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "ProvidableKey"
+- "Providable"
+- "Dictionary"
+- "Any"
+- !private "StrictlyInjectedProvider"
+- !private "InjectionError"
+- "StrictInjector"
+- "Provider"
+- "InjectorDerivingFromMutableInjector"
+depends-member:
+- !private ["Ps10Collection", "Index"]
+- !private ["Ps10Collection", "Iterator"]
+- ["Ps10Collection", "Key"]
+- !private ["Ps10Collection", "SubSequence"]
+- ["Ps10Collection", "Value"]
+- !private ["Ps10Collection", "_Element"]
+- !private ["Ps10Collection", "subscript"]
+- ["Ps28CustomDebugStringConvertible", "Key"]
+- ["Ps28CustomDebugStringConvertible", "Value"]
+- ["Ps28CustomDebugStringConvertible", "some"]
+- !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- ["Ps17CustomReflectable", "Key"]
+- ["Ps17CustomReflectable", "Value"]
+- ["Ps17CustomReflectable", "some"]
+- !private ["Ps17CustomReflectable", "subscript"]
+- ["Ps23CustomStringConvertible", "Key"]
+- ["Ps23CustomStringConvertible", "Value"]
+- !private ["Ps23CustomStringConvertible", "subscript"]
+- ["Vs10Dictionary", "Key"]
+- ["Vs10Dictionary", "Value"]
+- !private ["Vs10Dictionary", "subscript"]
+- ["Ps28DictionaryLiteralConvertible", "Key"]
+- ["Ps28DictionaryLiteralConvertible", "Value"]
+- !private ["Ps28DictionaryLiteralConvertible", "subscript"]
+- !private ["Ps13ErrorProtocol", "keyNotProvided"]
+- !private ["Ps13ErrorProtocol", "nonMatchingType"]
+- !private ["Ps9Indexable", "Index"]
+- !private ["Ps9Indexable", "Iterator"]
+- ["Ps9Indexable", "Key"]
+- !private ["Ps9Indexable", "SubSequence"]
+- ["Ps9Indexable", "Value"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps9Indexable", "subscript"]
+- !private ["Ps13IndexableBase", "Index"]
+- !private ["Ps13IndexableBase", "Iterator"]
+- ["Ps13IndexableBase", "Key"]
+- !private ["Ps13IndexableBase", "SubSequence"]
+- ["Ps13IndexableBase", "Value"]
+- !private ["Ps13IndexableBase", "_Element"]
+- !private ["Ps13IndexableBase", "subscript"]
+- !private ["Vs16IndexingIterator", "Element"]
+- !private ["P10EasyInject16InjectedProvider", "init"]
+- !private ["P10EasyInject16InjectedProvider", "resolve"]
+- !private ["O10EasyInject14InjectionError", "deinit"]
+- !private ["O10EasyInject14InjectionError", "keyNotProvided"]
+- !private ["O10EasyInject14InjectionError", "nonMatchingType"]
+- !private ["P10EasyInject8Injector", "InjectionError"]
+- ["P10EasyInject8Injector", "Key"]
+- !private ["P10EasyInject8Injector", "StrictlyInjectedProvider"]
+- ["P10EasyInject8Injector", "provide"]
+- ["P10EasyInject8Injector", "providing"]
+- ["P10EasyInject8Injector", "resolve"]
+- ["P10EasyInject8Injector", "resolving"]
+- !private ["P10EasyInject8Injector", "strictProviders"]
+- ["P10EasyInject8Injector", ""]
+- !private ["P10EasyInject35InjectorDerivingFromMutableInjector", "InjectionError"]
+- ["P10EasyInject35InjectorDerivingFromMutableInjector", "Key"]
+- !private ["P10EasyInject35InjectorDerivingFromMutableInjector", "StrictlyInjectedProvider"]
+- ["P10EasyInject35InjectorDerivingFromMutableInjector", "provide"]
+- ["P10EasyInject35InjectorDerivingFromMutableInjector", "providing"]
+- ["P10EasyInject35InjectorDerivingFromMutableInjector", "resolve"]
+- ["P10EasyInject35InjectorDerivingFromMutableInjector", "resolving"]
+- !private ["P10EasyInject35InjectorDerivingFromMutableInjector", "strictProviders"]
+- ["P10EasyInject35InjectorDerivingFromMutableInjector", ""]
+- !private ["Ps16IteratorProtocol", "Element"]
+- !private ["P10EasyInject15MutableInjector", "InjectionError"]
+- ["P10EasyInject15MutableInjector", "Key"]
+- !private ["P10EasyInject15MutableInjector", "StrictlyInjectedProvider"]
+- ["P10EasyInject15MutableInjector", "provide"]
+- ["P10EasyInject15MutableInjector", "providing"]
+- ["P10EasyInject15MutableInjector", "resolve"]
+- ["P10EasyInject15MutableInjector", "resolving"]
+- !private ["P10EasyInject15MutableInjector", "strictProviders"]
+- ["P10EasyInject15MutableInjector", ""]
+- ["Ps21NilLiteralConvertible", "some"]
+- ["Sq", "some"]
+- !private ["V10EasyInject8Provider", "key"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "Index"]
+- !private ["Ps8Sequence", "Iterator"]
+- ["Ps8Sequence", "Key"]
+- !private ["Ps8Sequence", "SubSequence"]
+- ["Ps8Sequence", "Value"]
+- !private ["Ps8Sequence", "_Element"]
+- !private ["Ps8Sequence", "subscript"]
+- !private ["Vs5Slice", "Index"]
+- !private ["Vs5Slice", "Iterator"]
+- !private ["Vs5Slice", "SubSequence"]
+- !private ["Vs5Slice", "_Element"]
+- ["V10EasyInject14StrictInjector", "Any"]
+- !private ["V10EasyInject14StrictInjector", "InjectionError"]
+- ["V10EasyInject14StrictInjector", "K"]
+- ["V10EasyInject14StrictInjector", "Key"]
+- ["V10EasyInject14StrictInjector", "Providable"]
+- ["V10EasyInject14StrictInjector", "Provider"]
+- ["V10EasyInject14StrictInjector", "StrictInjector"]
+- !private ["V10EasyInject14StrictInjector", "StrictlyInjectedProvider"]
+- ["V10EasyInject14StrictInjector", "deinit"]
+- ["V10EasyInject14StrictInjector", "init"]
+- ["V10EasyInject14StrictInjector", "provide"]
+- ["V10EasyInject14StrictInjector", "providing"]
+- ["V10EasyInject14StrictInjector", "resolve"]
+- ["V10EasyInject14StrictInjector", "resolving"]
+- !private ["V10EasyInject14StrictInjector", "strictProviders"]
+- !private ["V10EasyInject24StrictlyInjectedProvider", "deinit"]
+- !private ["V10EasyInject24StrictlyInjectedProvider", "init"]
+- !private ["V10EasyInject24StrictlyInjectedProvider", "resolve"]
+depends-nominal:
+- "Ps10Collection"
+- "Ps28CustomDebugStringConvertible"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Vs10Dictionary"
+- "Ps28DictionaryLiteralConvertible"
+- !private "Ps13ErrorProtocol"
+- "Ps9Indexable"
+- "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
+- !private "P10EasyInject16InjectedProvider"
+- !private "O10EasyInject14InjectionError"
+- "P10EasyInject8Injector"
+- "P10EasyInject35InjectorDerivingFromMutableInjector"
+- !private "Ps16IteratorProtocol"
+- "P10EasyInject15MutableInjector"
+- "Ps21NilLiteralConvertible"
+- "Sq"
+- !private "V10EasyInject8Provider"
+- "Ps8Sequence"
+- !private "Vs5Slice"
+- "V10EasyInject14StrictInjector"
+- !private "V10EasyInject24StrictlyInjectedProvider"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "56f439ded8ba9eeda1af9b9c414ece53"

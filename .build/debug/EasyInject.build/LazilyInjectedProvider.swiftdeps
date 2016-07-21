@@ -1,0 +1,81 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "LazilyInjectedProvider"
+- "=="
+provides-nominal:
+- "C10EasyInject22LazilyInjectedProvider"
+provides-member:
+- ["C10EasyInject22LazilyInjectedProvider", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- "Providable"
+- "InjectedProviderResolveState"
+- "ProvidableKey"
+- "InjectedProvider"
+- "Provider"
+- "Injector"
+- "LazilyInjectedProvider"
+- "Bool"
+depends-member:
+- ["Ps9AnyObject", "Injected"]
+- !private ["Ps9AnyObject", "InjectedProviderResolveState"]
+- ["Ps9AnyObject", "Value"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "provider"]
+- ["Ps9AnyObject", "resolve"]
+- !private ["Ps9AnyObject", "state"]
+- !private ["Ps9AnyObject", "valueFactory"]
+- ["Ps9AnyObject", ""]
+- ["Ps28CustomDebugStringConvertible", "some"]
+- ["Ps17CustomReflectable", "some"]
+- !private ["Ps9Equatable", "Key"]
+- !private ["Ps8Hashable", "Key"]
+- ["P10EasyInject16InjectedProvider", "Injected"]
+- !private ["P10EasyInject16InjectedProvider", "InjectedProviderResolveState"]
+- ["P10EasyInject16InjectedProvider", "Value"]
+- ["P10EasyInject16InjectedProvider", "init"]
+- !private ["P10EasyInject16InjectedProvider", "provider"]
+- ["P10EasyInject16InjectedProvider", "resolve"]
+- !private ["P10EasyInject16InjectedProvider", "state"]
+- !private ["P10EasyInject16InjectedProvider", "valueFactory"]
+- ["P10EasyInject16InjectedProvider", ""]
+- !private ["O10EasyInject28InjectedProviderResolveState", "init"]
+- !private ["O10EasyInject28InjectedProviderResolveState", "resolve"]
+- ["P10EasyInject8Injector", "Key"]
+- ["C10EasyInject22LazilyInjectedProvider", "I"]
+- ["C10EasyInject22LazilyInjectedProvider", "Injected"]
+- ["C10EasyInject22LazilyInjectedProvider", "InjectedProviderResolveState"]
+- ["C10EasyInject22LazilyInjectedProvider", "Key"]
+- ["C10EasyInject22LazilyInjectedProvider", "Provider"]
+- ["C10EasyInject22LazilyInjectedProvider", "V"]
+- ["C10EasyInject22LazilyInjectedProvider", "Value"]
+- ["C10EasyInject22LazilyInjectedProvider", "deinit"]
+- ["C10EasyInject22LazilyInjectedProvider", "init"]
+- ["C10EasyInject22LazilyInjectedProvider", "key"]
+- !private ["C10EasyInject22LazilyInjectedProvider", "provider"]
+- ["C10EasyInject22LazilyInjectedProvider", "resolve"]
+- !private ["C10EasyInject22LazilyInjectedProvider", "state"]
+- !private ["C10EasyInject22LazilyInjectedProvider", "valueFactory"]
+- ["Ps21NilLiteralConvertible", "some"]
+- ["Sq", "some"]
+- !private ["V10EasyInject8Provider", "deinit"]
+- !private ["V10EasyInject8Provider", "key"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Ps28CustomDebugStringConvertible"
+- "Ps17CustomReflectable"
+- !private "Ps9Equatable"
+- !private "Ps8Hashable"
+- "P10EasyInject16InjectedProvider"
+- !private "O10EasyInject28InjectedProviderResolveState"
+- "P10EasyInject8Injector"
+- "C10EasyInject22LazilyInjectedProvider"
+- "Ps21NilLiteralConvertible"
+- "Sq"
+- !private "V10EasyInject8Provider"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "0891c106c243fb2292a4413779baad5f"

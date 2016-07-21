@@ -1,0 +1,12 @@
+version: "Apple Swift version 3.0 (swiftlang-800.0.34.6 clang-800.0.33)"
+options: "477b72fcdc03e798c28c830ac4905e6f"
+build_time: [522409485, 293265000]
+inputs:
+  "/Users/vknabel/Developer/vknabel/EasyInject/Sources/AnyInjector.swift": [520105100, 0]
+  "/Users/vknabel/Developer/vknabel/EasyInject/Sources/AnyMutableInjector.swift": [521978702, 0]
+  "/Users/vknabel/Developer/vknabel/EasyInject/Sources/Core.swift": [522011903, 0]
+  "/Users/vknabel/Developer/vknabel/EasyInject/Sources/CoreExtensions.swift": [522015257, 0]
+  "/Users/vknabel/Developer/vknabel/EasyInject/Sources/LazilyInjectedProvider.swift": [520105151, 0]
+  "/Users/vknabel/Developer/vknabel/EasyInject/Sources/LazyInjector.swift": [520105195, 0]
+  "/Users/vknabel/Developer/vknabel/EasyInject/Sources/StrictInjector.swift": [520105185, 0]
+  "/Users/vknabel/Developer/vknabel/EasyInject/Sources/StrictlyInjectedProvider.swift": [520105169, 0]

@@ -1,0 +1,95 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Providable"
+- "ProvidableKey"
+- "Provider"
+- "=="
+- "InjectedProvider"
+- "Injector"
+- "MutableInjector"
+- "InjectionError"
+provides-nominal:
+- "P10EasyInject10Providable"
+- "V10EasyInject8Provider"
+- "P10EasyInject16InjectedProvider"
+- "P10EasyInject8Injector"
+- "P10EasyInject15MutableInjector"
+- "O10EasyInject14InjectionError"
+provides-member:
+- ["P10EasyInject10Providable", ""]
+- ["V10EasyInject8Provider", ""]
+- ["P10EasyInject16InjectedProvider", ""]
+- ["P10EasyInject8Injector", ""]
+- ["P10EasyInject15MutableInjector", ""]
+- ["O10EasyInject14InjectionError", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "Hashable"
+- "=="
+- "InjectionError"
+- !private "IntegerLiteralType"
+- "Providable"
+- "Bool"
+- !private "FloatLiteralType"
+- "InjectedProvider"
+- "ErrorProtocol"
+- "MutableInjector"
+- "Any"
+- "Provider"
+- "ProvidableKey"
+- "Injector"
+depends-member:
+- ["Ps13ErrorProtocol", "_code"]
+- ["Ps13ErrorProtocol", "_domain"]
+- ["Ps13ErrorProtocol", ""]
+- ["P10EasyInject16InjectedProvider", "Injected"]
+- ["P10EasyInject16InjectedProvider", "Injector"]
+- ["P10EasyInject16InjectedProvider", "Providable"]
+- ["P10EasyInject16InjectedProvider", "Provider"]
+- ["P10EasyInject16InjectedProvider", "Value"]
+- ["P10EasyInject16InjectedProvider", "init"]
+- ["P10EasyInject16InjectedProvider", "resolve"]
+- ["O10EasyInject14InjectionError", "Any"]
+- ["O10EasyInject14InjectionError", "ErrorProtocol"]
+- ["O10EasyInject14InjectionError", "Key"]
+- ["O10EasyInject14InjectionError", "Providable"]
+- ["O10EasyInject14InjectionError", "_code"]
+- ["O10EasyInject14InjectionError", "_domain"]
+- ["O10EasyInject14InjectionError", "customError"]
+- ["O10EasyInject14InjectionError", "deinit"]
+- ["O10EasyInject14InjectionError", "keyNotProvided"]
+- ["O10EasyInject14InjectionError", "nonMatchingType"]
+- ["P10EasyInject8Injector", "Key"]
+- ["P10EasyInject8Injector", "Providable"]
+- ["P10EasyInject8Injector", "ProvidableKey"]
+- ["P10EasyInject8Injector", "Provider"]
+- ["P10EasyInject8Injector", "Self"]
+- ["P10EasyInject8Injector", "provide"]
+- ["P10EasyInject8Injector", "providing"]
+- ["P10EasyInject8Injector", "resolve"]
+- ["P10EasyInject8Injector", "resolving"]
+- ["P10EasyInject8Injector", ""]
+- ["P10EasyInject15MutableInjector", "Key"]
+- ["P10EasyInject15MutableInjector", "Providable"]
+- ["P10EasyInject15MutableInjector", "Provider"]
+- ["P10EasyInject15MutableInjector", "Self"]
+- ["P10EasyInject15MutableInjector", "provide"]
+- ["P10EasyInject15MutableInjector", "resolve"]
+- ["V10EasyInject8Provider", "K"]
+- ["V10EasyInject8Provider", "Key"]
+- ["V10EasyInject8Provider", "V"]
+- ["V10EasyInject8Provider", "Value"]
+- ["V10EasyInject8Provider", "init"]
+- ["V10EasyInject8Provider", "key"]
+depends-nominal:
+- "Ps13ErrorProtocol"
+- "P10EasyInject16InjectedProvider"
+- "O10EasyInject14InjectionError"
+- "P10EasyInject8Injector"
+- "P10EasyInject15MutableInjector"
+- "V10EasyInject8Provider"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "3f287ce4ef357f9c4e6a28c638133e40"

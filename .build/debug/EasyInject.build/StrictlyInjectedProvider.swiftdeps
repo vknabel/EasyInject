@@ -1,0 +1,61 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "StrictlyInjectedProvider"
+- "=="
+provides-nominal:
+- "V10EasyInject24StrictlyInjectedProvider"
+provides-member:
+- ["V10EasyInject24StrictlyInjectedProvider", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "StrictlyInjectedProvider"
+- "Provider"
+- "ProvidableKey"
+- "Bool"
+- "InjectedProviderResolveState"
+- "=="
+- "Providable"
+- "Injector"
+- "InjectedProvider"
+depends-member:
+- !private ["Ps9Equatable", "Key"]
+- !private ["Ps8Hashable", "Key"]
+- ["P10EasyInject16InjectedProvider", "Injected"]
+- !private ["P10EasyInject16InjectedProvider", "InjectedProviderResolveState"]
+- ["P10EasyInject16InjectedProvider", "Value"]
+- ["P10EasyInject16InjectedProvider", "init"]
+- !private ["P10EasyInject16InjectedProvider", "provider"]
+- ["P10EasyInject16InjectedProvider", "resolve"]
+- !private ["P10EasyInject16InjectedProvider", "state"]
+- ["P10EasyInject16InjectedProvider", ""]
+- !private ["O10EasyInject28InjectedProviderResolveState", "init"]
+- !private ["O10EasyInject28InjectedProviderResolveState", "resolve"]
+- ["P10EasyInject8Injector", "Key"]
+- !private ["V10EasyInject8Provider", "deinit"]
+- !private ["V10EasyInject8Provider", "key"]
+- ["V10EasyInject24StrictlyInjectedProvider", "I"]
+- ["V10EasyInject24StrictlyInjectedProvider", "Injected"]
+- ["V10EasyInject24StrictlyInjectedProvider", "InjectedProviderResolveState"]
+- ["V10EasyInject24StrictlyInjectedProvider", "Key"]
+- ["V10EasyInject24StrictlyInjectedProvider", "Provider"]
+- ["V10EasyInject24StrictlyInjectedProvider", "V"]
+- ["V10EasyInject24StrictlyInjectedProvider", "Value"]
+- ["V10EasyInject24StrictlyInjectedProvider", "deinit"]
+- ["V10EasyInject24StrictlyInjectedProvider", "init"]
+- ["V10EasyInject24StrictlyInjectedProvider", "key"]
+- !private ["V10EasyInject24StrictlyInjectedProvider", "provider"]
+- ["V10EasyInject24StrictlyInjectedProvider", "resolve"]
+- !private ["V10EasyInject24StrictlyInjectedProvider", "state"]
+depends-nominal:
+- !private "Ps9Equatable"
+- !private "Ps8Hashable"
+- "P10EasyInject16InjectedProvider"
+- !private "O10EasyInject28InjectedProviderResolveState"
+- "P10EasyInject8Injector"
+- !private "V10EasyInject8Provider"
+- "V10EasyInject24StrictlyInjectedProvider"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "b0326ab93abb7e4950ac4e019f1aeeeb"
