@@ -1,6 +1,7 @@
 language: generic
 sudo: required
 osx_image: xcode8
+dist: trusty
 matrix:
   include:
     - os: osx
