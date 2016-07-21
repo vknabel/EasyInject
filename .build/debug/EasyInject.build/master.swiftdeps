@@ -1,6 +1,6 @@
 version: "Apple Swift version 3.0 (swiftlang-800.0.34.6 clang-800.0.33)"
 options: "477b72fcdc03e798c28c830ac4905e6f"
-build_time: [522409485, 293265000]
+build_time: [522411620, 739308000]
 inputs:
   "/Users/vknabel/Developer/vknabel/EasyInject/Sources/AnyInjector.swift": [520105100, 0]
   "/Users/vknabel/Developer/vknabel/EasyInject/Sources/AnyMutableInjector.swift": [521978702, 0]

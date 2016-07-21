@@ -8,15 +8,15 @@ provides-member:
 - ["C10EasyInject22LazilyInjectedProvider", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "=="
-- "Providable"
-- "InjectedProviderResolveState"
-- "ProvidableKey"
 - "InjectedProvider"
+- "Providable"
+- "LazilyInjectedProvider"
+- "=="
+- "Bool"
+- "InjectedProviderResolveState"
 - "Provider"
 - "Injector"
-- "LazilyInjectedProvider"
-- "Bool"
+- "ProvidableKey"
 depends-member:
 - ["Ps9AnyObject", "Injected"]
 - !private ["Ps9AnyObject", "InjectedProviderResolveState"]

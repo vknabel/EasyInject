@@ -7,11 +7,11 @@ provides-member:
 - ["V10EasyInject18AnyMutableInjector", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Providable"
-- "InjectorDerivingFromMutableInjector"
-- "Provider"
 - "MutableInjector"
 - "AnyMutableInjector"
+- "Providable"
+- "Provider"
+- "InjectorDerivingFromMutableInjector"
 depends-member:
 - ["V10EasyInject18AnyMutableInjector", "AnyMutableInjector"]
 - ["V10EasyInject18AnyMutableInjector", "I"]

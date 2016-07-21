@@ -7,15 +7,15 @@ provides-member:
 - ["V10EasyInject14StrictInjector", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "ProvidableKey"
-- "Providable"
-- "Dictionary"
-- "Any"
-- !private "StrictlyInjectedProvider"
-- !private "InjectionError"
-- "StrictInjector"
 - "Provider"
+- "Any"
+- "Dictionary"
+- "Providable"
 - "InjectorDerivingFromMutableInjector"
+- !private "InjectionError"
+- !private "StrictlyInjectedProvider"
+- "StrictInjector"
+- "ProvidableKey"
 depends-member:
 - !private ["Ps10Collection", "Index"]
 - !private ["Ps10Collection", "Iterator"]

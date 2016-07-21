@@ -24,20 +24,20 @@ provides-member:
 - ["O10EasyInject14InjectionError", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Hashable"
+- "ProvidableKey"
 - "=="
+- "Any"
+- "Injector"
+- "MutableInjector"
 - "InjectionError"
 - !private "IntegerLiteralType"
+- "InjectedProvider"
+- !private "FloatLiteralType"
+- "Hashable"
 - "Providable"
 - "Bool"
-- !private "FloatLiteralType"
-- "InjectedProvider"
-- "ErrorProtocol"
-- "MutableInjector"
-- "Any"
 - "Provider"
-- "ProvidableKey"
-- "Injector"
+- "ErrorProtocol"
 depends-member:
 - ["Ps13ErrorProtocol", "_code"]
 - ["Ps13ErrorProtocol", "_domain"]

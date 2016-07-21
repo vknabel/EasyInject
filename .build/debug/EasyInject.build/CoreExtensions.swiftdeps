@@ -18,16 +18,16 @@ provides-member:
 - ["P10EasyInject15MutableInjector", "provide"]
 provides-dynamic-lookup:
 depends-top-level:
-- "InjectorDerivingFromMutableInjector"
-- "Providable"
-- "ProvidableKey"
-- "InjectedProviderResolveState"
-- "InjectionError"
-- "Provider"
-- "Injector"
 - "MutableInjector"
-- "StringLiteralType"
+- "Provider"
 - "String"
+- "Injector"
+- "StringLiteralType"
+- "Providable"
+- "InjectionError"
+- "InjectedProviderResolveState"
+- "InjectorDerivingFromMutableInjector"
+- "ProvidableKey"
 depends-member:
 - !private ["Sb", "deinit"]
 - !private ["Vs9Character", "deinit"]

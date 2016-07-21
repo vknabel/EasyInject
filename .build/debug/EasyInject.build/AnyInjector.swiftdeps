@@ -8,9 +8,9 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "Providable"
-- "Injector"
-- "AnyInjector"
 - "Provider"
+- "AnyInjector"
+- "Injector"
 depends-member:
 - ["V10EasyInject11AnyInjector", "AnyInjector"]
 - ["V10EasyInject11AnyInjector", "I"]
