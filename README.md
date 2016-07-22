@@ -2,6 +2,8 @@
 EasyInject is designed to be an easy to use, lightweight dependency injection library.
 Instead of injecting instances for specific types, you provide instances for keys, without losing any type information.
 
+Check out the generated docs at [vknabel.github.io/EasyInject](https://vknabel.github.io/EasyInject/).
+
 ## Installation
 EasyInject is a Swift 3.0 only project and supports [Swift Package Manager](https://github.com/apple/swift-package-manager), [Carthage](https://github.com/Carthage/Carthage) and [CocoaPods](https://github.com/CocoaPods/CocoaPods).
 
