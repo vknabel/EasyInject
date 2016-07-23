@@ -4,6 +4,9 @@ public struct StrictInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjec
 
     public init() { }
 
+    public func copy() -> StrictInjector<K> {
+        return self
+    }
     public mutating func resolve<Value: Providable>
         (from provider: Provider<Key, Value>) throws -> Value {
         guard let untyped = strictProviders[provider.key]

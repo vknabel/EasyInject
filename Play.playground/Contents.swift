@@ -18,7 +18,7 @@
 	]
  )
  ```
- 
+
  ### Carthage
 
  ```ruby
@@ -35,14 +35,12 @@
  ```
 
  ## Introduction
- In order to inject your dependencies, you first need to prepare your key by implementing `ProvidableKey`.
+ In order to inject your dependencies, you first need to prepare your key by implementing `Hashable`.
  */
 
 import EasyInject
 
-extension String: ProvidableKey {
-    // As all `String`s are `Hashable`, there's nothing to do here
-}
+// As all `String`s are `Hashable`, there's nothing to do here
 
 /*:
  Now we need to define our keys, by setting up `Provider`s with `String`s and our type hints.
@@ -52,10 +50,11 @@ extension Provider {
         return Provider<String, String>(for: "baseUrl")
     }
     static var networkService: Provider<String, NetworkService> {
-        return Provider<String, NetworkService>(for: "NetworkService")
+        // produces a key of `networkService(...) -> Network`.
+        return .derive()
     }
     static var dataManager: Provider<String, DataManager> {
-        return Provider<String, DataManager>(for: "DataManager")
+        return .derive()
     }
 }
 
@@ -148,7 +147,7 @@ do {
  Start: DataManager
  Start: NetworkService
  Finish: NetworkService
- Error: keyNotProvided("NetworkService")
+ Error: keyNotProvided("networkService(...) -> NetworkService")
  ```
 
  This behavior may be helpful when debugging your `LazyInjector` in order to detect dependency cycles.
@@ -178,14 +177,38 @@ do {
 }
 
 /*:
- ## ToDos
- - finish documentation
- - improve this Playground and set up README.md
- - write UnitTests
- - setup Travis CI
- - add `Injector.rejecting` and `MutableInjector.reject` and implement `Injector.rejecting` in `InjectorDerivingFromMutableInjector`
- - implement `InjectionError.cyclicDependency` and throw it in `LazyInjector`
+ ### GlobalInjector
+ A `GobalInjector` wraps another `Injector` in order to make it act like a class.
+ */
+let globalInjector = GlobalInjector(injector: strictInjector)
+let second = globalInjector
+// `globalInjector` may be mutated as it is a class.
+second.provide("https://vknabel.github.io/EasyInject", for: .baseUrl)
+
+if let left = try? globalInjector.resolve(from: .baseUrl),
+    let right = try? globalInjector.resolve(from: .baseUrl),
+    left == right {
+    // both `right` and `left` contain `"https://vknabel.github.io/EasyInject"` for `.baseUrl` due to reference semantics
+}
+
+/*:
+ ### ComposedInjector
+ A `ComposedInjector` consists of two other `Injector`s.
+ The call `.resolve(from:)` will target the `.left` `Injector` and on failure, the `.right` one.
+ `.provide(for:,usingFactory:)` defaults to `.provideLeft(for:,usingFactory:)` which will provide the factory only to the `.left` one.
  
+ Usually the left `Injector` will be the local one, whereas the right one is a global one. This makes it possible to cascade `ComposedInjector`s from your root controller down to your leaf controllers.
+ */
+var composedInjector = ComposedInjector(left: StrictInjector(), right: globalInjector)
+composedInjector.provideLeft("https://vknabel.github.io/EasyInject/Structs/ComposedInjector.html", for: .baseUrl)
+do {
+    try composedInjector.resolveBoth(from: .baseUrl)
+    // returns `("https://vknabel.github.io/EasyInject/Structs/ComposedInjector.html", "https://vknabel.github.io/EasyInject")`
+} catch {
+    print("Error: \(error)")
+}
+
+/*:
  ## Author
 
  Valentin Knabel, develop@vknabel.com

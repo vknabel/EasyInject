@@ -2,7 +2,7 @@
 public protocol Providable { }
 
 /// `Providable`s will be associated to `ProvidableKey`s.
-public protocol ProvidableKey: Hashable { }
+public typealias ProvidableKey = Hashable
 
 /// Adds type information to a `ProvidableKey`.
 public struct Provider<K : ProvidableKey, V : Providable> {
@@ -87,7 +87,6 @@ public protocol MutableInjector: Injector {
 
      - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
      - Parameter factory: Creates a value out of a new `Injector`.
-     - Returns: A new `Injector` with contents of `self` and the newly provided value.
      */
     mutating func provide
         <Value: Providable>

@@ -1,16 +1,29 @@
+public extension Provider {
+    /// Automatically generates `Provider#key` from the caller's function and the detected type.
+    /// - Parameter function: The function where `.derive()` will be called from.
+    /// - Returns: A new `Provider` with a `String` as `ProvidableKey`,
+    /// containing type information and the caller's `function`.
+    public static func derive<V: Providable>(function: String = #function) -> Provider<String, V> {
+        return Provider<String, V>(for: "\(function)(...) -> \(V.self)")
+    }
+}
+
 /// Derives `Injector#providing` for structs by using `Injector.provide`.
-public protocol InjectorDerivingFromMutableInjector: MutableInjector { }
+public protocol InjectorDerivingFromMutableInjector: MutableInjector {
+    /// Creates a copy of the current instance.
+    func copy() -> Self
+}
 
 public extension InjectorDerivingFromMutableInjector {
     public func providing<Value: Providable>(
         for provider: Provider<Key, Value>,
         usingFactory factory: (inout Self) throws -> Value) -> Self {
-        var copy = self
+        var copy = self.copy()
         copy.provide(for: provider, usingFactory: { this in try factory(&this) })
         return copy
     }
     public func resolving<Value: Providable>(from provider: Provider<Key, Value>) throws -> Value {
-        var copy = self
+        var copy = self.copy()
         return try copy.resolve(from: provider)
     }
 }
@@ -34,14 +47,28 @@ public extension MutableInjector {
     /**
      Additionally provides a value for a given `Provider`.
 
-     - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
      - Parameter instance: The provided `Providable`. Depending on `Self`, evaluated lazily.
-     - Returns: A new `Injector` with contents of `self` and the newly provided value.
+     - Parameter provider: The `Provider`, an `InjectedProvider` will be constructed of.
      */
     public mutating func provide<Value: Providable>(
         _ instance: @autoclosure(escaping) () -> Value,
         for provider: Provider<Key, Value>) {
         provide(for: provider, usingFactory: { _ in return instance() })
+    }
+}
+
+public extension MutableInjector where Self: AnyObject {
+    /**
+     Additionally provides a value for a given `Provider`.
+
+     - Parameter instance: The provided `Providable`. Depending on `Self`, evaluated lazily.
+     - Parameter provider: The `Provider`, an `InjectedProvider` will be constructed of.
+     */
+    public func provide<Value: Providable>(
+        _ instance: @autoclosure(escaping) () -> Value,
+        for provider: Provider<Key, Value>) {
+        var this = self
+        this.provide(for: provider, usingFactory: { _ in return instance() })
     }
 }
 
