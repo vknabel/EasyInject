@@ -21,7 +21,7 @@ let package = Package(
 ### Carthage
 
 ```ruby
-github "vknabel/EasyInject" ~> 0.1
+github "vknabel/EasyInject" ~> 0.2
 ```
 
 ### CocoaPods
@@ -30,7 +30,7 @@ github "vknabel/EasyInject" ~> 0.1
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-pod 'EasyInject', '~> 0.1'
+pod 'EasyInject', '~> 0.2'
 ```
 
 ## Introduction
