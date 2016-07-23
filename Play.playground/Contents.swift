@@ -56,9 +56,6 @@ extension Provider {
     static var dataManager: Provider<String, DataManager> {
         return .derive()
     }
-    static var accessToken: Provider<String, String> {
-        return .derive()
-    }
 }
 
 /*:
@@ -186,13 +183,12 @@ do {
 let globalInjector = GlobalInjector(injector: strictInjector)
 let second = globalInjector
 // `globalInjector` may be mutated as it is a class.
-globalInjector.provide("my_access_token", for: .accessToken)
-second.provide("my_access_token2", for: .accessToken)
-do {
-    // This will print("Equals: true"), since both `globalInjector` and `second` contain `"my_access_token2"`
-    print("Equals: ", try (globalInjector.resolve(from: .accessToken) == globalInjector.resolve(from: .accessToken)))
-} catch {
-    print("Error: \(error)")
+second.provide("https://vknabel.github.io/EasyInject", for: .baseUrl)
+
+if let left = try? globalInjector.resolve(from: .baseUrl),
+    let right = try? globalInjector.resolve(from: .baseUrl),
+    left == right {
+    // both `right` and `left` contain `"https://vknabel.github.io/EasyInject"` for `.baseUrl` due to reference semantics
 }
 
 /*:

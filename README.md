@@ -175,6 +175,22 @@ do {
 }
 ```
 
+### GlobalInjector
+A `GobalInjector` wraps another `Injector` in order to make it act like a class.
+
+```swift
+let globalInjector = GlobalInjector(injector: strictInjector)
+let second = globalInjector
+// `globalInjector` may be mutated as it is a class.
+second.provide("https://vknabel.github.io/EasyInject", for: .baseUrl)
+
+if let left = try? globalInjector.resolve(from: .baseUrl),
+let right = try? globalInjector.resolve(from: .baseUrl),
+left == right {
+// both `right` and `left` contain `"https://vknabel.github.io/EasyInject"` for `.baseUrl` due to reference semantics
+}
+```
+
 ## Author
 
 Valentin Knabel, develop@vknabel.com
