@@ -5,6 +5,10 @@ public struct LazyInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjecto
 
     public init() { }
 
+    public func copy() -> LazyInjector {
+        return self
+    }
+
     public mutating func resolve<Value: Providable>(
         from provider: Provider<Key, Value>) throws -> Value {
         guard let untyped = lazyProviders[provider.key]

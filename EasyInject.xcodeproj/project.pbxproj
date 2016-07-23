@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA701A5B1D43574F00E2F6C4 /* GlobalInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA701A5A1D43574F00E2F6C4 /* GlobalInjector.swift */; };
 		__src_cc_ref_Sources/AnyInjector.swift /* AnyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/AnyInjector.swift /* AnyInjector.swift */; };
 		__src_cc_ref_Sources/AnyMutableInjector.swift /* AnyMutableInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/AnyMutableInjector.swift /* AnyMutableInjector.swift */; };
 		__src_cc_ref_Sources/Core.swift /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Core.swift /* Core.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA701A5A1D43574F00E2F6C4 /* GlobalInjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalInjector.swift; sourceTree = "<group>"; };
 		BAB8DA611D1D40D100293519 /* EasyInject.podspec */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text; path = EasyInject.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		__PBXFileRef_EasyInject.xcodeproj/Configs/Project.xcconfig /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Project.xcconfig; path = EasyInject.xcodeproj/Configs/Project.xcconfig; sourceTree = "<group>"; };
 		__PBXFileRef_EasyInject_Info.plist /* EasyInject_Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = EasyInject_Info.plist; path = EasyInject.xcodeproj/EasyInject_Info.plist; sourceTree = SOURCE_ROOT; };
@@ -91,6 +93,7 @@
 				__PBXFileRef_Sources/StrictInjector.swift /* StrictInjector.swift */,
 				__PBXFileRef_Sources/StrictlyInjectedProvider.swift /* StrictlyInjectedProvider.swift */,
 				__PBXFileRef_EasyInject_Info.plist /* EasyInject_Info.plist */,
+				BA701A5A1D43574F00E2F6C4 /* GlobalInjector.swift */,
 			);
 			name = EasyInject;
 			path = Sources;
@@ -175,6 +178,7 @@
 				__src_cc_ref_Sources/Core.swift /* Core.swift in Sources */,
 				__src_cc_ref_Sources/CoreExtensions.swift /* CoreExtensions.swift in Sources */,
 				__src_cc_ref_Sources/LazilyInjectedProvider.swift /* LazilyInjectedProvider.swift in Sources */,
+				BA701A5B1D43574F00E2F6C4 /* GlobalInjector.swift in Sources */,
 				__src_cc_ref_Sources/LazyInjector.swift /* LazyInjector.swift in Sources */,
 				__src_cc_ref_Sources/StrictInjector.swift /* StrictInjector.swift in Sources */,
 				__src_cc_ref_Sources/StrictlyInjectedProvider.swift /* StrictlyInjectedProvider.swift in Sources */,

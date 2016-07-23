@@ -56,6 +56,9 @@ extension Provider {
     static var dataManager: Provider<String, DataManager> {
         return .derive()
     }
+    static var accessToken: Provider<String, String> {
+        return .derive()
+    }
 }
 
 /*:
@@ -177,14 +180,22 @@ do {
 }
 
 /*:
- ## ToDos
- - finish documentation
- - improve this Playground and set up README.md
- - write UnitTests
- - setup Travis CI
- - add `Injector.rejecting` and `MutableInjector.reject` and implement `Injector.rejecting` in `InjectorDerivingFromMutableInjector`
- - implement `InjectionError.cyclicDependency` and throw it in `LazyInjector`
- 
+ ### GlobalInjector
+ A `GobalInjector` wraps another `Injector` in order to make it act like a class.
+ */
+let globalInjector = GlobalInjector(injector: strictInjector)
+let second = globalInjector
+// `globalInjector` may be mutated as it is a class.
+globalInjector.provide("my_access_token", for: .accessToken)
+second.provide("my_access_token2", for: .accessToken)
+do {
+    // This will print("Equals: true"), since both `globalInjector` and `second` contain `"my_access_token2"`
+    print("Equals: ", try (globalInjector.resolve(from: .accessToken) == globalInjector.resolve(from: .accessToken)))
+} catch {
+    print("Error: \(error)")
+}
+
+/*:
  ## Author
 
  Valentin Knabel, develop@vknabel.com

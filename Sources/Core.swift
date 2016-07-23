@@ -87,7 +87,6 @@ public protocol MutableInjector: Injector {
 
      - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
      - Parameter factory: Creates a value out of a new `Injector`.
-     - Returns: A new `Injector` with contents of `self` and the newly provided value.
      */
     mutating func provide
         <Value: Providable>
