@@ -192,6 +192,23 @@ if let left = try? globalInjector.resolve(from: .baseUrl),
 }
 
 /*:
+ ### ComposedInjector
+ A `ComposedInjector` consists of two other `Injector`s.
+ The call `.resolve(from:)` will target the `.left` `Injector` and on failure, the `.right` one.
+ `.provide(for:,usingFactory:)` defaults to `.provideLeft(for:,usingFactory:)` which will provide the factory only to the `.left` one.
+ 
+ Usually the left `Injector` will be the local one, whereas the right one is a global one. This makes it possible to cascade `ComposedInjector`s from your root controller down to your leaf controllers.
+ */
+var composedInjector = ComposedInjector(left: StrictInjector(), right: globalInjector)
+composedInjector.provideLeft("https://vknabel.github.io/EasyInject/Structs/ComposedInjector.html", for: .baseUrl)
+do {
+    try composedInjector.resolveBoth(from: .baseUrl)
+    // returns `("https://vknabel.github.io/EasyInject/Structs/ComposedInjector.html", "https://vknabel.github.io/EasyInject")`
+} catch {
+    print("Error: \(error)")
+}
+
+/*:
  ## Author
 
  Valentin Knabel, develop@vknabel.com

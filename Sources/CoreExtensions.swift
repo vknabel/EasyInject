@@ -10,6 +10,7 @@ public extension Provider {
 
 /// Derives `Injector#providing` for structs by using `Injector.provide`.
 public protocol InjectorDerivingFromMutableInjector: MutableInjector {
+    /// Creates a copy of the current instance.
     func copy() -> Self
 }
 

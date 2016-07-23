@@ -1,5 +1,4 @@
-/// Wraps a given `MutableInjector` in order to lose type details, but keeps it mutable.
-/// - ToDo: Replace generic `I : Injector` with a `ProvidableKey`
+/// Wraps a given `MutableInjector` in order to add reference semantics.
 public final class GlobalInjector<I: MutableInjector>: InjectorDerivingFromMutableInjector {
     public typealias Key = I.Key
 
