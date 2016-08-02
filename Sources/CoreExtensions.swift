@@ -36,11 +36,19 @@ public extension Injector {
      - Parameter instance: The provided `Providable`. Depending on `Self`, evaluated lazily.
      - Returns: A new `Injector` with contents of `self` and the newly provided value.
      */
+    #if swift(>=3.0)
     public func providing<Value: Providable>(
         _ instance: @autoclosure(escaping) () -> Value,
         for provider: Provider<Key, Value>) -> Self {
         return providing(for: provider, usingFactory: { _ in return instance() })
     }
+    #else
+    public func providing<Value: Providable>(
+        @autoclosure(escaping) instance: () -> Value,
+        for provider: Provider<Key, Value>) -> Self {
+        return providing(for: provider, usingFactory: { _ in return instance() })
+    }
+    #endif
 }
 
 public extension MutableInjector {
@@ -50,11 +58,19 @@ public extension MutableInjector {
      - Parameter instance: The provided `Providable`. Depending on `Self`, evaluated lazily.
      - Parameter provider: The `Provider`, an `InjectedProvider` will be constructed of.
      */
+    #if swift(>=3.0)
     public mutating func provide<Value: Providable>(
         _ instance: @autoclosure(escaping) () -> Value,
         for provider: Provider<Key, Value>) {
         provide(for: provider, usingFactory: { _ in return instance() })
     }
+    #else
+    public mutating func provide<Value: Providable>(
+        @autoclosure(escaping) instance: () -> Value,
+        for provider: Provider<Key, Value>) {
+        provide(for: provider, usingFactory: { _ in return instance() })
+    }
+    #endif
 }
 
 public extension MutableInjector where Self: AnyObject {
@@ -64,18 +80,28 @@ public extension MutableInjector where Self: AnyObject {
      - Parameter instance: The provided `Providable`. Depending on `Self`, evaluated lazily.
      - Parameter provider: The `Provider`, an `InjectedProvider` will be constructed of.
      */
+    #if swift(>=3.0)
     public func provide<Value: Providable>(
         _ instance: @autoclosure(escaping) () -> Value,
         for provider: Provider<Key, Value>) {
         var this = self
         this.provide(for: provider, usingFactory: { _ in return instance() })
     }
+    #else
+    public func provide<Value: Providable>(
+        @autoclosure(escaping) instance: () -> Value,
+        for provider: Provider<Key, Value>) {
+        var this = self
+        this.provide(for: provider, usingFactory: { _ in return instance() })
+    }
+    #endif
 }
 
 public enum InjectedProviderResolveState<K: ProvidableKey, V: Providable> {
     case failure(InjectionError<K>)
     case success(V)
 
+    #if swift(>=3.0)
     public init<I: Injector where I.Key == K>(
         withInjector injector: inout I,
         from factory: (inout I) throws -> V) {
@@ -87,13 +113,35 @@ public enum InjectedProviderResolveState<K: ProvidableKey, V: Providable> {
             self = .failure(.customError(error))
         }
     }
+    #else
+    public init<I: Injector where I.Key == K>(
+        inout withInjector injector: I,
+                     from factory: (inout I) throws -> V) {
+        do {
+            self = .success(try factory(&injector))
+        } catch let error as InjectionError<K> {
+            self = .failure(error)
+        } catch {
+            self = .failure(.customError(error))
+        }
+    }
+    #endif
 
+    #if swift(>=3.0)
     public static func from<I: Injector where I.Key == K>(
         factory: (inout I) throws -> V,
         for injector: inout I) -> InjectedProviderResolveState<K, V> {
         return self.init(withInjector: &injector, from: factory)
     }
+    #else
+    public static func from<I: Injector where I.Key == K>(
+        factory: (inout I) throws -> V,
+        inout for injector: I) -> InjectedProviderResolveState<K, V> {
+        return self.init(withInjector: &injector, from: factory)
+    }
+    #endif
 
+    #if swift(>=3.0)
     public func resolve<I: Injector where I.Key == K>(withInjector injector: inout I) throws -> V {
         switch self {
         case let .failure(error):
@@ -102,4 +150,14 @@ public enum InjectedProviderResolveState<K: ProvidableKey, V: Providable> {
             return value
         }
     }
+    #else
+    public func resolve<I: Injector where I.Key == K>(inout withInjector injector: I) throws -> V {
+        switch self {
+        case let .failure(error):
+            throw error
+        case let .success(value):
+            return value
+        }
+    }
+    #endif
 }

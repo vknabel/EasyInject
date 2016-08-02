@@ -39,7 +39,11 @@ public protocol InjectedProvider {
     /// Resolves the value that has been associated with `self.key`.
     /// - Throws: `InjectionError<Key, Value>`
     /// - Returns: The resolved value.
+    #if swift(>=3.0)
     func resolve(withInjector injector: inout Injected) throws -> Value
+    #else
+    func resolve(inout withInjector injector: Injected) throws -> Value
+    #endif
 
     /**
      Initializes an `InjectedProvider`
@@ -47,10 +51,17 @@ public protocol InjectedProvider {
      - Parameter provider: `Provider` that has been provided while injection.
      - Parameter factory: A closure, that return the `value` to be injected.
      */
+    #if swift(>=3.0)
     init(
         provider: Provider<Injected.Key, Value>,
         withInjector injector: inout Injected,
         usingFactory factory: (inout Injected) throws -> Value)
+    #else
+    init(
+        provider: Provider<Injected.Key, Value>,
+        inout withInjector injector: Injected,
+        usingFactory factory: (inout Injected) throws -> Value)
+    #endif
 }
 
 /// Stores `Providable`s associated for corredponding `ProvidableKey`s
@@ -103,9 +114,19 @@ public protocol MutableInjector: Injector {
 
 //: Errors
 
+#if swift(>=3.0)
+#else
+typealias ErrorProtocol = ErrorType
+#endif
+
 /// Errors, that may occur while resolving from a `Provider`.
 /// - ToDo: Implement `case cyclicDependency`
 public enum InjectionError<Key: ProvidableKey>: ErrorProtocol {
+    #if swift(>=3.0)
+    #else
+    public typealias ErrorProtocol = ErrorType
+    #endif
+
     /// There has been no value provided with the `ProvidableKey`.
     case keyNotProvided(Key)
     /// The given `Provider`'s `Value`-type did not match with the stored one.

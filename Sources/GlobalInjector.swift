@@ -24,10 +24,18 @@ public final class GlobalInjector<I: MutableInjector>: InjectorDerivingFromMutab
     public func provide<Value: Providable>(
         for provider: Provider<Key, Value>,
         usingFactory factory: (inout GlobalInjector) throws -> Value) {
+        #if swift(>=3.0)
         return self.injector.provide(for: provider) { (injector: inout I) -> Value in
             var this = self
             defer { self.injector = this.injector }
             return try factory(&this)
         }
+        #else
+        return self.injector.provide(for: provider) { (inout injector: I) -> Value in
+            var this = self
+            defer { self.injector = this.injector }
+            return try factory(&this)
+        }
+        #endif
     }
 }
