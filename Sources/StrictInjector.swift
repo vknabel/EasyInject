@@ -4,24 +4,22 @@ public struct StrictInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjec
 
     public init() { }
 
-    public func copy() -> StrictInjector<K> {
+    public func copy() -> StrictInjector {
         return self
     }
-    public mutating func resolve<Value: Providable>
-        (from provider: Provider<Key, Value>) throws -> Value {
-        guard let untyped = strictProviders[provider.key]
-            else { throw InjectionError<Key>.keyNotProvided(provider.key) }
-        guard let typed = untyped as? StrictlyInjectedProvider<StrictInjector<K>, Value>
+    public mutating func resolve(key key: Key) throws -> Providable {
+        guard let untyped = strictProviders[key]
+            else { throw InjectionError<Key>.keyNotProvided(key) }
+        guard let typed = untyped as? StrictlyInjectedProvider<StrictInjector>
             else { throw InjectionError<Key>
-                .nonMatchingType(provided: untyped, expected: Value.self) }
+                .invalidInjection(key: key, injected: untyped, expected: StrictlyInjectedProvider<StrictInjector>.self) }
         return try typed.resolve(withInjector: &self)
     }
 
-    public mutating func provide<Value: Providable>(for provider: Provider<Key, Value>,
-                                 usingFactory factory: (inout StrictInjector<K>) throws -> Value) {
-        strictProviders[provider.key] = StrictlyInjectedProvider(provider: provider,
-                                                                 withInjector: &self,
-                                                                 usingFactory: factory)
+    public mutating func provide(key key: K, usingFactory factory: (inout StrictInjector) throws -> Providable) {
+        strictProviders[key] = StrictlyInjectedProvider(key: key,
+                                                        withInjector: &self,
+                                                        usingFactory: factory)
         /// ToDo: evaluate that there is no problem here (think of dependencies)
     }
 }

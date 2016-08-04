@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EasyInject'
-  s.version          = '0.2.1'
+  s.version          = '0.3.0'
   s.summary          = 'EasyInject is a micro-library for dependency injection.'
   s.description      = <<-DESC
 EasyInject is a micro-library for dependency injection.

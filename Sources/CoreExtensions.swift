@@ -1,3 +1,67 @@
+
+public extension Injector {
+    /**
+     Resolves `InjectedProvider.value` for a given `Provider`.
+
+     - Parameter provider: The `Provider` that has been used previously.
+     - Returns: The previously added `Providable`.
+     - Throws: `InjectionError`
+     */
+    func resolving<Value: Providable>(from provider: Provider<Key, Value>) throws -> Value {
+        let result = try resolving(key: provider.key)
+        if let result = result as? Value {
+            return result
+        } else {
+            throw InjectionError<Key>.nonMatchingType(provided: result, expected: Value.self)
+        }
+    }
+
+    /**
+     Creates an instance providing a value as a factory for a given `Provider`.
+
+     - ToDo: Improve markup for `factory`'s parameter
+
+     - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
+     - Parameter factory: Creates a value out of a new `Injector`.
+     - Returns: A new `Injector` with contents of `self` and the newly provided value.
+     */
+    func providing<Value: Providable>(
+        for provider: Provider<Key, Value>,
+        usingFactory factory: (inout Self) throws -> Value) -> Self {
+        return providing(key: provider.key, usingFactory: factory)
+    }
+}
+
+public extension MutableInjector {
+
+    /**
+     Additionally provides a value given as a factory for a given `Provider`.
+
+     - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
+     - Parameter factory: Creates a value out of a new `Injector`.
+     */
+    mutating func provide
+        <Value: Providable>
+        (for provider: Provider<Key, Value>, usingFactory factory: (inout Self) throws -> Value) {
+        provide(key: provider.key, usingFactory: factory)
+    }
+    /**
+     Resolves `InjectedProvider.value` for a given `Provider`.
+
+     - Parameter provider: The `Provider` that has been used previously.
+     - Returns: The previously added `Providable`.
+     - Throws: `InjectionError`
+     */
+    mutating func resolve<Value: Providable>(from provider: Provider<Key, Value>) throws -> Value {
+        let result = try resolve(key: provider.key)
+        if let result = result as? Value {
+            return result
+        } else {
+            throw InjectionError<Key>.nonMatchingType(provided: result, expected: Value.self)
+        }
+    }
+}
+
 public extension Provider {
     /// Automatically generates `Provider#key` from the caller's function and the detected type.
     /// - Parameter function: The function where `.derive()` will be called from.
@@ -15,16 +79,14 @@ public protocol InjectorDerivingFromMutableInjector: MutableInjector {
 }
 
 public extension InjectorDerivingFromMutableInjector {
-    public func providing<Value: Providable>(
-        for provider: Provider<Key, Value>,
-        usingFactory factory: (inout Self) throws -> Value) -> Self {
+    public func providing(key key: Self.Key, usingFactory factory: (inout Self) throws -> Providable) -> Self {
         var copy = self.copy()
-        copy.provide(for: provider, usingFactory: { this in try factory(&this) })
+        copy.provide(key: key, usingFactory: { this in try factory(&this) })
         return copy
     }
-    public func resolving<Value: Providable>(from provider: Provider<Key, Value>) throws -> Value {
+    public func resolving(key key: Self.Key) throws -> Providable {
         var copy = self.copy()
-        return try copy.resolve(from: provider)
+        return try copy.resolve(key: key)
     }
 }
 
@@ -97,14 +159,14 @@ public extension MutableInjector where Self: AnyObject {
     #endif
 }
 
-public enum InjectedProviderResolveState<K: ProvidableKey, V: Providable> {
+public enum InjectedProviderResolveState<K: ProvidableKey> {
     case failure(InjectionError<K>)
-    case success(V)
+    case success(Providable)
 
     #if swift(>=3.0)
     public init<I: Injector where I.Key == K>(
         withInjector injector: inout I,
-        from factory: (inout I) throws -> V) {
+        from factory: (inout I) throws -> Providable) {
         do {
             self = .success(try factory(&injector))
         } catch let error as InjectionError<K> {
@@ -116,7 +178,7 @@ public enum InjectedProviderResolveState<K: ProvidableKey, V: Providable> {
     #else
     public init<I: Injector where I.Key == K>(
         inout withInjector injector: I,
-                     from factory: (inout I) throws -> V) {
+        from factory: (inout I) throws -> Providable) {
         do {
             self = .success(try factory(&injector))
         } catch let error as InjectionError<K> {
@@ -129,20 +191,20 @@ public enum InjectedProviderResolveState<K: ProvidableKey, V: Providable> {
 
     #if swift(>=3.0)
     public static func from<I: Injector where I.Key == K>(
-        factory: (inout I) throws -> V,
-        for injector: inout I) -> InjectedProviderResolveState<K, V> {
+        factory: (inout I) throws -> Providable,
+        for injector: inout I) -> InjectedProviderResolveState {
         return self.init(withInjector: &injector, from: factory)
     }
     #else
     public static func from<I: Injector where I.Key == K>(
-        factory: (inout I) throws -> V,
-        inout for injector: I) -> InjectedProviderResolveState<K, V> {
+        factory: (inout I) throws -> Providable,
+        inout for injector: I) -> InjectedProviderResolveState {
         return self.init(withInjector: &injector, from: factory)
     }
     #endif
 
     #if swift(>=3.0)
-    public func resolve<I: Injector where I.Key == K>(withInjector injector: inout I) throws -> V {
+    public func resolve<I: Injector where I.Key == K>(withInjector injector: inout I) throws -> Providable {
         switch self {
         case let .failure(error):
             throw error
@@ -151,7 +213,7 @@ public enum InjectedProviderResolveState<K: ProvidableKey, V: Providable> {
         }
     }
     #else
-    public func resolve<I: Injector where I.Key == K>(inout withInjector injector: I) throws -> V {
+    public func resolve<I: Injector where I.Key == K>(inout withInjector injector: I) throws -> Providable {
         switch self {
         case let .failure(error):
             throw error

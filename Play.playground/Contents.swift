@@ -180,11 +180,11 @@ do {
  ### GlobalInjector
  A `GobalInjector` wraps another `Injector` in order to make it act like a class.
  */
-let globalInjector = GlobalInjector(injector: strictInjector)
+var globalInjector = GlobalInjector<String>(injector: strictInjector)
 let second = globalInjector
 // `globalInjector` may be mutated as it is a class.
 second.provide("https://vknabel.github.io/EasyInject", for: .baseUrl)
-
+try? globalInjector.resolve(from: .baseUrl) as String
 if let left = try? globalInjector.resolve(from: .baseUrl),
     let right = try? globalInjector.resolve(from: .baseUrl),
     left == right {
