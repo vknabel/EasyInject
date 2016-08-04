@@ -2,7 +2,7 @@ author: Valentin Knabel
 author_url: https://twitter.com/vknabel
 github_url: https://github.com/vknabel/EasyInject
 module: EasyInject
-module_version: 3.0
+module_version: 0.3.0
 root_url: https://vknabel.github.io/EasyInject/
 readme: README.md
 output: docs/
