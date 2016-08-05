@@ -1,6 +1,6 @@
 # EasyInject
-EasyInject is designed to be an easy to use, lightweight dependency injection library.
-Instead of injecting instances for specific types, you provide instances for keys, without losing any type information.
+EasyInject is designed to be an easy to use, lightweight composition and dependency injection library.
+Instead of injecting instances for specific types, you provide instances for keys, without losing any type information. This enables its `Injector`s to be used as a composable, dynamic and typesafe data structure. It may be comparable with a Dictionary that may contain several types, without losing type safety.
 
 Check out the generated docs at [vknabel.github.io/EasyInject](https://vknabel.github.io/EasyInject/).
 
