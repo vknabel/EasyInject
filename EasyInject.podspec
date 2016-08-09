@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
 EasyInject is a micro-library for dependency injection.
 It is intended to be lightweight and platform independent.
                        DESC
+  s.social_media_url = "https://twitter.com/vknabel"
   s.homepage         = 'https://github.com/vknabel/EasyInject'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Valentin Knabel' => 'develop@vknabel.com' }

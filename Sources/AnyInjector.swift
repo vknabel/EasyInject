@@ -1,5 +1,5 @@
 /// Wraps a given `Injector` in order to lose type details, but keeps it mutable.
-/// - ToDo: Replace generic `I : Injector` with a `ProvidableKey`
+/// - Todo: Replace generic `I : Injector` with a `ProvidableKey`
 public struct AnyInjector<K : Hashable>: InjectorDerivingFromMutableInjector {
     public typealias Key = K
 
@@ -8,6 +8,7 @@ public struct AnyInjector<K : Hashable>: InjectorDerivingFromMutableInjector {
     private let lambdaResolve: (inout AnyInjector, Key) throws -> Providable
     private let lambdaProvide:
         (inout AnyInjector, K, (inout AnyInjector) throws -> Providable) -> Void
+    private let lambdaKeys: (AnyInjector) -> [K]
     /**
      Initializes `AnyInjector` with a given `MutableInjector`.
 
@@ -39,6 +40,10 @@ public struct AnyInjector<K : Hashable>: InjectorDerivingFromMutableInjector {
                 return try factory(&any)
             })
         }
+
+        self.lambdaKeys = { this in
+            return (this.injector as! I).providedKeys
+        }
     }
 
     /**
@@ -67,29 +72,38 @@ public struct AnyInjector<K : Hashable>: InjectorDerivingFromMutableInjector {
                 return try factory(&any)
             })
         }
-    }
 
-    public func copy() -> AnyInjector {
-        return self
+        self.lambdaKeys = { this in
+            return (this.injector as! I).providedKeys
+        }
     }
-
+    
     #if swift(>=3.0)
+    /// See `MutableInjector.resolve(key:)`.
     public mutating func resolve(key: K) throws -> Providable {
         return try self.lambdaResolve(&self, key)
     }
+    /// See `MutableInjector.provide(key:usingFactory:)`.
     public mutating func provide(
         key: K,
         usingFactory factory: (inout AnyInjector) throws -> Providable) {
         self.lambdaProvide(&self, key, factory)
     }
     #else
+    /// See `MutableInjector.resolve(key:)`.
     public mutating func resolve(key key: K) throws -> Providable {
-    return try self.lambdaResolve(&self, key)
+        return try self.lambdaResolve(&self, key)
     }
+    /// See `MutableInjector.provide(key:usingFactory:)`.
     public mutating func provide(
-    key key: K,
-    usingFactory factory: (inout AnyInjector) throws -> Providable) {
-    self.lambdaProvide(&self, key, factory)
+        key key: K,
+        usingFactory factory: (inout AnyInjector) throws -> Providable) {
+        self.lambdaProvide(&self, key, factory)
     }
     #endif
+
+    /// See `Injector.providedKeys`.
+    public var providedKeys: [K] {
+        return lambdaKeys(self)
+    }
 }

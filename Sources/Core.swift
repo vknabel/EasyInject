@@ -24,6 +24,8 @@ public struct Provider<K : ProvidableKey, V : Providable> {
     }
 }
 
+/// Implements `Equatable` for all `Provider`s.
+/// :nodoc:
 public func ==<K: Hashable, V: Providable>(lhs: Provider<K, V>, rhs: Provider<K, V>) -> Bool {
     return lhs.key == rhs.key
 }
@@ -34,26 +36,35 @@ public protocol InjectedProvider {
     /// Type of `Injector`s that shall be used when resolving.
     associatedtype Injected: Injector
 
+    #if swift(>=3.0)
     /// Resolves the value that has been associated with `self.key`.
     /// - Throws: `InjectionError<Key, Value>`
     /// - Returns: The resolved value.
-    #if swift(>=3.0)
     func resolve(withInjector injector: inout Injected) throws -> Providable
     #else
+    /// Resolves the value that has been associated with `self.key`.
+    /// - Throws: `InjectionError<Key, Value>`
+    /// - Returns: The resolved value.
     func resolve(inout withInjector injector: Injected) throws -> Providable
     #endif
 
+    #if swift(>=3.0)
     /**
      Initializes an `InjectedProvider`
 
      - Parameter provider: `Provider` that has been provided while injection.
      - Parameter factory: A closure, that return the `value` to be injected.
      */
-    #if swift(>=3.0)
     init(key: Injected.Key,
         withInjector injector: inout Injected,
         usingFactory factory: (inout Injected) throws -> Providable)
     #else
+    /**
+     Initializes an `InjectedProvider`
+
+     - Parameter provider: `Provider` that has been provided while injection.
+     - Parameter factory: A closure, that return the `value` to be injected.
+     */
     init(key: Injected.Key,
         inout withInjector injector: Injected,
         usingFactory factory: (inout Injected) throws -> Providable)
@@ -66,6 +77,7 @@ public protocol Injector {
     /// The required `ProvidableKey` for injection.
     associatedtype Key: ProvidableKey
 
+    #if swift(>=3.0)
     /**
      Resolves `InjectedProvider.value` for a given `Key`.
 
@@ -73,11 +85,19 @@ public protocol Injector {
      - Returns: The previously added `Providable`.
      - Throws: `InjectionError`
      */
-    #if swift(>=3.0)
     func resolving(key: Key) throws -> Providable
     #else
+    /**
+     Resolves `InjectedProvider.value` for a given `Key`.
+
+     - Parameter key: The `Key` that has been used previously.
+     - Returns: The previously added `Providable`.
+     - Throws: `InjectionError`
+     */
     func resolving(key key: Key) throws -> Providable
     #endif
+
+    #if swift(>=3.0)
     /**
      Creates an instance providing a value as a factory for a given `Key`.
 
@@ -87,26 +107,45 @@ public protocol Injector {
      - Parameter factory: Creates a value out of a new `Injector`.
      - Returns: A new `Injector` with contents of `self` and the newly provided value.
      */
-    #if swift(>=3.0)
     func providing(key: Key, usingFactory factory: (inout Self) throws -> Providable) -> Self
     #else
+    /**
+     Creates an instance providing a value as a factory for a given `Key`.
+
+     - ToDo: Improve markup for `factory`'s parameter
+
+     - Parameter key: The `Key`, an `InjectedProvider` is constructed of.
+     - Parameter factory: Creates a value out of a new `Injector`.
+     - Returns: A new `Injector` with contents of `self` and the newly provided value.
+     */
     func providing(key key: Key, usingFactory factory: (inout Self) throws -> Providable) -> Self
     #endif
+
+    /// Returns all Keys, that has been injected, regardless wether resolving fails.
+    var providedKeys: [Key] { get }
 }
 
 /// An `Injector` that additionally is mutable.
 public protocol MutableInjector: Injector {
+    #if swift(>=3.0)
     /**
      Additionally provides a value given as a factory for a given `Key`.
 
      - Parameter key: The `Key`, an `InjectedProvider` is constructed of.
      - Parameter factory: Creates a value out of a new `Injector`.
      */
-    #if swift(>=3.0)
     mutating func provide(key: Key, usingFactory factory: (inout Self) throws -> Providable)
     #else
+    /**
+     Additionally provides a value given as a factory for a given `Key`.
+
+     - Parameter key: The `Key`, an `InjectedProvider` is constructed of.
+     - Parameter factory: Creates a value out of a new `Injector`.
+     */
     mutating func provide(key key: Key, usingFactory factory: (inout Self) throws -> Providable)
     #endif
+
+    #if swift(>=3.0)
     /**
      Resolves `InjectedProvider.value` for a given `Key`.
 
@@ -114,9 +153,15 @@ public protocol MutableInjector: Injector {
      - Returns: The previously added `Providable`.
      - Throws: `InjectionError`
      */
-    #if swift(>=3.0)
     mutating func resolve(key: Key) throws -> Providable
     #else
+    /**
+     Resolves `InjectedProvider.value` for a given `Key`.
+
+     - Parameter key: The `Key` that has been used previously.
+     - Returns: The previously added `Providable`.
+     - Throws: `InjectionError`
+     */
     mutating func resolve(key key: Key) throws -> Providable
     #endif
 }
