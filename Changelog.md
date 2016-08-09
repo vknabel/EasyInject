@@ -1,4 +1,20 @@
-#0.3.0
+# 0.4.0
+*Released: 09/08/2016*
+
+**Breaking Changes:**
+
+- Added `Injector.providedKeys` - @vknabel
+
+**API Additions:**
+
+- Added default implementation for value type for `InjectorDerivingFromMutableInjector.copy()` - @vknabel
+
+**Other Changes:**
+
+- Documented 100% - @vknabel
+- Renamed `Changelog.md` to `CHANGELOG.md` - @vknabel
+
+# 0.3.0
 *Released: 04/08/2016*
 
 **Breaking API Changes:**
