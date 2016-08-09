@@ -1,6 +1,8 @@
 # EasyInject
-EasyInject is designed to be an easy to use, lightweight dependency injection library.
-Instead of injecting instances for specific types, you provide instances for keys, without losing any type information.
+EasyInject is designed to be an easy to use, lightweight composition and dependency injection library.
+Instead of injecting instances for specific types, you provide instances for keys, without losing any type information. This enables its `Injector`s to be used as a composable, dynamic and typesafe data structure. It may be comparable with a Dictionary that may contain several types, without losing type safety.
+
+Check out the generated docs at [vknabel.github.io/EasyInject](https://vknabel.github.io/EasyInject/).
 
 ## Installation
 EasyInject is a Swift only project and supports [Swift Package Manager](https://github.com/apple/swift-package-manager), [Carthage](https://github.com/Carthage/Carthage) and [CocoaPods](https://github.com/CocoaPods/CocoaPods).
@@ -13,7 +15,7 @@ import PackageDescription
 let package = Package(
     name: "YourPackage",
     dependencies: [
-        .Package(url: "https://github.com/vknabel/EasyInject.git", majorVersion: 0, minor: 1)
+        .Package(url: "https://github.com/vknabel/EasyInject.git", majorVersion: 0, minor: 3)
     ]
 )
 ```
@@ -21,7 +23,7 @@ let package = Package(
 ### Carthage
 
 ```ruby
-github "vknabel/EasyInject" ~> 0.2
+github "vknabel/EasyInject" ~> 0.3
 ```
 
 ### CocoaPods
@@ -30,7 +32,7 @@ github "vknabel/EasyInject" ~> 0.2
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-pod 'EasyInject', '~> 0.2'
+pod 'EasyInject', '~> 0.3'
 ```
 
 ## Introduction
