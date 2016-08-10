@@ -1,38 +1,7 @@
 /*:
  # EasyInject
- EasyInject is designed to be an easy to use, lightweight dependency injection library.
- Instead of injecting instances for specific types, you provide instances for keys, without losing any type information.
-
- ## Installation
- EasyInject supports [Swift Package Manager](https://github.com/apple/swift-package-manager), [Carthage](https://github.com/Carthage/Carthage) and [CocoaPods](https://github.com/CocoaPods/CocoaPods).
-
- ### Swift Package Manager
-
- ```swift
- import PackageDescription
-
- let package = Package(
-	name: "YourPackage",
-	dependencies: [
- .Package(url: "https://github.com/vknabel/EasyInject.git", majorVersion: 0, minor: 4)
-	]
- )
- ```
-
- ### Carthage
-
- ```ruby
- github "vknabel/EasyInject" ~> 0.4
- ```
- 
- ### CocoaPods
-
- ```ruby
- source 'https://github.com/CocoaPods/Specs.git'
- use_frameworks!
-
- pod 'EasyInject', '~> 0.4'
- ```
+ EasyInject is designed to be an easy to use, lightweight composition and dependency injection library.
+ Instead of injecting instances for specific types, you provide instances for keys, without losing any type information. This enables its `Injector`s to be used as a composable, dynamic and typesafe data structure. It may be comparable with a Dictionary that may contain several types, without losing type safety.
 
  ## Introduction
  In order to inject your dependencies, you first need to prepare your key by implementing `Hashable`.
