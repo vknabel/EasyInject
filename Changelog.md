@@ -1,3 +1,16 @@
+# 0.5.0
+*Released: 10/08/2016*
+
+**Breaking Changes:**
+
+- Added `Injector.revoking(key:)` - @vknabel
+- Added `MutableInjector.revoke(key:)` - @vknabel
+
+**API Additions:**
+
+- `Injector.revoking(key:)` will be implemented by `InjectorDerivingFromMutableInjector` - @vknabel
+- Added `revoke{Left|Right|Both}(key:)` and `revoking{Left|Right|Both}(key:)` to `ComposedInjector` - @vknabel
+
 # 0.4.0
 *Released: 09/08/2016*
 

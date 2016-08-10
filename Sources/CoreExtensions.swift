@@ -35,6 +35,14 @@ public extension Injector {
     func copy() -> Self {
         return self
     }
+
+    /// Determines wether a specific key has been provided.
+    ///
+    /// - Parameter key: The key that shall be tested for.
+    /// - Returns: true if provided. Will also return true if the key cannot be resolved properly.
+    func contains(_ key: Key) -> Bool {
+        return providedKeys.contains(key)
+    }
 }
 
 public extension MutableInjector {
@@ -97,6 +105,14 @@ public extension InjectorDerivingFromMutableInjector {
     public func resolving(key key: Self.Key) throws -> Providable {
         var copy = self.copy()
         return try copy.resolve(key: key)
+    }
+
+    /// Implements `Injector.revoking(key:)`
+    /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.revoke(key:)`.
+    public func revoking(key key: Self.Key) -> Self {
+        var copy = self.copy()
+        copy.revoke(key: key)
+        return copy
     }
 }
 

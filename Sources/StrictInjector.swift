@@ -24,6 +24,18 @@ public struct StrictInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjec
         /// ToDo: evaluate that there is no problem here (think of dependencies)
     }
 
+    #if swift(>=3.0)
+    /// See `MutableInjector.revoke(key:)`.
+    public mutating func revoke(key: K) {
+        strictProviders.removeValue(forKey: key)
+    }
+    #else
+    /// See `MutableInjector.revoke(key:)`.
+    public mutating func revoke(key key: K) {
+        strictProviders.removeValueForKey(key)
+    }
+    #endif
+
     /// See `Injector.providedKeys`.
     public var providedKeys: [K] {
         return Array(strictProviders.keys)

@@ -43,6 +43,18 @@ public final class GlobalInjector<K: ProvidableKey>: InjectorDerivingFromMutable
         #endif
     }
 
+    #if swift(>=3.0)
+    /// See `MutableInjector.revoke(key:)`.
+    public func revoke(key: K) {
+        injector.revoke(key: key)
+    }
+    #else
+    /// See `MutableInjector.revoke(key:)`.
+    public func revoke(key key: K) {
+        injector.revoke(key: key)
+    }
+    #endif
+
     /// Implements `Injector.providedKeys` by passing the internal provided keys.
     public var providedKeys: [K] {
         return injector.providedKeys
