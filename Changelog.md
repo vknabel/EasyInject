@@ -11,6 +11,10 @@
 - `Injector.revoking(key:)` will be implemented by `InjectorDerivingFromMutableInjector` - @vknabel
 - Added `revoke{Left|Right|Both}(key:)` and `revoking{Left|Right|Both}(key:)` to `ComposedInjector` - @vknabel
 
+**Other Changes:**
+
+- Updated descriptions in `README.md`, `EasyInject.podspec` and `Play.playground` - @vknabel
+
 # 0.4.0
 *Released: 09/08/2016*
 
