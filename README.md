@@ -1,7 +1,7 @@
-[![CocoaPods](https://img.shields.io/cocoapods/v/EasyInject.svg?maxAge=2592000?style=flat-square)]()
-[![CocoaPods](https://img.shields.io/cocoapods/p/EasyInject.svg?maxAge=2592000?style=flat-square)]()
+[![CocoaPods](https://img.shields.io/cocoapods/v/EasyInject.svg?maxAge=2592000&style=flat-square)]()
+[![CocoaPods](https://img.shields.io/cocoapods/p/EasyInject.svg?maxAge=2592000&style=flat-square)]()
 [![Install](https://img.shields.io/badge/install-SwiftPM%20%7C%20Carthage%20%7C%20Cocoapods-lightgrey.svg?style=flat-square)]()
-[![License](https://img.shields.io/cocoapods/l/EasyInject.svg?maxAge=2592000?style=flat-square)]()
+[![License](https://img.shields.io/cocoapods/l/EasyInject.svg?maxAge=2592000&style=flat-square)]()
 
 # EasyInject
 EasyInject is designed to be an easy to use, lightweight composition and dependency injection library.
