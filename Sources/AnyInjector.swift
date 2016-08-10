@@ -8,6 +8,7 @@ public struct AnyInjector<K : Hashable>: InjectorDerivingFromMutableInjector {
     private let lambdaResolve: (inout AnyInjector, Key) throws -> Providable
     private let lambdaProvide:
         (inout AnyInjector, K, (inout AnyInjector) throws -> Providable) -> Void
+    private let lambdaRevoke: (inout AnyInjector, Key) -> Void
     private let lambdaKeys: (AnyInjector) -> [K]
     /**
      Initializes `AnyInjector` with a given `MutableInjector`.
@@ -41,6 +42,22 @@ public struct AnyInjector<K : Hashable>: InjectorDerivingFromMutableInjector {
             })
         }
 
+        #if swift(>=3.0)
+        self.lambdaRevoke = { (this: inout AnyInjector, key: Key) in
+            // swiftlint:disable:next force_cast
+            var injector = this.injector as! I
+            defer { this.injector = injector }
+            injector.revoke(key: key)
+        }
+        #else
+        self.lambdaRevoke = { (inout this: AnyInjector, key: Key) in
+            // swiftlint:disable:next force_cast
+            var injector = this.injector as! I
+            defer { this.injector = injector }
+            injector.revoke(key: key)
+        }
+        #endif
+
         self.lambdaKeys = { this in
             return (this.injector as! I).providedKeys
         }
@@ -72,6 +89,20 @@ public struct AnyInjector<K : Hashable>: InjectorDerivingFromMutableInjector {
                 return try factory(&any)
             })
         }
+
+        #if swift(>=3.0)
+        self.lambdaRevoke = { (this: inout AnyInjector, key: Key) in
+            // swiftlint:disable:next force_cast
+            let injector = this.injector as! I
+            this.injector = injector.revoking(key: key)
+        }
+        #else
+        self.lambdaRevoke = { (inout this: AnyInjector, key: Key) in
+            // swiftlint:disable:next force_cast
+            let injector = this.injector as! I
+            this.injector = injector.revoking(key: key)
+        }
+        #endif
 
         self.lambdaKeys = { this in
             return (this.injector as! I).providedKeys
@@ -106,4 +137,16 @@ public struct AnyInjector<K : Hashable>: InjectorDerivingFromMutableInjector {
     public var providedKeys: [K] {
         return lambdaKeys(self)
     }
+
+    #if swift(>=3.0)
+    /// See `MutableInjector.revoke(key:)`.
+    public mutating func revoke(key: K) {
+        lambdaRevoke(&self, key)
+    }
+    #else
+    /// See `MutableInjector.revoke(key:)`.
+    public mutating func revoke(key key: K) {
+        lambdaRevoke(&self, key)
+    }
+    #endif
 }

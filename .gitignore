@@ -26,4 +26,4 @@ xcuserdata
 *.xcscmblueprint
 
 ## Docs
-docs/
+# docs/

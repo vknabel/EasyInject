@@ -61,6 +61,18 @@ public struct ComposedInjector<K: ProvidableKey>: InjectorDerivingFromMutableInj
         let leftSet = Set(left.providedKeys)
         return Array(leftSet.union(right.providedKeys))
     }
+
+    #if swift(>=3.0)
+    /// See `MutableInjector.revoke(key:)`.
+    public mutating func revoke(key: K) {
+        revokeBoth(key: key)
+    }
+    #else
+    /// See `MutableInjector.revoke(key:)`.
+    public mutating func revoke(key key: K) {
+        revokeBoth(key: key)
+    }
+    #endif
 }
 
 public extension ComposedInjector {
@@ -190,6 +202,52 @@ public extension ComposedInjector {
         provideLeft(for: provider, usingFactory: factory)
         provideRight(for: provider, usingFactory: factory)
     }
+
+    #if swift(>=3.0)
+    /// Invokes `MutableInjector.revoke(key:)` on `ComposedInjector.left`.
+    ///
+    /// - Parameter key: The key to be removed.
+    public mutating func revokeLeft(key: K) {
+        left.revoke(key: key)
+    }
+
+    /// Invokes `MutableInjector.revoke(key:)` on `ComposedInjector.right`.
+    ///
+    /// - Parameter key: The key to be removed.
+    public mutating func revokeRight(key: K) {
+        right.revoke(key: key)
+    }
+
+    /// Invokes `MutableInjector.revoke(key:)` on `ComposedInjector.left` and `ComposedInjector.right`.
+    ///
+    /// - Parameter key: The key to be removed.
+    public mutating func revokeBoth(key: K) {
+        left.revoke(key: key)
+        right.revoke(key: key)
+    }
+    #else
+    /// Invokes `MutableInjector.revoke(key:)` on `ComposedInjector.left`.
+    ///
+    /// - Parameter key: The key to be removed.
+    public mutating func revokeLeft(key key: K) {
+        left.revoke(key: key)
+    }
+
+    /// Invokes `MutableInjector.revoke(key:)` on `ComposedInjector.right`.
+    ///
+    /// - Parameter key: The key to be removed.
+    public mutating func revokeRight(key key: K) {
+        right.revoke(key: key)
+    }
+
+    /// Invokes `MutableInjector.revoke(key:)` on `ComposedInjector.left` and `ComposedInjector.right`.
+    ///
+    /// - Parameter key: The key to be removed.
+    public mutating func revokeBoth(key key: K) {
+        left.revoke(key: key)
+        right.revoke(key: key)
+    }
+    #endif
 }
 
 public extension ComposedInjector {
@@ -284,6 +342,30 @@ public extension ComposedInjector {
         -> ComposedInjector {
         return providingLeft(for: provider, usingFactory: factory)
             .providingRight(for: provider, usingFactory: factory)
+    }
+
+    /// Invokes `Injector.revoking(key:)` on `ComposedInjector.left`.
+    ///
+    /// - Parameter key: The key to be removed.
+    /// - Returns: A `ComposedInjector` that revoked the key on `ComposedInjector.left`.
+    public func revokingLeft(key: K) -> ComposedInjector {
+        return ComposedInjector(left: left.revoking(key: key), right: right)
+    }
+
+    /// Invokes `Injector.revoking(key:)` on `ComposedInjector.right`.
+    ///
+    /// - Parameter key: The key to be removed.
+    /// - Returns: A `ComposedInjector` that revoked the key on `ComposedInjector.right`.
+    public func revokingRight(key: K) -> ComposedInjector {
+        return ComposedInjector(left: left, right: right.revoking(key: key))
+    }
+
+    /// Invokes `Injector.revoking(key:)` on `ComposedInjector.left` and `ComposedInjector.right`.
+    ///
+    /// - Parameter key: The key to be removed.
+    /// - Returns: A `ComposedInjector` that revoked the key on `ComposedInjector.left` and `ComposedInjector.right`.
+    public func revokingBoth(key: K) -> ComposedInjector {
+        return ComposedInjector(left: left.revoking(key: key), right: right.revoking(key: key))
     }
 }
 

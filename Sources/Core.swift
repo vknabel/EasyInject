@@ -121,6 +121,22 @@ public protocol Injector {
     func providing(key key: Key, usingFactory factory: (inout Self) throws -> Providable) -> Self
     #endif
 
+    #if swift(>=3.0)
+    /// Creates a new instance that provides all keys except the given one.
+    ///
+    ///
+    /// - Parameter key: The key that shall be removed.
+    /// - Returns: A copy that doesn't contain key.
+    func revoking(key: Key) -> Self
+    #else
+    /// Creates a new instance that provides all keys except the given one.
+    ///
+    ///
+    /// - Parameter key: The key that shall be removed.
+    /// - Returns: A copy that doesn't contain key.
+    func revoking(key key: Key) -> Self
+    #endif
+
     /// Returns all Keys, that has been injected, regardless wether resolving fails.
     var providedKeys: [Key] { get }
 }
@@ -163,6 +179,18 @@ public protocol MutableInjector: Injector {
      - Throws: `InjectionError`
      */
     mutating func resolve(key key: Key) throws -> Providable
+    #endif
+
+    #if swift(>=3.0)
+    /// Ensures a given key is not provided anymoure.
+    ///
+    /// - Parameter key: The key that shall be removed.
+    mutating func revoke(key: Key)
+    #else
+    /// Ensures a given key is not provided anymoure.
+    ///
+    /// - Parameter key: The key that shall be removed.
+    mutating func revoke(key key: Key)
     #endif
 }
 
