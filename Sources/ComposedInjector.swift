@@ -24,6 +24,19 @@ public struct ComposedInjector<K: ProvidableKey>: InjectorDerivingFromMutableInj
     public var left: AnyInjector<K>
     /// The second `Injector` that shall be wrapped.
     public var right: AnyInjector<K>
+
+    #if swift(>=3.0)
+    /**
+     Initializes `AnyMutableInjector` with a given `MutableInjector`.
+
+     - Parameter left: The default `MutableInjector` that shall be wrapped.
+     - Parameter right: The fallback `MutableInjector` that shall be wrapped.
+     */
+    public init<L: Injector, R: Injector>(left: L, right: R) where L.Key == Key, R.Key == Key {
+        self.left = AnyInjector(injector: left)
+        self.right = AnyInjector(injector: right)
+    }
+    #else
     /**
      Initializes `AnyMutableInjector` with a given `MutableInjector`.
 
@@ -34,7 +47,23 @@ public struct ComposedInjector<K: ProvidableKey>: InjectorDerivingFromMutableInj
         self.left = AnyInjector(injector: left)
         self.right = AnyInjector(injector: right)
     }
+    #endif
 
+    #if swift(>=3.0)
+    /// See `MutableInjector.resolve(key:)`.
+    public mutating func resolve(key: Key) throws -> Providable {
+        do {
+            return try resolveLeft(key: key)
+        } catch let leftError {
+            do {
+                return try resolveRight(key: key)
+            } catch let rightError {
+                let composedError = ComposedInjectionError<Key>.composed(leftError, rightError)
+                throw InjectionError<Key>.customError(composedError)
+            }
+        }
+    }
+    #else
     /// See `MutableInjector.resolve(key:)`.
     public mutating func resolve(key key: Key) throws -> Providable {
         do {
@@ -48,11 +77,20 @@ public struct ComposedInjector<K: ProvidableKey>: InjectorDerivingFromMutableInj
             }
         }
     }
+    #endif
 
+
+    #if swift(>=3.0)
+    /// See `MutableInjector.provide(key:usingFactory:)`.
+    public mutating func provide(key: Key, usingFactory factory: @escaping (inout ComposedInjector) throws -> Providable) {
+        provideLeft(key: key, usingFactory: factory)
+    }
+    #else
     /// See `MutableInjector.provide(key:usingFactory:)`.
     public mutating func provide(key key: Key, usingFactory factory: (inout ComposedInjector) throws -> Providable) {
         provideLeft(key: key, usingFactory: factory)
     }
+    #endif
 
     /// See `Injector.providedKeys`.
     ///
@@ -76,6 +114,27 @@ public struct ComposedInjector<K: ProvidableKey>: InjectorDerivingFromMutableInj
 }
 
 public extension ComposedInjector {
+    #if swift(>=3.0)
+    /// Returns `MutableInjector.resolve(key:)` invoked on `ComposedInjector.left`.
+    ///
+    /// - Throws: Just passes all errors.
+    public mutating func resolveLeft(key: Key) throws -> Providable {
+        return try left.resolve(key: key)
+    }
+    /// Returns `MutableInjector.resolve(key:)` invoked on `ComposedInjector.right`.
+    ///
+    /// - Throws: Just passes all errors.
+    public mutating func resolveRight(key: Key) throws -> Providable {
+        return try right.resolve(key: key)
+    }
+    /// Calls both, `ComposedInjector.resolveLeft(key:)` and `ComposedInjector.resolveRight(key:)`.
+    ///
+    /// - Throws: `InjectionError`. `InjectionError.customError(_:)` may contain `ComposedInjectionError`.
+    /// - Returns: Both results.
+    public mutating func resolveBoth(key: Key) throws -> (Providable, Providable) {
+        return try (resolveLeft(key: key), resolveRight(key: key))
+    }
+    #else
     /// Returns `MutableInjector.resolve(key:)` invoked on `ComposedInjector.left`.
     ///
     /// - Throws: Just passes all errors.
@@ -95,6 +154,7 @@ public extension ComposedInjector {
     public mutating func resolveBoth(key key: Key) throws -> (Providable, Providable) {
         return try (resolveLeft(key: key), resolveRight(key: key))
     }
+    #endif
 
     /**
      Resolves `InjectedProvider.value` for a given `Provider`.
@@ -135,6 +195,29 @@ public extension ComposedInjector {
         return try (resolveLeft(from: provider), resolveRight(from: provider))
     }
 
+    #if swift(>=3.0)
+    /// Invokes `MutableInjector.provide(key:usingFactory:)` on `ComposedInjector.left`.
+    public mutating func provideLeft(key: Key, usingFactory factory: @escaping (inout ComposedInjector) throws -> Providable) {
+        var this = self
+        left.provide(key: key, usingFactory: { newMutable in
+            this.left = newMutable
+            return try factory(&this)
+        })
+    }
+    /// Invokes `MutableInjector.provide(key:usingFactory:)` on `ComposedInjector.right`.
+    public mutating func provideRight(key: Key, usingFactory factory: @escaping (inout ComposedInjector) throws -> Providable) {
+        var this = self
+        right = right.providing(key: key, usingFactory: { newMutable in
+            this.right = newMutable
+            return try factory(&this)
+        })
+    }
+    /// Invokes `MutableInjector.provide(key:usingFactory:)` on `ComposedInjector.left` and `ComposedInjector.left`.
+    public mutating func provideBoth(key: Key, usingFactory factory: @escaping (inout ComposedInjector) throws -> Providable) {
+        provideLeft(key: key, usingFactory: factory)
+        provideRight(key: key, usingFactory: factory)
+    }
+    #else
     /// Invokes `MutableInjector.provide(key:usingFactory:)` on `ComposedInjector.left`.
     public mutating func provideLeft(key key: Key, usingFactory factory: (inout ComposedInjector) throws -> Providable) {
         var this = self
@@ -156,7 +239,9 @@ public extension ComposedInjector {
         provideLeft(key: key, usingFactory: factory)
         provideRight(key: key, usingFactory: factory)
     }
+    #endif
 
+    #if swift(>=3.0)
     /**
      Additionally provides a value given as a factory for a given `Provider`.
      This will only be performed on the `.left` `Injector`.
@@ -166,7 +251,7 @@ public extension ComposedInjector {
      */
     public mutating func provideLeft<Value: Providable>(
         for provider: Provider<Key, Value>,
-        usingFactory factory: (inout ComposedInjector) throws -> Value) {
+        usingFactory factory: @escaping (inout ComposedInjector) throws -> Value) {
         var this = self
         left = left.providing(for: provider, usingFactory: { newMutable -> Value in
             this.left = newMutable
@@ -182,7 +267,7 @@ public extension ComposedInjector {
      */
     public mutating func provideRight<Value: Providable>(
         for provider: Provider<Key, Value>,
-        usingFactory factory: (inout ComposedInjector) throws -> Value) {
+        usingFactory factory: @escaping (inout ComposedInjector) throws -> Value) {
         var this = self
         right = right.providing(for: provider, usingFactory: { newMutable -> Value in
             this.right = newMutable
@@ -198,10 +283,57 @@ public extension ComposedInjector {
      */
     public mutating func provideBoth<Value: Providable>(
         for provider: Provider<Key, Value>,
-        usingFactory factory: (inout ComposedInjector) throws -> Value) {
+        usingFactory factory: @escaping (inout ComposedInjector) throws -> Value) {
         provideLeft(for: provider, usingFactory: factory)
         provideRight(for: provider, usingFactory: factory)
     }
+    #else
+    /**
+     Additionally provides a value given as a factory for a given `Provider`.
+     This will only be performed on the `.left` `Injector`.
+
+     - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
+     - Parameter factory: Creates a value out of a new `Injector`.
+     */
+    public mutating func provideLeft<Value: Providable>(
+        for provider: Provider<Key, Value>,
+            usingFactory factory: (inout ComposedInjector) throws -> Value) {
+        var this = self
+        left = left.providing(for: provider, usingFactory: { newMutable -> Value in
+            this.left = newMutable
+            return try factory(&this)
+        })
+    }
+    /**
+     Additionally provides a value given as a factory for a given `Provider`.
+     This will only be performed on the `.right` `Injector`.
+
+     - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
+     - Parameter factory: Creates a value out of a new `Injector`.
+     */
+    public mutating func provideRight<Value: Providable>(
+        for provider: Provider<Key, Value>,
+            usingFactory factory: (inout ComposedInjector) throws -> Value) {
+        var this = self
+        right = right.providing(for: provider, usingFactory: { newMutable -> Value in
+            this.right = newMutable
+            return try factory(&this)
+        })
+    }
+    /**
+     Additionally provides a value given as a factory for a given `Provider`.
+     This will only be performed on the `.left` and thereafter on the `.right` `Injector`.
+
+     - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
+     - Parameter factory: Creates a value out of a new `Injector`.
+     */
+    public mutating func provideBoth<Value: Providable>(
+        for provider: Provider<Key, Value>,
+            usingFactory factory: (inout ComposedInjector) throws -> Value) {
+        provideLeft(for: provider, usingFactory: factory)
+        provideRight(for: provider, usingFactory: factory)
+    }
+    #endif
 
     #if swift(>=3.0)
     /// Invokes `MutableInjector.revoke(key:)` on `ComposedInjector.left`.
@@ -290,6 +422,7 @@ public extension ComposedInjector {
         return try (left.resolving(from: provider), right.resolving(from: provider))
     }
 
+    #if swift(>=3.0)
     /**
      Additionally provides a value given as a factory for a given `Provider`.
      This will only be performed on the `.left` `Injector`.
@@ -300,7 +433,7 @@ public extension ComposedInjector {
      */
     public func providingLeft<Value: Providable>(
         for provider: Provider<Key, Value>,
-        usingFactory factory: (inout ComposedInjector) throws -> Value)
+        usingFactory factory: @escaping (inout ComposedInjector) throws -> Value)
         -> ComposedInjector {
         var this = self
         this.left = left.providing(for: provider, usingFactory: { newMutable -> Value in
@@ -319,7 +452,7 @@ public extension ComposedInjector {
      */
     public func providingRight<Value: Providable>(
         for provider: Provider<Key, Value>,
-        usingFactory factory: (inout ComposedInjector) throws -> Value)
+        usingFactory factory: @escaping (inout ComposedInjector) throws -> Value)
         -> ComposedInjector {
         var this = self
         this.right = right.providing(for: provider, usingFactory: { newMutable -> Value in
@@ -338,11 +471,66 @@ public extension ComposedInjector {
      */
     public func providingBoth<Value: Providable>(
         for provider: Provider<Key, Value>,
-        usingFactory factory: (inout ComposedInjector) throws -> Value)
+        usingFactory factory: @escaping (inout ComposedInjector) throws -> Value)
         -> ComposedInjector {
         return providingLeft(for: provider, usingFactory: factory)
             .providingRight(for: provider, usingFactory: factory)
     }
+    #else
+    /**
+     Additionally provides a value given as a factory for a given `Provider`.
+     This will only be performed on the `.left` `Injector`.
+
+     - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
+     - Parameter factory: Creates a value out of a new `Injector`.
+     - Returns: A new `Injector` with contents of `self` and the newly provided value.
+     */
+    public func providingLeft<Value: Providable>(
+        for provider: Provider<Key, Value>,
+            usingFactory factory: (inout ComposedInjector) throws -> Value)
+        -> ComposedInjector {
+            var this = self
+            this.left = left.providing(for: provider, usingFactory: { newMutable -> Value in
+                this.left = newMutable
+                return try factory(&this)
+            })
+            return this
+    }
+    /**
+     Additionally provides a value given as a factory for a given `Provider`.
+     This will only be performed on the `.right` `Injector`.
+
+     - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
+     - Parameter factory: Creates a value out of a new `Injector`.
+     - Returns: A new `Injector` with contents of `self` and the newly provided value.
+     */
+    public func providingRight<Value: Providable>(
+        for provider: Provider<Key, Value>,
+            usingFactory factory: (inout ComposedInjector) throws -> Value)
+        -> ComposedInjector {
+            var this = self
+            this.right = right.providing(for: provider, usingFactory: { newMutable -> Value in
+                this.right = newMutable
+                return try factory(&this)
+            })
+            return this
+    }
+    /**
+     Additionally provides a value given as a factory for a given `Provider`.
+     This will only be performed on the `.left` and thereafter on the `.right` `Injector`.
+
+     - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
+     - Parameter factory: Creates a value out of a new `Injector`.
+     - Returns: A new `Injector` with contents of `self` and the newly provided value.
+     */
+    public func providingBoth<Value: Providable>(
+        for provider: Provider<Key, Value>,
+            usingFactory factory: (inout ComposedInjector) throws -> Value)
+        -> ComposedInjector {
+            return providingLeft(for: provider, usingFactory: factory)
+                .providingRight(for: provider, usingFactory: factory)
+    }
+    #endif
 
     /// Invokes `Injector.revoking(key:)` on `ComposedInjector.left`.
     ///
@@ -380,7 +568,7 @@ public extension ComposedInjector {
      - Returns: A new `Injector` with contents of `self` and the newly provided value.
      */
     public func providingLeft<Value: Providable>(
-        _ instance: @autoclosure(escaping) () -> Value,
+        _ instance: @autoclosure @escaping  () -> Value,
         for provider: Provider<Key, Value>) -> ComposedInjector {
         return providingLeft(for: provider, usingFactory: { _ in return instance() })
     }
@@ -410,7 +598,7 @@ public extension ComposedInjector {
      - Returns: A new `Injector` with contents of `self` and the newly provided value.
      */
     public func providingRight<Value: Providable>(
-        _ instance: @autoclosure(escaping) () -> Value,
+        _ instance: @autoclosure @escaping  () -> Value,
         for provider: Provider<Key, Value>) -> ComposedInjector {
         return providingRight(for: provider, usingFactory: { _ in return instance() })
     }
@@ -440,7 +628,7 @@ public extension ComposedInjector {
      - Returns: A new `Injector` with contents of `self` and the newly provided value.
      */
     public func providingBoth<Value: Providable>(
-        _ instance: @autoclosure(escaping) () -> Value,
+        _ instance: @autoclosure @escaping  () -> Value,
         for provider: Provider<Key, Value>) -> ComposedInjector {
         return providingBoth(for: provider, usingFactory: { _ in return instance() })
     }
@@ -471,7 +659,7 @@ public extension ComposedInjector {
      - Parameter provider: The `Provider`, an `InjectedProvider` will be constructed of.
      */
     public mutating func provideLeft<Value: Providable>(
-        _ instance: @autoclosure(escaping) () -> Value,
+        _ instance: @autoclosure @escaping () -> Value,
         for provider: Provider<Key, Value>) {
         provideLeft(for: provider, usingFactory: { _ in return instance() })
     }
@@ -499,7 +687,7 @@ public extension ComposedInjector {
      - Parameter provider: The `Provider`, an `InjectedProvider` will be constructed of.
      */
     public mutating func provideRight<Value: Providable>(
-        _ instance: @autoclosure(escaping) () -> Value,
+        _ instance: @autoclosure @escaping () -> Value,
         for provider: Provider<Key, Value>) {
         provideRight(for: provider, usingFactory: { _ in return instance() })
     }
@@ -527,7 +715,7 @@ public extension ComposedInjector {
      - Parameter provider: The `Provider`, an `InjectedProvider` will be constructed of.
      */
     public mutating func provideBoth<Value: Providable>(
-        _ instance: @autoclosure(escaping) () -> Value,
+        _ instance: @autoclosure @escaping () -> Value,
         for provider: Provider<Key, Value>) {
         provideBoth(for: provider, usingFactory: { _ in return instance() })
     }

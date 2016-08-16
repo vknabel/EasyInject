@@ -13,7 +13,7 @@ public struct StrictlyInjectedProvider<I: Injector>: InjectedProvider {
     /// For more details see `InjectedProvider.init(key:withInjector:usingFactory:)`.
     public init(key: Key,
         withInjector injector: inout I,
-        usingFactory factory: (inout I) throws -> Providable) {
+        usingFactory factory: @escaping (inout I) throws -> Providable) {
         self.key = key
         self.state = InjectedProviderResolveState(withInjector: &injector, from: factory)
     }
@@ -40,8 +40,19 @@ public struct StrictlyInjectedProvider<I: Injector>: InjectedProvider {
         return try state.resolve(withInjector: &injector)
     }
     #endif
+
+    #if swift(>=3.0)
+    /// `StrictlyInjectedProvider`'s implementation of `Equatable`.
+    /// :nodoc:
+    public static func ==
+        <K: ProvidableKey>
+        (lhs: StrictlyInjectedProvider<K>, rhs: StrictlyInjectedProvider<K>) -> Bool {
+        return lhs.key == rhs.key
+    }
+    #endif
 }
 
+#if !swift(>=3.0)
 /// `StrictlyInjectedProvider`'s implementation of `Equatable`.
 /// :nodoc:
 public func ==
@@ -49,3 +60,4 @@ public func ==
     (lhs: StrictlyInjectedProvider<K>, rhs: StrictlyInjectedProvider<K>) -> Bool {
     return lhs.key == rhs.key
 }
+#endif

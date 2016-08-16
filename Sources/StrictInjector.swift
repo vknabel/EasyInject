@@ -6,6 +6,17 @@ public struct StrictInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjec
     /// Creates an empty `StrictInjector`.
     public init() { }
 
+    #if swift(>=3.0)
+    /// See `MutableInjector.resolve(key:)`.
+    public mutating func resolve(key: Key) throws -> Providable {
+        guard let untyped = strictProviders[key]
+            else { throw InjectionError<Key>.keyNotProvided(key) }
+        guard let typed = untyped as? StrictlyInjectedProvider<StrictInjector>
+            else { throw InjectionError<Key>
+                .invalidInjection(key: key, injected: untyped, expected: StrictlyInjectedProvider<StrictInjector>.self) }
+        return try typed.resolve(withInjector: &self)
+    }
+    #else
     /// See `MutableInjector.resolve(key:)`.
     public mutating func resolve(key key: Key) throws -> Providable {
         guard let untyped = strictProviders[key]
@@ -15,7 +26,17 @@ public struct StrictInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjec
                 .invalidInjection(key: key, injected: untyped, expected: StrictlyInjectedProvider<StrictInjector>.self) }
         return try typed.resolve(withInjector: &self)
     }
+    #endif
 
+    #if swift(>=3.0)
+    /// See `MutableInjector.provide(key:usingFactory:)`.
+    public mutating func provide(key: K, usingFactory factory: @escaping (inout StrictInjector) throws -> Providable) {
+        strictProviders[key] = StrictlyInjectedProvider(key: key,
+                                                        withInjector: &self,
+                                                        usingFactory: factory)
+        /// ToDo: evaluate that there is no problem here (think of dependencies)
+    }
+    #else
     /// See `MutableInjector.provide(key:usingFactory:)`.
     public mutating func provide(key key: K, usingFactory factory: (inout StrictInjector) throws -> Providable) {
         strictProviders[key] = StrictlyInjectedProvider(key: key,
@@ -23,6 +44,7 @@ public struct StrictInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjec
                                                         usingFactory: factory)
         /// ToDo: evaluate that there is no problem here (think of dependencies)
     }
+    #endif
 
     #if swift(>=3.0)
     /// See `MutableInjector.revoke(key:)`.

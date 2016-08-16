@@ -38,7 +38,7 @@ public final class LazilyInjectedProvider<I: Injector>: InjectedProvider {
     /// Won't evaluate factory.
     public init(key: Key,
                 withInjector injector: inout Injected,
-                usingFactory factory: (inout Injected) throws -> Providable) {
+                usingFactory factory: @escaping (inout Injected) throws -> Providable) {
         self.key = key
         self.valueFactory = factory
     }
@@ -52,11 +52,20 @@ public final class LazilyInjectedProvider<I: Injector>: InjectedProvider {
         self.valueFactory = factory
     }
     #endif
+
+    #if swift(>=3.0)
+    /// Implements `Equatable` for all `LazilyInjectedProvider`s.
+    /// :nodoc:
+    public static func ==<K: ProvidableKey>(lhs: LazilyInjectedProvider<K>, rhs: LazilyInjectedProvider<K>) -> Bool {
+        return lhs.key == rhs.key
+    }
+    #endif
 }
 
+#if !swift(>=3.0)
 /// Implements `Equatable` for all `LazilyInjectedProvider`s.
 /// :nodoc:
-public func ==<K: ProvidableKey>(lhs: LazilyInjectedProvider<K>,
-               rhs: LazilyInjectedProvider<K>) -> Bool {
+public func ==<K: ProvidableKey>(lhs: LazilyInjectedProvider<K>, rhs: LazilyInjectedProvider<K>) -> Bool {
     return lhs.key == rhs.key
 }
+#endif

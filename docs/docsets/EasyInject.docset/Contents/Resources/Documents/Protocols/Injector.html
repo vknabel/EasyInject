@@ -184,7 +184,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">resolving</span><span class="p">(</span><span class="n">key</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">resolving</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -287,7 +287,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">providing</span><span class="p">(</span><span class="n">key</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">,</span> <span class="n">usingFactory</span> <span class="nv">factory</span><span class="p">:</span> <span class="p">(</span><span class="k">inout</span> <span class="k">Self</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">providing</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">,</span> <span class="n">usingFactory</span> <span class="nv">factory</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">inout</span> <span class="k">Self</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -364,7 +364,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">revoking</span><span class="p">(</span><span class="n">key</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">revoking</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -390,7 +390,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A copy that doesn&rsquo;t contain key.</p>
+                        <p>A copy that doesn’t contain key.</p>
 
                       </div>
                     </section>
@@ -549,7 +549,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">func</span> <span class="n">providing</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span><span class="o">&gt;</span><span class="p">(</span>
         <span class="k">for</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span><span class="p">,</span>
-        <span class="n">usingFactory</span> <span class="nv">factory</span><span class="p">:</span> <span class="p">(</span><span class="k">inout</span> <span class="k">Self</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+        <span class="n">usingFactory</span> <span class="nv">factory</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">inout</span> <span class="k">Self</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -737,7 +737,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">providing</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span><span class="o">&gt;</span><span class="p">(</span>
-        <span class="kd">@autoclosure(escaping)</span> <span class="nv">instance</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Value</span><span class="p">,</span>
+        <span class="n">_</span> <span class="nv">instance</span><span class="p">:</span> <span class="kd">@autoclosure</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Value</span><span class="p">,</span>
         <span class="k">for</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
@@ -904,7 +904,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">composed</span><span class="o">&lt;</span><span class="kt">I</span><span class="p">:</span> <span class="kt">Injector</span> <span class="k">where</span> <span class="kt">I</span><span class="o">.</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span> <span class="o">==</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">right</span><span class="p">:</span> <span class="kt">I</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ComposedInjector.html">ComposedInjector</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">composed</span><span class="o">&lt;</span><span class="kt">I</span><span class="p">:</span> <span class="kt">Injector</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">right</span><span class="p">:</span> <span class="kt">I</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ComposedInjector.html">ComposedInjector</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">I</span><span class="o">.</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span> <span class="o">==</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span></code></pre>
 
                         </div>
                       </div>
@@ -944,7 +944,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-08-10)</p>
+      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-08-16)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
