@@ -7,6 +7,17 @@ public struct LazyInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjecto
     /// Creates an empty `StrictInjector`.
     public init() { }
 
+    #if swift(>=3.0)
+    /// See `MutableInjector.resolve(key:)`.
+    public mutating func resolve(key: Key) throws -> Providable {
+        guard let untyped = lazyProviders[key]
+            else { throw InjectionError<Key>.keyNotProvided(key) }
+        guard let typed = untyped as? LazilyInjectedProvider<LazyInjector>
+            else { throw InjectionError<Key>
+                .invalidInjection(key: key, injected: untyped, expected: LazilyInjectedProvider<LazyInjector>.self) }
+        return try typed.resolve(withInjector: &self)
+    }
+    #else
     /// See `MutableInjector.resolve(key:)`.
     public mutating func resolve(key key: Key) throws -> Providable {
         guard let untyped = lazyProviders[key]
@@ -16,10 +27,11 @@ public struct LazyInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjecto
                 .invalidInjection(key: key, injected: untyped, expected: LazilyInjectedProvider<LazyInjector>.self) }
         return try typed.resolve(withInjector: &self)
     }
+    #endif
 
     #if swift(>=3.0)
     /// See `MutableInjector.provide(key:usingFactory:)`.
-    public mutating func provide(key key: K, usingFactory factory: @escaping (inout LazyInjector<K>) throws -> Providable) {
+    public mutating func provide(key: K, usingFactory factory: @escaping (inout LazyInjector<K>) throws -> Providable) {
         lazyProviders[key] = LazilyInjectedProvider(key: key,
                                                     withInjector: &self,
                                                     usingFactory: factory)

@@ -34,7 +34,7 @@ extension String: Providable { }
 
 final class NetworkService: Providable {
     let baseUrl: String
-    init<I: Injector where I.Key == String>(injector: inout I) throws {
+    init<I: Injector>(injector: inout I) throws where I.Key == String {
         print("Start: NetworkService")
         baseUrl = try injector.resolving(from: .baseUrl)
         print("Finish: NetworkService")
@@ -42,7 +42,7 @@ final class NetworkService: Providable {
 }
 final class DataManager: Providable {
     let networkService: NetworkService
-    init<I: Injector where I.Key == String>(injector: inout I) throws {
+    init<I: Injector>(injector: inout I) throws where I.Key == String {
         print("Start: DataManager")
         networkService = try injector.resolving(from: .networkService)
         print("Finish: DataManager")

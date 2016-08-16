@@ -53,6 +53,7 @@ public extension Injector {
         return self
     }
 
+    #if swift(>=3.0)
     /// Determines wether a specific key has been provided.
     ///
     /// - Parameter key: The key that shall be tested for.
@@ -60,6 +61,15 @@ public extension Injector {
     func contains(_ key: Key) -> Bool {
         return providedKeys.contains(key)
     }
+    #else
+    /// Determines wether a specific key has been provided.
+    ///
+    /// - Parameter key: The key that shall be tested for.
+    /// - Returns: true if provided. Will also return true if the key cannot be resolved properly.
+    func contains(key: Key) -> Bool {
+        return providedKeys.contains(key)
+    }
+    #endif
 }
 
 public extension MutableInjector {
@@ -125,7 +135,7 @@ public extension InjectorDerivingFromMutableInjector {
     #if swift(>=3.0)
     /// Implements `Injector.providing(key:usingFactory:)` 
     /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.provide(key:usingFactory:)`.
-    public func providing(key key: Self.Key, usingFactory factory: @escaping (inout Self) throws -> Providable) -> Self {
+    public func providing(key: Self.Key, usingFactory factory: @escaping (inout Self) throws -> Providable) -> Self {
         var copy = self.copy()
         copy.provide(key: key, usingFactory: { this in try factory(&this) })
         return copy
@@ -140,13 +150,31 @@ public extension InjectorDerivingFromMutableInjector {
     }
     #endif
 
+    #if swift(>=3.0)
+    /// Implements `Injector.resolving(key:)`
+    /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.resolve(key:)`.
+    public func resolving(key: Self.Key) throws -> Providable {
+        var copy = self.copy()
+        return try copy.resolve(key: key)
+    }
+    #else
     /// Implements `Injector.resolving(key:)`
     /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.resolve(key:)`.
     public func resolving(key key: Self.Key) throws -> Providable {
         var copy = self.copy()
         return try copy.resolve(key: key)
     }
+    #endif
 
+    #if swift(>=3.0)
+    /// Implements `Injector.revoking(key:)`
+    /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.revoke(key:)`.
+    public func revoking(key: Self.Key) -> Self {
+        var copy = self.copy()
+        copy.revoke(key: key)
+        return copy
+    }
+    #else
     /// Implements `Injector.revoking(key:)`
     /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.revoke(key:)`.
     public func revoking(key key: Self.Key) -> Self {
@@ -154,6 +182,7 @@ public extension InjectorDerivingFromMutableInjector {
         copy.revoke(key: key)
         return copy
     }
+    #endif
 }
 
 public extension Injector {
@@ -195,7 +224,7 @@ public extension MutableInjector {
      - Parameter provider: The `Provider`, an `InjectedProvider` will be constructed of.
      */
     public mutating func provide<Value: Providable>(
-        _ instance: @autoclosure(escaping) () -> Value,
+        _ instance: @autoclosure @escaping () -> Value,
         for provider: Provider<Key, Value>) {
         provide(for: provider, usingFactory: { _ in return instance() })
     }
@@ -223,7 +252,7 @@ public extension MutableInjector where Self: AnyObject {
      - Parameter provider: The `Provider`, an `InjectedProvider` will be constructed of.
      */
     public func provide<Value: Providable>(
-        _ instance: @autoclosure(escaping) () -> Value,
+        _ instance: @autoclosure @escaping () -> Value,
         for provider: Provider<Key, Value>) {
         var this = self
         this.provide(for: provider, usingFactory: { _ in return instance() })
@@ -260,9 +289,10 @@ public enum InjectedProviderResolveState<K: ProvidableKey> {
     ///
     /// - Parameter injector: The injector that shall be used.
     /// - Parameter factory: The factory that shall be evaluated.
-    public init<I: Injector where I.Key == K>(
+    public init<I: Injector>(
         withInjector injector: inout I,
-        from factory: (inout I) throws -> Providable) {
+        from factory: (inout I) throws -> Providable)
+        where I.Key == K {
         do {
             self = .success(try factory(&injector))
         } catch let error as InjectionError<K> {
@@ -296,9 +326,9 @@ public enum InjectedProviderResolveState<K: ProvidableKey> {
     /// - Parameter factory: The factory that shall be evaluated.
     /// - Returns: `InjectedProviderResolveState.failure` when factory throwed, 
     ///    `InjectedProviderResolveState.success` otherwise.
-    public static func from<I: Injector where I.Key == K>(
+    public static func from<I: Injector>(
         factory: (inout I) throws -> Providable,
-        for injector: inout I) -> InjectedProviderResolveState {
+        for injector: inout I) -> InjectedProviderResolveState where I.Key == K {
         return self.init(withInjector: &injector, from: factory)
     }
     #else
@@ -321,7 +351,7 @@ public enum InjectedProviderResolveState<K: ProvidableKey> {
     /// - Parameter injector: Will be ignored.
     /// - Throws: On case `InjectedProviderResolveState.failure`.
     /// - Returns: On case `InjectedProviderResolveState.success`.
-    public func resolve<I: Injector where I.Key == K>(withInjector injector: inout I) throws -> Providable {
+    public func resolve<I: Injector>(withInjector injector: inout I) throws -> Providable where I.Key == K {
         switch self {
         case let .failure(error):
             throw error
