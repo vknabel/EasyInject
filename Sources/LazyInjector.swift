@@ -17,12 +17,21 @@ public struct LazyInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjecto
         return try typed.resolve(withInjector: &self)
     }
 
+    #if swift(>=3.0)
+    /// See `MutableInjector.provide(key:usingFactory:)`.
+    public mutating func provide(key key: K, usingFactory factory: @escaping (inout LazyInjector<K>) throws -> Providable) {
+        lazyProviders[key] = LazilyInjectedProvider(key: key,
+                                                    withInjector: &self,
+                                                    usingFactory: factory)
+    }
+    #else
     /// See `MutableInjector.provide(key:usingFactory:)`.
     public mutating func provide(key key: K, usingFactory factory: (inout LazyInjector<K>) throws -> Providable) {
         lazyProviders[key] = LazilyInjectedProvider(key: key,
                                                     withInjector: &self,
                                                     usingFactory: factory)
     }
+    #endif
 
     #if swift(>=3.0)
     /// See `MutableInjector.revoke(key:)`.

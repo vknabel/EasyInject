@@ -26,22 +26,25 @@ public final class GlobalInjector<K: ProvidableKey>: InjectorDerivingFromMutable
         return try injector.resolve(key: key)
     }
 
+    #if swift(>=3.0)
+    /// Implements `MutableInjector.provide(key:usingFactory:)`
+    public func provide(key key: Key, usingFactory factory: @escaping (inout GlobalInjector) throws -> Providable) {
+        return self.injector.provide(key: key) { (injector: inout AnyInjector<K>) in
+            var this = self
+            defer { self.injector = this.injector }
+            return try factory(&this)
+        }
+    }
+    #else
     /// Implements `MutableInjector.provide(key:usingFactory:)`
     public func provide(key key: Key, usingFactory factory: (inout GlobalInjector) throws -> Providable) {
-        #if swift(>=3.0)
-            return self.injector.provide(key: key) { (injector: inout AnyInjector<K>) in
-                var this = self
-                defer { self.injector = this.injector }
-                return try factory(&this)
-            }
-        #else
-            return self.injector.provide(key: key) { (inout injector: AnyInjector<K>) in
-                var this = self
-                defer { self.injector = this.injector }
-                return try factory(&this)
-            }
-        #endif
+        return self.injector.provide(key: key) { (inout injector: AnyInjector<K>) in
+            var this = self
+            defer { self.injector = this.injector }
+            return try factory(&this)
+        }
     }
+    #endif
 
     #if swift(>=3.0)
     /// See `MutableInjector.revoke(key:)`.

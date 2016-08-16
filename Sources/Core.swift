@@ -57,7 +57,7 @@ public protocol InjectedProvider {
      */
     init(key: Injected.Key,
         withInjector injector: inout Injected,
-        usingFactory factory: (inout Injected) throws -> Providable)
+        usingFactory factory: @escaping (inout Injected) throws -> Providable)
     #else
     /**
      Initializes an `InjectedProvider`
@@ -107,7 +107,7 @@ public protocol Injector {
      - Parameter factory: Creates a value out of a new `Injector`.
      - Returns: A new `Injector` with contents of `self` and the newly provided value.
      */
-    func providing(key: Key, usingFactory factory: (inout Self) throws -> Providable) -> Self
+    func providing(key: Key, usingFactory factory: @escaping (inout Self) throws -> Providable) -> Self
     #else
     /**
      Creates an instance providing a value as a factory for a given `Key`.
@@ -150,7 +150,7 @@ public protocol MutableInjector: Injector {
      - Parameter key: The `Key`, an `InjectedProvider` is constructed of.
      - Parameter factory: Creates a value out of a new `Injector`.
      */
-    mutating func provide(key: Key, usingFactory factory: (inout Self) throws -> Providable)
+    mutating func provide(key: Key, usingFactory factory: @escaping (inout Self) throws -> Providable)
     #else
     /**
      Additionally provides a value given as a factory for a given `Key`.

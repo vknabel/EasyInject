@@ -16,6 +16,15 @@ public struct StrictInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjec
         return try typed.resolve(withInjector: &self)
     }
 
+    #if swift(>=3.0)
+    /// See `MutableInjector.provide(key:usingFactory:)`.
+    public mutating func provide(key key: K, usingFactory factory: @escaping (inout StrictInjector) throws -> Providable) {
+        strictProviders[key] = StrictlyInjectedProvider(key: key,
+                                                        withInjector: &self,
+                                                        usingFactory: factory)
+        /// ToDo: evaluate that there is no problem here (think of dependencies)
+    }
+    #else
     /// See `MutableInjector.provide(key:usingFactory:)`.
     public mutating func provide(key key: K, usingFactory factory: (inout StrictInjector) throws -> Providable) {
         strictProviders[key] = StrictlyInjectedProvider(key: key,
@@ -23,6 +32,7 @@ public struct StrictInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjec
                                                         usingFactory: factory)
         /// ToDo: evaluate that there is no problem here (think of dependencies)
     }
+    #endif
 
     #if swift(>=3.0)
     /// See `MutableInjector.revoke(key:)`.

@@ -5,11 +5,14 @@ public struct AnyInjector<K : Hashable>: InjectorDerivingFromMutableInjector {
 
     /// The internally used `Injector`.
     private var injector: Any
-    private let lambdaResolve: (inout AnyInjector, Key) throws -> Providable
-    private let lambdaProvide:
-        (inout AnyInjector, K, (inout AnyInjector) throws -> Providable) -> Void
     private let lambdaRevoke: (inout AnyInjector, Key) -> Void
     private let lambdaKeys: (AnyInjector) -> [K]
+    private let lambdaResolve: (inout AnyInjector, Key) throws -> Providable
+    #if swift(>=3.0)
+    private let lambdaProvide: (inout AnyInjector, K, @escaping (inout AnyInjector) throws -> Providable) -> Void
+    #else
+    private let lambdaProvide: (inout AnyInjector, K, (inout AnyInjector) throws -> Providable) -> Void
+    #endif
     /**
      Initializes `AnyInjector` with a given `MutableInjector`.
 
@@ -117,7 +120,7 @@ public struct AnyInjector<K : Hashable>: InjectorDerivingFromMutableInjector {
     /// See `MutableInjector.provide(key:usingFactory:)`.
     public mutating func provide(
         key: K,
-        usingFactory factory: (inout AnyInjector) throws -> Providable) {
+        usingFactory factory: @escaping (inout AnyInjector) throws -> Providable) {
         self.lambdaProvide(&self, key, factory)
     }
     #else
