@@ -1,3 +1,14 @@
+# 0.6.0
+*Released: 16/08/2016*
+
+**Breaking Changes:**
+
+- Updated Swift 3.0 to Beta 6 - @vknabel
+
+**Other Changes:**
+
+- Fixes some warnings in Swift 2 and 3
+
 # 0.5.0
 *Released: 10/08/2016*
 
