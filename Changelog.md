@@ -7,7 +7,7 @@
 
 **Other Changes:**
 
-- Fixes some warnings in Swift 2 and 3
+- Fixes some warnings in Swift 2 and 3 - @vknabel
 
 # 0.5.0
 *Released: 10/08/2016*
