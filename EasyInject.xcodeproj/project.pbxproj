@@ -67,7 +67,7 @@
 		__PBXFileRef_build /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
 		__PBXFileRef_docs /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = "<group>"; };
 		"_____Product_EasyInject" /* EasyInject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EasyInject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"_____Product_EasyInjectTests" /* EasyInjectTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = EasyInjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"_____Product_EasyInjectTests" /* EasyInjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = EasyInjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,7 +300,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = EasyInject;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -313,7 +312,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -330,7 +328,6 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -344,7 +341,6 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -352,6 +348,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = __PBXFileRef_EasyInject.xcodeproj/Configs/Project.xcconfig /* EasyInject.xcodeproj/Configs/Project.xcconfig */;
 			buildSettings = {
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -359,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = __PBXFileRef_EasyInject.xcodeproj/Configs/Project.xcconfig /* EasyInject.xcodeproj/Configs/Project.xcconfig */;
 			buildSettings = {
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};

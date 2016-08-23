@@ -20,9 +20,7 @@ public struct LazyInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjecto
     public mutating func resolve(key key: Key) throws -> Providable {
         guard let untyped = lazyProviders[key]
             else { throw InjectionError<Key>.keyNotProvided(key) }
-        guard let typed = untyped as? LazilyInjectedProvider<LazyInjector>
-            else { throw InjectionError<Key>
-                .invalidInjection(key: key, injected: untyped, expected: LazilyInjectedProvider<LazyInjector>.self) }
+        let typed = untyped as! LazilyInjectedProvider<LazyInjector>
         return try typed.resolve(withInjector: &self)
     }
     #endif
