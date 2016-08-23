@@ -7,8 +7,6 @@
 //
 
 import XCTest
-var x = []
-x += 3
 
 #if os(Linux)
 public func allTests() -> [XCTestCaseEntry] {
