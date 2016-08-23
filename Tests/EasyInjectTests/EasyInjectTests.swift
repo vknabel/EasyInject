@@ -15,7 +15,6 @@ protocol LinuxTestCase {
 
 #if os(Linux)
 public func allTests() -> [XCTestCaseEntry] {
-    let testCases: [LinuxTestCase] = []
     return [
         testCase(StrictInjectorTests.allTests),
         testCase(LazyInjectorTests.allTests),
