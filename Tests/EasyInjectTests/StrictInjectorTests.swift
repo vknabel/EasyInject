@@ -9,8 +9,6 @@
 import XCTest
 @testable import EasyInject
 
-extension Int : Providable { }
-
 class StrictInjectorTests: XCTestCase, InjectorTestCase, MutableInjectorTestCase {
     var newInjector: () -> StrictInjector<String> {
         return StrictInjector.init

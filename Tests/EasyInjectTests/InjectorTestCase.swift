@@ -14,12 +14,21 @@ protocol InjectorTestCase {
     var newInjector: () -> I { get }
 }
 
+extension Int : Providable { }
+extension String : Error { }
+
 extension InjectorTestCase where I.Key == String {
     func runInjectorTestCase() -> Void {
         testResolvingThrowsEmpty()
         testProvidingAndResolving()
         testProvidingAndResolvingRethrows()
         testProvidingTwoAndResolving()
+        testProvidedKeysEmpty()
+        testProvidedKeysAfterProvidingValue()
+        testProvidedKeysAfterProvidingError()
+        testProvidedKeyAfterRevoking()
+        testProvidedKeysAfterRevokingNotProvided()
+        testRevokingAfterProvidingValue()
     }
 
     func testResolvingThrowsEmpty() {
@@ -119,6 +128,53 @@ extension InjectorTestCase where I.Key == String {
                 + "\n\t injector: \(inj)"
                 + "\n\t firstKey: \(firstKey)"
                 + "\n\t secondKey: \(secondKey)")
+        }
+    }
+
+    func testProvidedKeysEmpty() {
+        let inj = newInjector()
+        XCTAssertEqual(inj.providedKeys, [])
+    }
+
+    func testProvidedKeysAfterProvidingValue() {
+        var inj = newInjector()
+        let key = "value key"
+        inj = inj.providing(key: key, usingFactory: { _ in 1 })
+        XCTAssertEqual(inj.providedKeys, [key])
+    }
+
+    func testProvidedKeysAfterProvidingError() {
+        var inj = newInjector()
+        let key = "error key"
+        inj = inj.providing(key: key, usingFactory: { _ in throw "Thrown Error"})
+        XCTAssertEqual(inj.providedKeys, [key])
+    }
+
+    func testProvidedKeyAfterRevoking() {
+        var inj = newInjector()
+        let key = "value key"
+        inj = inj.providing(key: key, usingFactory: { _ in 1 }).revoking(key: key)
+        XCTAssertEqual(inj.providedKeys, [])
+    }
+
+    func testProvidedKeysAfterRevokingNotProvided() {
+        var inj = newInjector()
+        let key = "not provided"
+        inj = inj.revoking(key: key)
+        XCTAssertEqual(inj.providedKeys, [])
+    }
+
+    func testRevokingAfterProvidingValue() {
+        var inj = newInjector()
+        let key = "value key"
+        inj = inj.providing(key: key, usingFactory: { _ in 1 }).revoking(key: key)
+        do {
+            let result = try inj.resolving(key: key)
+            XCTFail("Injector.resolving(key:) did not revoke value: \(result)")
+        } catch let error as InjectionError<String> {
+            XCTAssertEqual(error, InjectionError.keyNotProvided(key))
+        } catch {
+            XCTFail("Injector.resolving(key:) did throw wrong error after revoking: \(error)")
         }
     }
 }

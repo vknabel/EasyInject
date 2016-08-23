@@ -1,6 +1,6 @@
 # 0.6.1
 
-*Released: 23/08/2016*
+*Released: *
 
 **Breaking Changes:**
 
