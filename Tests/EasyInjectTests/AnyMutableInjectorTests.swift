@@ -1,17 +1,17 @@
 //
-//  LazyInjectorTests.swift
+//  AnyMutableInjectorTests.swift
 //  EasyInject
 //
-//  Created by Valentin Knabel on 22.08.16.
+//  Created by Valentin Knabel on 23.08.16.
 //
 //
 
 import XCTest
 @testable import EasyInject
 
-class LazyInjectorTests: XCTestCase, LinuxTestCase, InjectorTestCase, MutableInjectorTestCase {
-    var newInjector: () -> LazyInjector<String> {
-        return LazyInjector.init
+class AnyMutableInjectorTests: XCTestCase, LinuxTestCase, InjectorTestCase, MutableInjectorTestCase {
+    var newInjector: () -> AnyInjector<String> {
+        return { AnyInjector(injector: LazyInjector()) }
     }
 
     static var allTests = [

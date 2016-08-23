@@ -17,7 +17,7 @@ protocol InjectorTestCase {
 extension Int : Providable { }
 extension String : Error { }
 
-private enum InjectorTestError: Error {
+enum InjectorTestError: Error {
     case SomeError
 }
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>InjectedProvider Protocol Reference</title>
+    <title>==(_:_:) Function Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
@@ -11,9 +11,9 @@
   </head>
   <body>
 
-    <a name="//apple_ref/swift/Protocol/InjectedProvider" class="dashAnchor"></a>
+    <a name="//apple_ref/swift/Function/==(_:_:)" class="dashAnchor"></a>
 
-    <a title="InjectedProvider Protocol Reference"></a>
+    <a title="==(_:_:) Function Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -41,7 +41,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">EasyInject Reference</a>
       <img class="carat" src="../img/carat.png" />
-      InjectedProvider Protocol Reference
+      ==(_:_:) Function Reference
     </p>
 
     <div class="content-wrapper">
@@ -137,14 +137,17 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>InjectedProvider</h1>
+            <h1>==(_:_:)</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">InjectedProvider</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">==&lt;</span><span class="kt">K</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt"><a href="../Enums/InjectionError.html">InjectionError</a></span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt"><a href="../Enums/InjectionError.html">InjectionError</a></span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                 </div>
               </div>
-            <p>A <code><a href="../Structs/Provider.html">Provider</a></code> that has been provided into an <code><a href="../Protocols/Injector.html">Injector</a></code>.</p>
+            <p>Tests for equality.
+Ignores: 
+    - <code>InjectionError.nonMatchingType(provided:expected:)</code>&rsquo;s expected
+    - <code>InjectionError.customError(_)</code>&rsquo;s parameter</p>
 
           </div>
         </section>
@@ -156,9 +159,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP10EasyInject16InjectedProvider7resolveFzT12withInjectorRwx8Injected_PS_10Providable_"></a>
-                    <a name="//apple_ref/swift/Method/resolve(withInjector:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP10EasyInject16InjectedProvider7resolveFzT12withInjectorRwx8Injected_PS_10Providable_">resolve(withInjector:)</a>
+                    <a name="/s:tZF10EasyInjectoi2eeuRxs8HashablerFTGOS_14InjectionErrorx_GS1_x__SbL_1KMx"></a>
+                    <a name="//apple_ref/swift/Parameter/K" class="dashAnchor"></a>
+                    <a class="token" href="#/s:tZF10EasyInjectoi2eeuRxs8HashablerFTGOS_14InjectionErrorx_GS1_x__SbL_1KMx">K</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -166,122 +169,16 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Resolves the value that has been associated with <code>self.key</code>.
-- Throws: <code>InjectionError&lt;Key, Value&gt;</code>
-- Returns: The resolved value.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">resolve</span><span class="p">(</span><span class="k">inout</span> <span class="n">withInjector</span> <span class="nv">injector</span><span class="p">:</span> <span class="kt"><a href="../Protocols/InjectedProvider.html#/s:P10EasyInject16InjectedProvider8Injected">Injected</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">==&lt;</span><span class="kt">K</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt"><a href="../Enums/InjectionError.html">InjectionError</a></span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt"><a href="../Enums/InjectionError.html">InjectionError</a></span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The resolved value.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:P10EasyInject16InjectedProvider8Injected"></a>
-                    <a name="//apple_ref/swift/Alias/Injected" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P10EasyInject16InjectedProvider8Injected">Injected</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Type of <code><a href="../Protocols/Injector.html">Injector</a></code>s that shall be used when resolving.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">associatedtype</span> <span class="kt">Injected</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html">Injector</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FP10EasyInject16InjectedProvidercFT3keyWx8Injected3Key_12withInjectorRwxS1_12usingFactoryFzRwxS1_PS_10Providable__x"></a>
-                    <a name="//apple_ref/swift/Method/init(key:withInjector:usingFactory:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP10EasyInject16InjectedProvidercFT3keyWx8Injected3Key_12withInjectorRwxS1_12usingFactoryFzRwxS1_PS_10Providable__x">init(key:withInjector:usingFactory:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Initializes an <code>InjectedProvider</code></p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter provider: <code><a href="../Structs/Provider.html">Provider</a></code> that has been provided while injection.
-
-</div>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter factory: A closure, that return the <code>value</code> to be injected.
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/InjectedProvider.html#/s:P10EasyInject16InjectedProvider8Injected">Injected</a></span><span class="o">.</span><span class="kt">Key</span><span class="p">,</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>provider</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p><code>Provider</code> that has been provided while injection.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>factory</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A closure, that return the <code>value</code> to be injected.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>

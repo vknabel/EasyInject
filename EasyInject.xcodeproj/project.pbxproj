@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA2027BE1D6C9E3600B5C419 /* InjectionErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2027BC1D6C9DBA00B5C419 /* InjectionErrorTests.swift */; };
+		BA736D4E1D6CAEA70045E862 /* AnyMutableInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA736D4D1D6CAEA70045E862 /* AnyMutableInjectorTests.swift */; };
 		BAD07A0F1D6BAD5800BEA97D /* LazyInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A0D1D6BAD1300BEA97D /* LazyInjectorTests.swift */; };
 		BAD07A121D6BAE7200BEA97D /* GlobalInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A101D6BAE5A00BEA97D /* GlobalInjectorTests.swift */; };
 		BAD07A141D6BAE8B00BEA97D /* ComposedInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A131D6BAE8B00BEA97D /* ComposedInjectorTests.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA2027BC1D6C9DBA00B5C419 /* InjectionErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InjectionErrorTests.swift; sourceTree = "<group>"; };
+		BA736D4D1D6CAEA70045E862 /* AnyMutableInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyMutableInjectorTests.swift; sourceTree = "<group>"; };
 		BAD07A0D1D6BAD1300BEA97D /* LazyInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyInjectorTests.swift; sourceTree = "<group>"; };
 		BAD07A101D6BAE5A00BEA97D /* GlobalInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalInjectorTests.swift; sourceTree = "<group>"; };
 		BAD07A131D6BAE8B00BEA97D /* ComposedInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposedInjectorTests.swift; sourceTree = "<group>"; };
@@ -153,14 +157,16 @@
 		"_______Group_EasyInjectTests" /* EasyInjectTests */ = {
 			isa = PBXGroup;
 			children = (
+				__PBXFileRef_Tests/EasyInjectTests/EasyInjectTests.swift /* EasyInjectTests.swift */,
 				__PBXFileRef_Tests/EasyInjectTests/AbstractInjectorTests.swift /* InjectorTestCase.swift */,
 				BADA3D491D676A590002FDFF /* MutableInjectorTestCase.swift */,
-				__PBXFileRef_Tests/EasyInjectTests/EasyInjectTests.swift /* EasyInjectTests.swift */,
 				BADA3D461D6769810002FDFF /* StrictInjectorTests.swift */,
 				BAD07A0D1D6BAD1300BEA97D /* LazyInjectorTests.swift */,
 				BAD07A101D6BAE5A00BEA97D /* GlobalInjectorTests.swift */,
 				BAD07A131D6BAE8B00BEA97D /* ComposedInjectorTests.swift */,
 				BAD07A151D6BAE9600BEA97D /* AnyInjectorTests.swift */,
+				BA736D4D1D6CAEA70045E862 /* AnyMutableInjectorTests.swift */,
+				BA2027BC1D6C9DBA00B5C419 /* InjectionErrorTests.swift */,
 			);
 			name = EasyInjectTests;
 			path = Tests/EasyInjectTests;
@@ -259,6 +265,8 @@
 			buildActionMask = 0;
 			files = (
 				BAD07A121D6BAE7200BEA97D /* GlobalInjectorTests.swift in Sources */,
+				BA736D4E1D6CAEA70045E862 /* AnyMutableInjectorTests.swift in Sources */,
+				BA2027BE1D6C9E3600B5C419 /* InjectionErrorTests.swift in Sources */,
 				__src_cc_ref_Tests/EasyInjectTests/AbstractInjectorTests.swift /* InjectorTestCase.swift in Sources */,
 				BAD07A161D6BAE9600BEA97D /* AnyInjectorTests.swift in Sources */,
 				__src_cc_ref_Tests/EasyInjectTests/EasyInjectTests.swift /* EasyInjectTests.swift in Sources */,

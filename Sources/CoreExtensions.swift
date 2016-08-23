@@ -48,6 +48,14 @@ public extension Injector {
     }
     #endif
 
+    /// Revokes the value of a given provider.
+    ///
+    /// - Parameter provider: The provider that's value shall be revoked.
+    /// - Returns: A new instance without any value for the provider.
+    func revoking<Value: Providable>(for provider: Provider<Key, Value>) -> Self {
+        return self.revoking(key: provider.key)
+    }
+
     /// By default implements `InjectorDerivingFromMutableInjector.copy()` for all value types by just returning self.
     func copy() -> Self {
         return self
@@ -98,6 +106,14 @@ public extension MutableInjector {
         provide(key: provider.key, usingFactory: factory)
     }
     #endif
+
+    /// Revokes the value of a given provider.
+    ///
+    /// - Parameter provider: The provider that's value shall be revoked.
+    mutating func revoke<Value: Providable>(for provider: Provider<Key, Value>) {
+        revoke(key: provider.key)
+    }
+
     /**
      Resolves `InjectedProvider.value` for a given `Provider`.
 

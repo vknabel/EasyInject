@@ -219,17 +219,12 @@ public enum InjectionError<Key: ProvidableKey>: Error, Equatable {
     /// Any specific Error that may occur in your custom implementations.
     /// Will not be thrown by built-in `Injector`s.
     case customError(Error)
-
-    /// The internal `InjectedProvider` has the wrong type.
-    /// This is likely a bug in the framework.
-    case invalidInjection(key: Key, injected: Any, expected: Any.Type)
 }
 
 /// Tests for equality.
 /// Ignores: 
 ///     - `InjectionError.nonMatchingType(provided:expected:)`'s expected
 ///     - `InjectionError.customError(_)`'s parameter
-///     - `InjectionError.invalidInjection(key:injected:expected:)`'s injected
 public func ==<K: ProvidableKey>(lhs: InjectionError<K>, rhs: InjectionError<K>) -> Bool {
     switch (lhs, rhs) {
     case let (.keyNotProvided(lk), .keyNotProvided(rk)):
@@ -238,8 +233,6 @@ public func ==<K: ProvidableKey>(lhs: InjectionError<K>, rhs: InjectionError<K>)
         return le == re
     case (.customError(_), .customError(_)):
         return true
-    case let (.invalidInjection(lk, _, le), .invalidInjection(rk, _, re)):
-        return lk == rk && le == re
     default:
         return false
     }

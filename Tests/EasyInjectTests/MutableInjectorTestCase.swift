@@ -30,8 +30,8 @@ extension MutableInjectorTestCase where I.Key == String {
                 + "\n\t returns: \(errorValue)")
         } catch let error as InjectionError<String> {
             switch error {
-            case let .keyNotProvided(lhs) where lhs == key:
-                XCTAssertTrue(true, "")
+            case let .keyNotProvided(lhs):
+                XCTAssertTrue(lhs == key)
             default:
                 XCTFail("Injector did not throw InjectionError<String>.keyNotProvided(_). Context"
                     + "\n\t try inj.resolve(key: \"\(key)\")"

@@ -9,7 +9,7 @@
 import XCTest
 @testable import EasyInject
 
-class ComposedInjectorTests: XCTestCase, InjectorTestCase, MutableInjectorTestCase {
+class ComposedInjectorTests: XCTestCase, LinuxTestCase, InjectorTestCase, MutableInjectorTestCase {
     var newInjector: () -> ComposedInjector<String> {
         return { LazyInjector().compose(StrictInjector()) }
     }

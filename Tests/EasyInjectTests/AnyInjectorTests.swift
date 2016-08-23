@@ -9,7 +9,7 @@
 import XCTest
 @testable import EasyInject
 
-class AnyInjectorTests: XCTestCase, InjectorTestCase, MutableInjectorTestCase {
+class AnyInjectorTests: XCTestCase, LinuxTestCase, InjectorTestCase, MutableInjectorTestCase {
     var newInjector: () -> AnyInjector<String> {
         return StrictInjector().erased
     }

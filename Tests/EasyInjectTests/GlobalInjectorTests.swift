@@ -9,11 +9,11 @@
 import XCTest
 @testable import EasyInject
 
-class GlobalInjectorTests: XCTestCase, InjectorTestCase, MutableInjectorTestCase {
+class GlobalInjectorTests: XCTestCase, LinuxTestCase, InjectorTestCase, MutableInjectorTestCase {
     var newInjector: () -> GlobalInjector<String> {
         return GlobalInjector.init
     }
-
+    
     static var allTests = [
         ("testInjectorConformance", testInjectorConformance),
         ("testMutableInjectorConformance", testMutableInjectorConformance)

@@ -1,14 +1,17 @@
-# 0.6.1
+# 0.7.0
 
-*Released:*
+*Released: 23/08/2016*
 
 **Breaking Changes:**
 
 - `ComposedInjector` throws an aggregated `InjectionError.keyNotFound(_)` as expected - @vknabel
+- Removed enum case `InjectionError.invalidInjection(key:injected:expected:)` - @vknabel
 
 **API Additions:**
 
 - Added convenience `GlobalInjector.init()` - @vknabel
+- Added `Injector.revoking(for:)` that takes a `Provider` - @vknabel
+- Added `Injector.revoke(for:)` that takes a `Provider` - @vknabel
 
 **Other Changes:**
 
