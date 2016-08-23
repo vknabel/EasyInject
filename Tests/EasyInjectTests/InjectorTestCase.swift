@@ -17,6 +17,10 @@ protocol InjectorTestCase {
 extension Int : Providable { }
 extension String : Error { }
 
+private enum InjectorTestError: Error {
+    case SomeError
+}
+
 extension InjectorTestCase where I.Key == String {
     func runInjectorTestCase() -> Void {
         testResolvingThrowsEmpty()
@@ -79,7 +83,7 @@ extension InjectorTestCase where I.Key == String {
     func testProvidingAndResolvingRethrows() {
         let inj = newInjector()
         let key = "throwing key"
-        let throwed = NSError(domain: "EasyInjectTests", code: 1, userInfo: nil)
+        let throwed = InjectorTestError.SomeError
         do {
             let newInj = inj.providing(key: key, usingFactory: { _ in throw throwed })
             _ = try newInj.resolving(key: key)
@@ -88,7 +92,7 @@ extension InjectorTestCase where I.Key == String {
                 + "\n\t key: \(key)")
         } catch let error as InjectionError<String> {
             switch error {
-            case let .customError(caught as NSError):
+            case let .customError(caught as InjectorTestError):
                 XCTAssertEqual(caught, throwed, "Injector.resolving(key:) did not throw the same error wrapped in InjectionError.customError(_):"
                     + "\n\t injector: \(inj)"
                     + "\n\t key: \(key)")
@@ -98,7 +102,7 @@ extension InjectorTestCase where I.Key == String {
                     + "\n\t key: \(key)"
                     + "\n\t error: \(error)")
             }
-        } catch let caught as NSError where caught == throwed {
+        } catch let caught as InjectorTestError where caught == throwed {
             XCTFail("Injector.resolving(key:) did not wrap throwed error in InjectionError.customError(_):"
                 + "\n\t injector: \(inj)"
                 + "\n\t key: \(key)"
