@@ -1,6 +1,6 @@
 # 0.6.1
 
-*Released: *
+*Released:*
 
 **Breaking Changes:**
 
