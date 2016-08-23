@@ -10,7 +10,9 @@ import XCTest
 
 #if !os(macOS)
 public func allTests() -> [XCTestCaseEntry] {
-    return StrictInjectorTests.allTests
+    let entries: [XCTestCaseEntry] = []
+    return entries
+        + StrictInjectorTests.allTests
         + LazyInjectorTests.allTests
         + GlobalInjectorTests.allTests
         + ComposedInjectorTests.allTests
