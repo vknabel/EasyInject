@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA2027BE1D6C9E3600B5C419 /* InjectionErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2027BC1D6C9DBA00B5C419 /* InjectionErrorTests.swift */; };
+		BA736D4E1D6CAEA70045E862 /* AnyMutableInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA736D4D1D6CAEA70045E862 /* AnyMutableInjectorTests.swift */; };
+		BAD07A0F1D6BAD5800BEA97D /* LazyInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A0D1D6BAD1300BEA97D /* LazyInjectorTests.swift */; };
+		BAD07A121D6BAE7200BEA97D /* GlobalInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A101D6BAE5A00BEA97D /* GlobalInjectorTests.swift */; };
+		BAD07A141D6BAE8B00BEA97D /* ComposedInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A131D6BAE8B00BEA97D /* ComposedInjectorTests.swift */; };
+		BAD07A161D6BAE9600BEA97D /* AnyInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A151D6BAE9600BEA97D /* AnyInjectorTests.swift */; };
+		BADA3D481D6769D40002FDFF /* StrictInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA3D461D6769810002FDFF /* StrictInjectorTests.swift */; };
+		BADA3D4B1D676ABE0002FDFF /* MutableInjectorTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA3D491D676A590002FDFF /* MutableInjectorTestCase.swift */; };
+		_LinkFileRef_EasyInject_via_EasyInjectTests /* EasyInject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_EasyInject" /* EasyInject.framework */; };
 		__src_cc_ref_Sources/AnyInjector.swift /* AnyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/AnyInjector.swift /* AnyInjector.swift */; };
 		__src_cc_ref_Sources/ComposedInjector.swift /* ComposedInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/ComposedInjector.swift /* ComposedInjector.swift */; };
 		__src_cc_ref_Sources/Core.swift /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Core.swift /* Core.swift */; };
@@ -17,11 +26,31 @@
 		__src_cc_ref_Sources/LazyInjector.swift /* LazyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/LazyInjector.swift /* LazyInjector.swift */; };
 		__src_cc_ref_Sources/StrictInjector.swift /* StrictInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/StrictInjector.swift /* StrictInjector.swift */; };
 		__src_cc_ref_Sources/StrictlyInjectedProvider.swift /* StrictlyInjectedProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/StrictlyInjectedProvider.swift /* StrictlyInjectedProvider.swift */; };
+		__src_cc_ref_Tests/EasyInjectTests/AbstractInjectorTests.swift /* InjectorTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/EasyInjectTests/AbstractInjectorTests.swift /* InjectorTestCase.swift */; };
+		__src_cc_ref_Tests/EasyInjectTests/EasyInjectTests.swift /* EasyInjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/EasyInjectTests/EasyInjectTests.swift /* EasyInjectTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BADA3D451D6769550002FDFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = __RootObject_ /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "______Target_EasyInject";
+			remoteInfo = EasyInject;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		BA2027BC1D6C9DBA00B5C419 /* InjectionErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InjectionErrorTests.swift; sourceTree = "<group>"; };
+		BA736D4D1D6CAEA70045E862 /* AnyMutableInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyMutableInjectorTests.swift; sourceTree = "<group>"; };
+		BAD07A0D1D6BAD1300BEA97D /* LazyInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyInjectorTests.swift; sourceTree = "<group>"; };
+		BAD07A101D6BAE5A00BEA97D /* GlobalInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalInjectorTests.swift; sourceTree = "<group>"; };
+		BAD07A131D6BAE8B00BEA97D /* ComposedInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposedInjectorTests.swift; sourceTree = "<group>"; };
+		BAD07A151D6BAE9600BEA97D /* AnyInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyInjectorTests.swift; sourceTree = "<group>"; };
+		BADA3D461D6769810002FDFF /* StrictInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrictInjectorTests.swift; sourceTree = "<group>"; };
+		BADA3D491D676A590002FDFF /* MutableInjectorTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableInjectorTestCase.swift; sourceTree = "<group>"; };
 		__PBXFileRef_EasyInject.xcodeproj/Configs/Project.xcconfig /* EasyInject.xcodeproj/Configs/Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EasyInject.xcodeproj/Configs/Project.xcconfig; sourceTree = "<group>"; };
-		__PBXFileRef_EasyInject_Info.plist /* EasyInject.xcodeproj/EasyInject_Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = EasyInject.xcodeproj/EasyInject_Info.plist; sourceTree = SOURCE_ROOT; };
+		__PBXFileRef_EasyInject.xcworkspace /* EasyInject.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EasyInject.xcworkspace; sourceTree = "<group>"; };
 		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/AnyInjector.swift /* AnyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyInjector.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/ComposedInjector.swift /* ComposedInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposedInjector.swift; sourceTree = "<group>"; };
@@ -33,7 +62,12 @@
 		__PBXFileRef_Sources/LazyInjector.swift /* LazyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyInjector.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/StrictInjector.swift /* StrictInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrictInjector.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/StrictlyInjectedProvider.swift /* StrictlyInjectedProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrictlyInjectedProvider.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Tests/EasyInjectTests/AbstractInjectorTests.swift /* InjectorTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectorTestCase.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Tests/EasyInjectTests/EasyInjectTests.swift /* EasyInjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyInjectTests.swift; sourceTree = "<group>"; };
+		__PBXFileRef_build /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
+		__PBXFileRef_docs /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = "<group>"; };
 		"_____Product_EasyInject" /* EasyInject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EasyInject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"_____Product_EasyInjectTests" /* EasyInjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = EasyInjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,15 +78,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		"___LinkPhase_EasyInjectTests" /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				_LinkFileRef_EasyInject_via_EasyInjectTests /* EasyInject.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		TestProducts_ /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				"_____Product_EasyInjectTests" /* EasyInjectTests.xctest */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		"___RootGroup_" = {
 			isa = PBXGroup;
 			children = (
 				__PBXFileRef_Package.swift /* Package.swift */,
 				"_____Configs_" /* Configs */,
 				"_____Sources_" /* Sources */,
+				__PBXFileRef_build /* build */,
+				__PBXFileRef_docs /* docs */,
+				__PBXFileRef_EasyInject.xcworkspace /* EasyInject.xcworkspace */,
+				"_______Tests_" /* Tests */,
 				"____Products_" /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,6 +114,7 @@
 		"____Products_" /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				TestProducts_ /* Tests */,
 				"_____Product_EasyInject" /* EasyInject.framework */,
 			);
 			name = Products;
@@ -94,10 +149,35 @@
 				__PBXFileRef_Sources/LazyInjector.swift /* LazyInjector.swift */,
 				__PBXFileRef_Sources/StrictInjector.swift /* StrictInjector.swift */,
 				__PBXFileRef_Sources/StrictlyInjectedProvider.swift /* StrictlyInjectedProvider.swift */,
-				__PBXFileRef_EasyInject_Info.plist /* EasyInject.xcodeproj/EasyInject_Info.plist */,
 			);
 			name = EasyInject;
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		"_______Group_EasyInjectTests" /* EasyInjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				__PBXFileRef_Tests/EasyInjectTests/EasyInjectTests.swift /* EasyInjectTests.swift */,
+				__PBXFileRef_Tests/EasyInjectTests/AbstractInjectorTests.swift /* InjectorTestCase.swift */,
+				BADA3D491D676A590002FDFF /* MutableInjectorTestCase.swift */,
+				BADA3D461D6769810002FDFF /* StrictInjectorTests.swift */,
+				BAD07A0D1D6BAD1300BEA97D /* LazyInjectorTests.swift */,
+				BAD07A101D6BAE5A00BEA97D /* GlobalInjectorTests.swift */,
+				BAD07A131D6BAE8B00BEA97D /* ComposedInjectorTests.swift */,
+				BAD07A151D6BAE9600BEA97D /* AnyInjectorTests.swift */,
+				BA736D4D1D6CAEA70045E862 /* AnyMutableInjectorTests.swift */,
+				BA2027BC1D6C9DBA00B5C419 /* InjectionErrorTests.swift */,
+			);
+			name = EasyInjectTests;
+			path = Tests/EasyInjectTests;
+			sourceTree = "<group>";
+		};
+		"_______Tests_" /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				"_______Group_EasyInjectTests" /* EasyInjectTests */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +198,23 @@
 			productName = EasyInject;
 			productReference = "_____Product_EasyInject" /* EasyInject.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		"______Target_EasyInjectTests" /* EasyInjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = "_______Confs_EasyInjectTests" /* Build configuration list for PBXNativeTarget "EasyInjectTests" */;
+			buildPhases = (
+				CompilePhase_EasyInjectTests /* Sources */,
+				"___LinkPhase_EasyInjectTests" /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				__Dependency_EasyInject /* PBXTargetDependency */,
+			);
+			name = EasyInjectTests;
+			productName = EasyInjectTests;
+			productReference = "_____Product_EasyInjectTests" /* EasyInjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -140,6 +237,7 @@
 			projectRoot = "";
 			targets = (
 				"______Target_EasyInject" /* EasyInject */,
+				"______Target_EasyInjectTests" /* EasyInjectTests */,
 			);
 		};
 /* End PBXProject section */
@@ -162,7 +260,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CompilePhase_EasyInjectTests /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				BAD07A121D6BAE7200BEA97D /* GlobalInjectorTests.swift in Sources */,
+				BA736D4E1D6CAEA70045E862 /* AnyMutableInjectorTests.swift in Sources */,
+				BA2027BE1D6C9E3600B5C419 /* InjectionErrorTests.swift in Sources */,
+				__src_cc_ref_Tests/EasyInjectTests/AbstractInjectorTests.swift /* InjectorTestCase.swift in Sources */,
+				BAD07A161D6BAE9600BEA97D /* AnyInjectorTests.swift in Sources */,
+				__src_cc_ref_Tests/EasyInjectTests/EasyInjectTests.swift /* EasyInjectTests.swift in Sources */,
+				BADA3D4B1D676ABE0002FDFF /* MutableInjectorTestCase.swift in Sources */,
+				BAD07A141D6BAE8B00BEA97D /* ComposedInjectorTests.swift in Sources */,
+				BADA3D481D6769D40002FDFF /* StrictInjectorTests.swift in Sources */,
+				BAD07A0F1D6BAD5800BEA97D /* LazyInjectorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		__Dependency_EasyInject /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "______Target_EasyInject" /* EasyInject */;
+			targetProxy = BADA3D451D6769550002FDFF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		_ReleaseConf_EasyInject /* Release */ = {
@@ -177,6 +300,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = EasyInject;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+			};
+			name = Release;
+		};
+		_ReleaseConf_EasyInjectTests /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				INFOPLIST_FILE = EasyInject.xcodeproj/EasyInjectTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 			};
 			name = Release;
 		};
@@ -196,11 +331,24 @@
 			};
 			name = Debug;
 		};
+		"___DebugConf_EasyInjectTests" /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				INFOPLIST_FILE = EasyInject.xcodeproj/EasyInjectTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
 		"_____Release_" /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = __PBXFileRef_EasyInject.xcodeproj/Configs/Project.xcconfig /* EasyInject.xcodeproj/Configs/Project.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -208,7 +356,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = __PBXFileRef_EasyInject.xcodeproj/Configs/Project.xcconfig /* EasyInject.xcodeproj/Configs/Project.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -229,6 +377,15 @@
 			buildConfigurations = (
 				"___DebugConf_EasyInject" /* Debug */,
 				_ReleaseConf_EasyInject /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		"_______Confs_EasyInjectTests" /* Build configuration list for PBXNativeTarget "EasyInjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				"___DebugConf_EasyInjectTests" /* Debug */,
+				_ReleaseConf_EasyInjectTests /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

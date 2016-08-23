@@ -162,7 +162,7 @@ in order to &lsquo;replay&rsquo; it.</p>
                       <div class="abstract">
                         <p>When an error occured. 
 If the error was of type <code><a href="../Enums/InjectionError.html">InjectionError</a></code> it will be passed
-otherwise it will be wrapped in <code><a href="../Enums/InjectionError.html#/s:FO10EasyInject14InjectionError11customErroruRxs8HashablerFMGS0_x_FPs5Error_GS0_x_">InjectionError.customError</a></code>.</p>
+otherwise it will be wrapped in <code><a href="../Enums/InjectionError.html#/s:FO10EasyInject14InjectionError11customErroruRxs8HashablerFMGS0_x_FPs9ErrorType_GS0_x_">InjectionError.customError</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -243,10 +243,9 @@ otherwise it will be wrapped in <code><a href="../Enums/InjectionError.html#/s:F
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">I</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html">Injector</a></span><span class="o">&gt;</span><span class="p">(</span>
-        <span class="n">withInjector</span> <span class="nv">injector</span><span class="p">:</span> <span class="k">inout</span> <span class="kt">I</span><span class="p">,</span>
-        <span class="n">from</span> <span class="nv">factory</span><span class="p">:</span> <span class="p">(</span><span class="k">inout</span> <span class="kt">I</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span><span class="p">)</span>
-        <span class="k">where</span> <span class="kt">I</span><span class="o">.</span><span class="kt">Key</span> <span class="o">==</span> <span class="kt">K</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">I</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html">Injector</a></span> <span class="k">where</span> <span class="kt">I</span><span class="o">.</span><span class="kt">Key</span> <span class="o">==</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span>
+        <span class="k">inout</span> <span class="n">withInjector</span> <span class="nv">injector</span><span class="p">:</span> <span class="kt">I</span><span class="p">,</span>
+        <span class="n">from</span> <span class="nv">factory</span><span class="p">:</span> <span class="p">(</span><span class="k">inout</span> <span class="kt">I</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -289,9 +288,9 @@ otherwise it will be wrapped in <code><a href="../Enums/InjectionError.html#/s:F
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFO10EasyInject28InjectedProviderResolveState4fromuRd__S_8Injectorxzwd__3KeyrFT7factoryFzRqd__PS_10Providable_3forRqd___GS0_x_"></a>
-                    <a name="//apple_ref/swift/Method/from(factory:for:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFO10EasyInject28InjectedProviderResolveState4fromuRd__S_8Injectorxzwd__3KeyrFT7factoryFzRqd__PS_10Providable_3forRqd___GS0_x_">from(factory:for:)</a>
+                    <a name="/s:ZFO10EasyInject28InjectedProviderResolveState4fromuRd__S_8Injectorxzwd__3KeyrFTFzRqd__PS_10Providable_3forRqd___GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/from(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFO10EasyInject28InjectedProviderResolveState4fromuRd__S_8Injectorxzwd__3KeyrFTFzRqd__PS_10Providable_3forRqd___GS0_x_">from(_:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -315,7 +314,7 @@ otherwise it will be wrapped in <code><a href="../Enums/InjectionError.html#/s:F
 
 <div class="aside aside-returns">
     <p class="aside-title">Returns</p>
-    <code><a href="../Enums/InjectedProviderResolveState.html#/s:FO10EasyInject28InjectedProviderResolveState7failureuRxs8HashablerFMGS0_x_FGOS_14InjectionErrorx_GS0_x_">InjectedProviderResolveState.failure</a></code> when factory throwed, 
+    <code><a href="../Enums/InjectedProviderResolveState.html#/s:FO10EasyInject28InjectedProviderResolveState7failureuRxs8HashablerFMGS0_x_FGOS_14InjectionErrorx_GS0_x_">InjectedProviderResolveState.failure</a></code> when factory throwed,
 <code><a href="../Enums/InjectedProviderResolveState.html#/s:FO10EasyInject28InjectedProviderResolveState7successuRxs8HashablerFMGS0_x_FPS_10Providable_GS0_x_">InjectedProviderResolveState.success</a></code> otherwise.
 
 </div>
@@ -325,9 +324,9 @@ otherwise it will be wrapped in <code><a href="../Enums/InjectionError.html#/s:F
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">from</span><span class="o">&lt;</span><span class="kt">I</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html">Injector</a></span><span class="o">&gt;</span><span class="p">(</span>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="n">from</span><span class="o">&lt;</span><span class="kt">I</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html">Injector</a></span> <span class="k">where</span> <span class="kt">I</span><span class="o">.</span><span class="kt">Key</span> <span class="o">==</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span>
         <span class="nv">factory</span><span class="p">:</span> <span class="p">(</span><span class="k">inout</span> <span class="kt">I</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span><span class="p">,</span>
-        <span class="k">for</span> <span class="nv">injector</span><span class="p">:</span> <span class="k">inout</span> <span class="kt">I</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">InjectedProviderResolveState</span> <span class="k">where</span> <span class="kt">I</span><span class="o">.</span><span class="kt">Key</span> <span class="o">==</span> <span class="kt">K</span></code></pre>
+        <span class="k">inout</span> <span class="k">for</span> <span class="nv">injector</span><span class="p">:</span> <span class="kt">I</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">InjectedProviderResolveState</span></code></pre>
 
                         </div>
                       </div>
@@ -410,7 +409,7 @@ otherwise it will be wrapped in <code><a href="../Enums/InjectionError.html#/s:F
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">resolve</span><span class="o">&lt;</span><span class="kt">I</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html">Injector</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">withInjector</span> <span class="nv">injector</span><span class="p">:</span> <span class="k">inout</span> <span class="kt">I</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span> <span class="k">where</span> <span class="kt">I</span><span class="o">.</span><span class="kt">Key</span> <span class="o">==</span> <span class="kt">K</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">resolve</span><span class="o">&lt;</span><span class="kt">I</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html">Injector</a></span> <span class="k">where</span> <span class="kt">I</span><span class="o">.</span><span class="kt">Key</span> <span class="o">==</span> <span class="kt">K</span><span class="o">&gt;</span><span class="p">(</span><span class="k">inout</span> <span class="n">withInjector</span> <span class="nv">injector</span><span class="p">:</span> <span class="kt">I</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols.html#/s:P10EasyInject10Providable">Providable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -450,7 +449,7 @@ otherwise it will be wrapped in <code><a href="../Enums/InjectionError.html#/s:F
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-08-16)</p>
+      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-08-23)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -129,10 +129,10 @@
         <section class="section">
           <div class="section-content">
             
-            <p><a href=""><img src="https://img.shields.io/cocoapods/v/EasyInject.svg?maxAge=2592000?style=flat-square" alt="CocoaPods"></a>
-<a href=""><img src="https://img.shields.io/cocoapods/p/EasyInject.svg?maxAge=2592000?style=flat-square" alt="CocoaPods"></a>
+            <p><a href=""><img src="https://img.shields.io/cocoapods/v/EasyInject.svg?maxAge=2592000&amp;style=flat-square" alt="CocoaPods"></a>
+<a href=""><img src="https://img.shields.io/cocoapods/p/EasyInject.svg?maxAge=2592000&amp;style=flat-square" alt="CocoaPods"></a>
 <a href=""><img src="https://img.shields.io/badge/install-SwiftPM%20%7C%20Carthage%20%7C%20Cocoapods-lightgrey.svg?style=flat-square" alt="Install"></a>
-<a href=""><img src="https://img.shields.io/cocoapods/l/EasyInject.svg?maxAge=2592000?style=flat-square" alt="License"></a></p>
+<a href=""><img src="https://img.shields.io/cocoapods/l/EasyInject.svg?maxAge=2592000&amp;style=flat-square" alt="License"></a></p>
 <a href='#easyinject' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='easyinject'>EasyInject</h1>
 
 <p>EasyInject is designed to be an easy to use, lightweight composition and dependency injection library.
@@ -141,25 +141,26 @@ Instead of injecting instances for specific types, you provide instances for key
 <p>Check out the generated docs at <a href="https://vknabel.github.io/EasyInject/">vknabel.github.io/EasyInject</a>.</p>
 <a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
 
-<p>EasyInject is a Swift only project and supports <a href="https://github.com/apple/swift-package-manager">Swift Package Manager</a>, <a href="https://github.com/Carthage/Carthage">Carthage</a> and <a href="https://github.com/CocoaPods/CocoaPods">CocoaPods</a>.</p>
+<p>EasyInject is a Swift only project and supports <a href="https://github.com/apple/swift-package-manager">Swift Package Manager</a>, <a href="https://github.com/Carthage/Carthage">Carthage</a> and <a href="https://github.com/CocoaPods/CocoaPods">CocoaPods</a>.
+As long as EasyInject hasn&rsquo;t reached version 1.0.0, each minor release will be a breaking release, whereas patch level releases will only include bugfixes and API additions.</p>
 <a href='#swift-package-manager' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='swift-package-manager'>Swift Package Manager</h3>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">PackageDescription</span>
 
 <span class="k">let</span> <span class="nv">package</span> <span class="o">=</span> <span class="kt">Package</span><span class="p">(</span>
     <span class="nv">name</span><span class="p">:</span> <span class="s">"YourPackage"</span><span class="p">,</span>
     <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
-        <span class="o">.</span><span class="kt">Package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/vknabel/EasyInject.git"</span><span class="p">,</span> <span class="nv">majorVersion</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">minor</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="o">.</span><span class="kt">Package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/vknabel/EasyInject.git"</span><span class="p">,</span> <span class="nv">majorVersion</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">minor</span><span class="p">:</span> <span class="mi">7</span><span class="p">)</span>
     <span class="p">]</span>
 <span class="p">)</span>
 </code></pre>
 <a href='#carthage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='carthage'>Carthage</h3>
-<pre class="highlight ruby"><code><span class="n">github</span> <span class="s2">"vknabel/EasyInject"</span> <span class="o">~&gt;</span> <span class="mi">0</span><span class="o">.</span><span class="mi">5</span>
+<pre class="highlight ruby"><code><span class="n">github</span> <span class="s2">"vknabel/EasyInject"</span> <span class="o">~&gt;</span> <span class="mi">0</span><span class="o">.</span><span class="mi">7</span>
 </code></pre>
 <a href='#cocoapods' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='cocoapods'>CocoaPods</h3>
 <pre class="highlight ruby"><code><span class="n">source</span> <span class="s1">'https://github.com/CocoaPods/Specs.git'</span>
 <span class="n">use_frameworks!</span>
 
-<span class="n">pod</span> <span class="s1">'EasyInject'</span><span class="p">,</span> <span class="s1">'~&gt; 0.5'</span>
+<span class="n">pod</span> <span class="s1">'EasyInject'</span><span class="p">,</span> <span class="s1">'~&gt; 0.7'</span>
 </code></pre>
 <a href='#introduction' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='introduction'>Introduction</h2>
 
@@ -334,7 +335,7 @@ The call <code>.resolve(from:)</code> will target the <code>.left</code> <code>I
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-08-16)</p>
+      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-08-23)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

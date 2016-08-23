@@ -203,7 +203,7 @@ typealias Error = ErrorType
 
 /// Errors, that may occur while resolving from a `Provider`.
 /// - ToDo: Implement `case cyclicDependency`
-public enum InjectionError<Key: ProvidableKey>: Error {
+public enum InjectionError<Key: ProvidableKey>: Error, Equatable {
     #if swift(>=3.0)
     #else
     public typealias Error = ErrorType
@@ -219,8 +219,22 @@ public enum InjectionError<Key: ProvidableKey>: Error {
     /// Any specific Error that may occur in your custom implementations.
     /// Will not be thrown by built-in `Injector`s.
     case customError(Error)
+}
 
-    /// The internal `InjectedProvider` has the wrong type.
-    /// This is likely a bug in the framework.
-    case invalidInjection(key: Key, injected: Any, expected: Any.Type)
+/// Tests for equality.
+/// Ignores: 
+///     - `InjectionError.nonMatchingType(provided:expected:)`'s expected
+///     - `InjectionError.customError(_)`'s parameter
+/// :nodoc:
+public func ==<K: ProvidableKey>(lhs: InjectionError<K>, rhs: InjectionError<K>) -> Bool {
+    switch (lhs, rhs) {
+    case let (.keyNotProvided(lk), .keyNotProvided(rk)):
+        return lk == rk
+    case let (.nonMatchingType(_, le), .nonMatchingType(_, re)):
+        return le == re
+    case (.customError(_), .customError(_)):
+        return true
+    default:
+        return false
+    }
 }

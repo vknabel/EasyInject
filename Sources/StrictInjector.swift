@@ -11,9 +11,7 @@ public struct StrictInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjec
     public mutating func resolve(key: Key) throws -> Providable {
         guard let untyped = strictProviders[key]
             else { throw InjectionError<Key>.keyNotProvided(key) }
-        guard let typed = untyped as? StrictlyInjectedProvider<StrictInjector>
-            else { throw InjectionError<Key>
-                .invalidInjection(key: key, injected: untyped, expected: StrictlyInjectedProvider<StrictInjector>.self) }
+        let typed = untyped as! StrictlyInjectedProvider<StrictInjector>
         return try typed.resolve(withInjector: &self)
     }
     #else
@@ -21,9 +19,7 @@ public struct StrictInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjec
     public mutating func resolve(key key: Key) throws -> Providable {
         guard let untyped = strictProviders[key]
             else { throw InjectionError<Key>.keyNotProvided(key) }
-        guard let typed = untyped as? StrictlyInjectedProvider<StrictInjector>
-            else { throw InjectionError<Key>
-                .invalidInjection(key: key, injected: untyped, expected: StrictlyInjectedProvider<StrictInjector>.self) }
+        let typed = untyped as! StrictlyInjectedProvider<StrictInjector>
         return try typed.resolve(withInjector: &self)
     }
     #endif

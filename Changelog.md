@@ -1,3 +1,23 @@
+# 0.7.0
+
+*Released: 23/08/2016*
+
+**Breaking Changes:**
+
+- `ComposedInjector` throws an aggregated `InjectionError.keyNotFound(_)` as expected - @vknabel
+- Removed enum case `InjectionError.invalidInjection(key:injected:expected:)` - @vknabel
+
+**API Additions:**
+
+- Added convenience `GlobalInjector.init()` - @vknabel
+- Added `Injector.revoking(for:)` that takes a `Provider` - @vknabel
+- Added `Injector.revoke(for:)` that takes a `Provider` - @vknabel
+
+**Other Changes:**
+
+- Added Unit Tests - @vknabel
+- Set up Travis CI - @vknabel
+
 # 0.6.0
 *Released: 16/08/2016*
 
@@ -7,7 +27,7 @@
 
 **Other Changes:**
 
-- Fixes some warnings in Swift 2 and 3
+- Fixes some warnings in Swift 2 and 3 - @vknabel
 
 # 0.5.0
 *Released: 10/08/2016*
