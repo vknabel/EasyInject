@@ -9,7 +9,7 @@
 import XCTest
 
 #if os(Linux)
-public func allTests() -> [XCTestCaseEntry] {
+public func allTests() -> [(String, (XCTestCase) -> () -> Void)] {
     return [
         testCase(StrictInjectorTests.allTests),
         testCase(LazyInjectorTests.allTests),
