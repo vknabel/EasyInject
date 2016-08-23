@@ -7,16 +7,13 @@
 //
 
 import XCTest
-@testable import EasyInject
 
-class EasyInjectTests: XCTestCase, InjectorTestCase {
-    var newInjector: () -> StrictInjector<String> {
-        return StrictInjector.init
-    }
-
-    static var allTests : [(String, (EasyInjectTests) -> () throws -> Void)] {
-        return [
-            //("testInjectorConformance", testInjectorConformance),
-        ]
-    }
+#if !os(macOS)
+public func allTests() -> [XCTestCaseEntry] {
+    return StrictInjectorTests.allTests
+        + LazyInjectorTests.allTests
+        + GlobalInjectorTests.allTests
+        + ComposedInjectorTests.allTests
+        + AnyInjectorTests.allTests
 }
+#endif

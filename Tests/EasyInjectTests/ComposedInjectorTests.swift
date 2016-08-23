@@ -13,6 +13,11 @@ class ComposedInjectorTests: XCTestCase, InjectorTestCase, MutableInjectorTestCa
     var newInjector: () -> ComposedInjector<String> {
         return { LazyInjector().compose(StrictInjector()) }
     }
+    
+    static var allTests = [
+        ("testInjectorConformance", testInjectorConformance),
+        ("testMutableInjectorConformance", testMutableInjectorConformance)
+    ]
 
     func testInjectorConformance() {
         runInjectorTestCase()

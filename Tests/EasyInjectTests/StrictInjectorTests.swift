@@ -14,6 +14,15 @@ class StrictInjectorTests: XCTestCase, InjectorTestCase, MutableInjectorTestCase
         return StrictInjector.init
     }
 
+    static var allTests = [
+        ("testInjectorConformance", testInjectorConformance),
+        ("testMutableInjectorConformance", testMutableInjectorConformance),
+        ("testStrictnessOfProvide", testStrictnessOfProvide),
+        ("testStrictnessOfProviding", testStrictnessOfProviding),
+        ("testExecuteExactlyOnceForProvide", testExecuteExactlyOnceForProvide),
+        ("testExecuteExactlyOnceForProviding", testExecuteExactlyOnceForProviding)
+    ]
+
     func testInjectorConformance() {
         runInjectorTestCase()
     }

@@ -14,6 +14,11 @@ class GlobalInjectorTests: XCTestCase, InjectorTestCase, MutableInjectorTestCase
         return GlobalInjector.init
     }
 
+    static var allTests = [
+        ("testInjectorConformance", testInjectorConformance),
+        ("testMutableInjectorConformance", testMutableInjectorConformance)
+    ]
+
     func testInjectorConformance() {
         runInjectorTestCase()
     }

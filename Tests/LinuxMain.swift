@@ -3,5 +3,5 @@ import XCTest
 import EasyInjectTests
 
 XCTMain([
-    testCase(EasyInjectTests.EasyInjectTests.allTests.allTests),
+    testCase(EasyInjectTests.allTests.allTests),
 ])

@@ -14,6 +14,11 @@ class LazyInjectorTests: XCTestCase, InjectorTestCase, MutableInjectorTestCase {
         return LazyInjector.init
     }
 
+    static var allTests = [
+        ("testInjectorConformance", testInjectorConformance),
+        ("testMutableInjectorConformance", testMutableInjectorConformance)
+    ]
+
     func testInjectorConformance() {
         runInjectorTestCase()
     }

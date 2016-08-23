@@ -14,6 +14,11 @@ class AnyInjectorTests: XCTestCase, InjectorTestCase, MutableInjectorTestCase {
         return StrictInjector().erased
     }
 
+    static var allTests = [
+        ("testInjectorConformance", testInjectorConformance),
+        ("testMutableInjectorConformance", testMutableInjectorConformance)
+    ]
+
     func testInjectorConformance() {
         runInjectorTestCase()
     }
