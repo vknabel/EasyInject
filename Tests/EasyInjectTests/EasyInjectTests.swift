@@ -7,15 +7,17 @@
 //
 
 import XCTest
+var x = []
+x += 3
 
 #if os(Linux)
 public func allTests() -> [XCTestCaseEntry] {
-    var entries: [XCTestCaseEntry] = []
-    entries += StrictInjectorTests.allTests
-    entries += LazyInjectorTests.allTests
-    entries += GlobalInjectorTests.allTests
-    entries += ComposedInjectorTests.allTests
-    entries += AnyInjectorTests.allTests
-    return entries
+    return [
+        testCase(StrictInjectorTests.allTests),
+        testCase(LazyInjectorTests.allTests),
+        testCase(GlobalInjectorTests.allTests),
+        testCase(ComposedInjectorTests.allTests),
+        testCase(AnyInjectorTests.allTests)
+    ]
 }
 #endif
