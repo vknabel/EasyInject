@@ -15,7 +15,7 @@ matrix:
       osx_image: xcode7.3
       language: objective-c
       xcode_project: EasyInject.xcodeproj
-      xcode_scheme: EasyInjectTests
+      xcode_scheme: EasyInject
       env: SWIFT_VERSION=2.2
 
     - os: linux
