@@ -225,6 +225,7 @@ public enum InjectionError<Key: ProvidableKey>: Error, Equatable {
 /// Ignores: 
 ///     - `InjectionError.nonMatchingType(provided:expected:)`'s expected
 ///     - `InjectionError.customError(_)`'s parameter
+/// :nodoc:
 public func ==<K: ProvidableKey>(lhs: InjectionError<K>, rhs: InjectionError<K>) -> Bool {
     switch (lhs, rhs) {
     case let (.keyNotProvided(lk), .keyNotProvided(rk)):
