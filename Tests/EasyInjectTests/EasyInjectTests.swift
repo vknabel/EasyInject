@@ -8,14 +8,14 @@
 
 import XCTest
 
-#if !os(macOS)
+#if os(Linux)
 public func allTests() -> [XCTestCaseEntry] {
-    let entries: [XCTestCaseEntry] = []
+    var entries: [XCTestCaseEntry] = []
+    entries += StrictInjectorTests.allTests
+    entries += LazyInjectorTests.allTests
+    entries += GlobalInjectorTests.allTests
+    entries += ComposedInjectorTests.allTests
+    entries += AnyInjectorTests.allTests
     return entries
-        + StrictInjectorTests.allTests
-        + LazyInjectorTests.allTests
-        + GlobalInjectorTests.allTests
-        + ComposedInjectorTests.allTests
-        + AnyInjectorTests.allTests
 }
 #endif
