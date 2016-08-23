@@ -81,3 +81,10 @@ public final class GlobalInjector<K: ProvidableKey>: InjectorDerivingFromMutable
         return injector.providedKeys
     }
 }
+
+public extension GlobalInjector {
+    /// Creates a strict global injector.
+    public convenience init() {
+        self.init(injector: StrictInjector())
+    }
+}

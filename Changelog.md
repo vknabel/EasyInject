@@ -1,3 +1,20 @@
+# 0.6.1
+
+*Released: 23/08/2016*
+
+**Breaking Changes:**
+
+- `ComposedInjector` throws an aggregated `InjectionError.keyNotFound(_)` as expected - @vknabel
+
+**API Additions:**
+
+- Added convenience `GlobalInjector.init()` - @vknabel
+
+**Other Changes:**
+
+- Added Unit Tests - @vknabel
+- Set up Travis CI - @vknabel
+
 # 0.6.0
 *Released: 16/08/2016*
 

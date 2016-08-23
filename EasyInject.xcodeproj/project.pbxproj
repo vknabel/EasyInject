@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BAD07A0F1D6BAD5800BEA97D /* LazyInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A0D1D6BAD1300BEA97D /* LazyInjectorTests.swift */; };
+		BAD07A121D6BAE7200BEA97D /* GlobalInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A101D6BAE5A00BEA97D /* GlobalInjectorTests.swift */; };
+		BAD07A141D6BAE8B00BEA97D /* ComposedInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A131D6BAE8B00BEA97D /* ComposedInjectorTests.swift */; };
+		BAD07A161D6BAE9600BEA97D /* AnyInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A151D6BAE9600BEA97D /* AnyInjectorTests.swift */; };
 		BADA3D481D6769D40002FDFF /* StrictInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA3D461D6769810002FDFF /* StrictInjectorTests.swift */; };
 		BADA3D4B1D676ABE0002FDFF /* MutableInjectorTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADA3D491D676A590002FDFF /* MutableInjectorTestCase.swift */; };
 		_LinkFileRef_EasyInject_via_EasyInjectTests /* EasyInject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_EasyInject" /* EasyInject.framework */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BAD07A0D1D6BAD1300BEA97D /* LazyInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyInjectorTests.swift; sourceTree = "<group>"; };
+		BAD07A101D6BAE5A00BEA97D /* GlobalInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalInjectorTests.swift; sourceTree = "<group>"; };
+		BAD07A131D6BAE8B00BEA97D /* ComposedInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposedInjectorTests.swift; sourceTree = "<group>"; };
+		BAD07A151D6BAE9600BEA97D /* AnyInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyInjectorTests.swift; sourceTree = "<group>"; };
 		BADA3D461D6769810002FDFF /* StrictInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrictInjectorTests.swift; sourceTree = "<group>"; };
 		BADA3D491D676A590002FDFF /* MutableInjectorTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableInjectorTestCase.swift; sourceTree = "<group>"; };
 		__PBXFileRef_EasyInject.xcodeproj/Configs/Project.xcconfig /* EasyInject.xcodeproj/Configs/Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = EasyInject.xcodeproj/Configs/Project.xcconfig; sourceTree = "<group>"; };
@@ -149,6 +157,10 @@
 				BADA3D491D676A590002FDFF /* MutableInjectorTestCase.swift */,
 				__PBXFileRef_Tests/EasyInjectTests/EasyInjectTests.swift /* EasyInjectTests.swift */,
 				BADA3D461D6769810002FDFF /* StrictInjectorTests.swift */,
+				BAD07A0D1D6BAD1300BEA97D /* LazyInjectorTests.swift */,
+				BAD07A101D6BAE5A00BEA97D /* GlobalInjectorTests.swift */,
+				BAD07A131D6BAE8B00BEA97D /* ComposedInjectorTests.swift */,
+				BAD07A151D6BAE9600BEA97D /* AnyInjectorTests.swift */,
 			);
 			name = EasyInjectTests;
 			path = Tests/EasyInjectTests;
@@ -246,10 +258,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				BAD07A121D6BAE7200BEA97D /* GlobalInjectorTests.swift in Sources */,
 				__src_cc_ref_Tests/EasyInjectTests/AbstractInjectorTests.swift /* InjectorTestCase.swift in Sources */,
+				BAD07A161D6BAE9600BEA97D /* AnyInjectorTests.swift in Sources */,
 				__src_cc_ref_Tests/EasyInjectTests/EasyInjectTests.swift /* EasyInjectTests.swift in Sources */,
 				BADA3D4B1D676ABE0002FDFF /* MutableInjectorTestCase.swift in Sources */,
+				BAD07A141D6BAE8B00BEA97D /* ComposedInjectorTests.swift in Sources */,
 				BADA3D481D6769D40002FDFF /* StrictInjectorTests.swift in Sources */,
+				BAD07A0F1D6BAD5800BEA97D /* LazyInjectorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

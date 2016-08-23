@@ -58,8 +58,7 @@ public struct ComposedInjector<K: ProvidableKey>: InjectorDerivingFromMutableInj
             do {
                 return try resolveRight(key: key)
             } catch let rightError {
-                let composedError = ComposedInjectionError<Key>.composed(leftError, rightError)
-                throw InjectionError<Key>.customError(composedError)
+                throw ComposedInjector<Key>.rethrowResolvingErrors(forKey: key, left: leftError, right: rightError)
             }
         }
     }
@@ -72,12 +71,39 @@ public struct ComposedInjector<K: ProvidableKey>: InjectorDerivingFromMutableInj
             do {
                 return try resolveRight(key: key)
             } catch let rightError {
-                let composedError = ComposedInjectionError<Key>.composed(leftError, rightError)
-                throw InjectionError<Key>.customError(composedError)
+                throw ComposedInjector<Key>.rethrowResolvingErrors(forKey: key, left: leftError, right: rightError)
             }
         }
     }
     #endif
+
+    /// Aggregates two resolve errors into one single error. 
+    ///
+    /// - Parameter forKey: The key that could not be resolved.
+    /// - Parameter leftError: The error thrown by `ComposedInjector.left`.
+    /// - Parameter rightError: The error thrown by `ComposedInjector.right`.
+    /// - Returns: The error that shall be thrown.
+    private static func rethrowResolvingErrors(forKey key: Key, left leftError: Error, right rightError: Error) -> Error {
+        switch (leftError, rightError) {
+        case (InjectionError<Key>.keyNotProvided(_), InjectionError<Key>.keyNotProvided(_)):
+            return InjectionError<Key>.keyNotProvided(key)
+        case (InjectionError<Key>.keyNotProvided(_), _):
+            if let rightError = rightError as? InjectionError<Key> {
+                return rightError
+            } else {
+                return InjectionError<Key>.customError(rightError)
+            }
+        case (_, InjectionError<Key>.keyNotProvided(_)):
+            if let leftError = leftError as? InjectionError<Key> {
+                return leftError
+            } else {
+                return InjectionError<Key>.customError(leftError)
+            }
+        default:
+            let composedError = ComposedInjectionError<Key>.composed(leftError, rightError)
+            return InjectionError<Key>.customError(composedError)
+        }
+    }
 
 
     #if swift(>=3.0)
