@@ -11,6 +11,7 @@ Check out the generated docs at [vknabel.github.io/EasyInject](https://vknabel.g
 
 ## Installation
 EasyInject is a Swift only project and supports [Swift Package Manager](https://github.com/apple/swift-package-manager), [Carthage](https://github.com/Carthage/Carthage) and [CocoaPods](https://github.com/CocoaPods/CocoaPods).
+As long as EasyInject hasn't reached version 1.0.0, each minor release will be a breaking release, whereas patch level releases will only include bugfixes and API additions.
 
 ### Swift Package Manager
 
@@ -20,7 +21,7 @@ import PackageDescription
 let package = Package(
     name: "YourPackage",
     dependencies: [
-        .Package(url: "https://github.com/vknabel/EasyInject.git", majorVersion: 0, minor: 6)
+        .Package(url: "https://github.com/vknabel/EasyInject.git", majorVersion: 0, minor: 7)
     ]
 )
 ```
@@ -28,7 +29,7 @@ let package = Package(
 ### Carthage
 
 ```ruby
-github "vknabel/EasyInject" ~> 0.6
+github "vknabel/EasyInject" ~> 0.7
 ```
 
 ### CocoaPods
@@ -37,7 +38,7 @@ github "vknabel/EasyInject" ~> 0.6
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-pod 'EasyInject', '~> 0.6'
+pod 'EasyInject', '~> 0.7'
 ```
 
 ## Introduction
