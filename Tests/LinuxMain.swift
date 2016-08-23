@@ -2,6 +2,6 @@ import XCTest
 @testable import EasyInject
 import EasyInjectTests
 
-XCTMain([
-    testCase(EasyInjectTests.allTests())
-])
+var tests = [XCTestCaseEntry]()
+tests += EasyInjectTests.allTests()
+XCTMain(tests)
