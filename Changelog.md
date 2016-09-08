@@ -1,3 +1,10 @@
+# 0.8.0
+*Released: 2016-09-08*
+
+**Breaking Changes:**
+
+- Dropped Swift 2.x Support - @vknabel
+
 # 0.7.0
 
 *Released: 23/08/2016*

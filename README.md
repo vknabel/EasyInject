@@ -21,7 +21,7 @@ import PackageDescription
 let package = Package(
     name: "YourPackage",
     dependencies: [
-        .Package(url: "https://github.com/vknabel/EasyInject.git", majorVersion: 0, minor: 7)
+        .Package(url: "https://github.com/vknabel/EasyInject.git", majorVersion: 0, minor: 8)
     ]
 )
 ```
@@ -29,7 +29,7 @@ let package = Package(
 ### Carthage
 
 ```ruby
-github "vknabel/EasyInject" ~> 0.7
+github "vknabel/EasyInject" ~> 0.8
 ```
 
 ### CocoaPods
@@ -38,7 +38,7 @@ github "vknabel/EasyInject" ~> 0.7
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-pod 'EasyInject', '~> 0.7'
+pod 'EasyInject', '~> 0.8'
 ```
 
 ## Introduction

@@ -11,13 +11,6 @@ matrix:
         - swift build
         - swift test
 
-    - os: osx
-      osx_image: xcode7.3
-      language: objective-c
-      xcode_project: EasyInject.xcodeproj
-      xcode_scheme: EasyInject
-      env: SWIFT_VERSION=2.2
-
     - os: linux
       env: SWIFT_VERSION=3.0-PREVIEW-6
       install:

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EasyInject'
-  s.version          = '0.7.0'
+  s.version          = '0.8.0'
   s.summary          = 'A lightweight composition and dependency injection framework for Swift.'
   s.description      = <<-DESC
 EasyInject is designed to be an easy to use, lightweight composition and dependency injection library. Instead of injecting instances for specific types, you provide instances for keys, without losing any type information. This enables its Injectors to be used as a composable, dynamic and typesafe data structure. It may be comparable with a Dictionary that may contain several types, without losing type safety.
