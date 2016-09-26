@@ -348,7 +348,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = __PBXFileRef_EasyInject.xcodeproj/Configs/Project.xcconfig /* EasyInject.xcodeproj/Configs/Project.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -356,7 +356,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = __PBXFileRef_EasyInject.xcodeproj/Configs/Project.xcconfig /* EasyInject.xcodeproj/Configs/Project.xcconfig */;
 			buildSettings = {
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};

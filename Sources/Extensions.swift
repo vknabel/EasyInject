@@ -14,7 +14,6 @@ public extension MutableInjector {
         return AnyInjector(injector: self)
     }
 
-    #if swift(>=3.0)
     /// Composes `self` with another given `MutableInjector`.
     ///
     /// - Parameter right: The secondary `MutableInjector`.
@@ -22,15 +21,6 @@ public extension MutableInjector {
     func compose<I: MutableInjector>(_ right: I) -> ComposedInjector<Key> where I.Key == Key {
         return ComposedInjector(left: self, right: right)
     }
-    #else
-    /// Composes `self` with another given `MutableInjector`.
-    ///
-    /// - Parameter right: The secondary `MutableInjector`.
-    /// - Returns: `AnyInjector` that wraps `self`.
-    func compose<I: MutableInjector where I.Key == Key>(right: I) -> ComposedInjector<Key> {
-        return ComposedInjector(left: self, right: right)
-    }
-    #endif
 }
 
 public extension Injector {
@@ -48,7 +38,6 @@ public extension Injector {
         return AnyInjector(injector: self)
     }
 
-    #if swift(>=3.0)
     /// Composes `self` with another given `Injector`.
     ///
     /// - Parameter right: The secondary `Injector`.
@@ -56,13 +45,4 @@ public extension Injector {
     func composed<I: Injector>(_ right: I) -> ComposedInjector<Key> where I.Key == Key {
         return ComposedInjector(left: self, right: right)
     }
-    #else
-    /// Composes `self` with another given `Injector`.
-    ///
-    /// - Parameter right: The secondary `Injector`.
-    /// - Returns: `AnyInjector` that wraps `self`.
-    func composed<I: Injector where I.Key == Key>(right: I) -> ComposedInjector<Key> {
-        return ComposedInjector(left: self, right: right)
-    }
-    #endif
 }

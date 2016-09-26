@@ -16,7 +16,6 @@ public extension Injector {
         }
     }
 
-    #if swift(>=3.0)
     /**
      Creates an instance providing a value as a factory for a given `Provider`.
 
@@ -31,22 +30,6 @@ public extension Injector {
         usingFactory factory: @escaping (inout Self) throws -> Value) -> Self {
         return providing(key: provider.key, usingFactory: factory)
     }
-    #else
-    /**
-     Creates an instance providing a value as a factory for a given `Provider`.
-
-     - ToDo: Improve markup for `factory`'s parameter
-
-     - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
-     - Parameter factory: Creates a value out of a new `Injector`.
-     - Returns: A new `Injector` with contents of `self` and the newly provided value.
-     */
-    func providing<Value: Providable>(
-        for provider: Provider<Key, Value>,
-            usingFactory factory: (inout Self) throws -> Value) -> Self {
-        return providing(key: provider.key, usingFactory: factory)
-    }
-    #endif
 
     /// Revokes the value of a given provider.
     ///
@@ -61,7 +44,6 @@ public extension Injector {
         return self
     }
 
-    #if swift(>=3.0)
     /// Determines wether a specific key has been provided.
     ///
     /// - Parameter key: The key that shall be tested for.
@@ -69,19 +51,9 @@ public extension Injector {
     func contains(_ key: Key) -> Bool {
         return providedKeys.contains(key)
     }
-    #else
-    /// Determines wether a specific key has been provided.
-    ///
-    /// - Parameter key: The key that shall be tested for.
-    /// - Returns: true if provided. Will also return true if the key cannot be resolved properly.
-    func contains(key: Key) -> Bool {
-        return providedKeys.contains(key)
-    }
-    #endif
 }
 
 public extension MutableInjector {
-    #if swift(>=3.0)
     /**
      Additionally provides a value given as a factory for a given `Provider`.
 
@@ -93,19 +65,6 @@ public extension MutableInjector {
         (for provider: Provider<Key, Value>, usingFactory factory: @escaping (inout Self) throws -> Value) {
         provide(key: provider.key, usingFactory: factory)
     }
-    #else
-    /**
-     Additionally provides a value given as a factory for a given `Provider`.
-
-     - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
-     - Parameter factory: Creates a value out of a new `Injector`.
-     */
-    mutating func provide
-        <Value: Providable>
-        (for provider: Provider<Key, Value>, usingFactory factory: (inout Self) throws -> Value) {
-        provide(key: provider.key, usingFactory: factory)
-    }
-    #endif
 
     /// Revokes the value of a given provider.
     ///
@@ -148,7 +107,6 @@ public protocol InjectorDerivingFromMutableInjector: MutableInjector {
 }
 
 public extension InjectorDerivingFromMutableInjector {
-    #if swift(>=3.0)
     /// Implements `Injector.providing(key:usingFactory:)` 
     /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.provide(key:usingFactory:)`.
     public func providing(key: Self.Key, usingFactory factory: @escaping (inout Self) throws -> Providable) -> Self {
@@ -156,33 +114,14 @@ public extension InjectorDerivingFromMutableInjector {
         copy.provide(key: key, usingFactory: { this in try factory(&this) })
         return copy
     }
-    #else
-    /// Implements `Injector.providing(key:usingFactory:)`
-    /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.provide(key:usingFactory:)`.
-    public func providing(key key: Self.Key, usingFactory factory: (inout Self) throws -> Providable) -> Self {
-        var copy = self.copy()
-        copy.provide(key: key, usingFactory: { this in try factory(&this) })
-        return copy
-    }
-    #endif
 
-    #if swift(>=3.0)
     /// Implements `Injector.resolving(key:)`
     /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.resolve(key:)`.
     public func resolving(key: Self.Key) throws -> Providable {
         var copy = self.copy()
         return try copy.resolve(key: key)
     }
-    #else
-    /// Implements `Injector.resolving(key:)`
-    /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.resolve(key:)`.
-    public func resolving(key key: Self.Key) throws -> Providable {
-        var copy = self.copy()
-        return try copy.resolve(key: key)
-    }
-    #endif
 
-    #if swift(>=3.0)
     /// Implements `Injector.revoking(key:)`
     /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.revoke(key:)`.
     public func revoking(key: Self.Key) -> Self {
@@ -190,19 +129,9 @@ public extension InjectorDerivingFromMutableInjector {
         copy.revoke(key: key)
         return copy
     }
-    #else
-    /// Implements `Injector.revoking(key:)`
-    /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.revoke(key:)`.
-    public func revoking(key key: Self.Key) -> Self {
-        var copy = self.copy()
-        copy.revoke(key: key)
-        return copy
-    }
-    #endif
 }
 
 public extension Injector {
-    #if swift(>=3.0)
     /**
      Creates an instance providing a value for a given `Provider`.
 
@@ -215,24 +144,9 @@ public extension Injector {
         for provider: Provider<Key, Value>) -> Self {
         return providing(for: provider, usingFactory: { _ in return instance() })
     }
-    #else
-    /**
-     Creates an instance providing a value for a given `Provider`.
-
-     - Parameter provider: The `Provider`, an `InjectedProvider` is constructed of.
-     - Parameter instance: The provided `Providable`. Depending on `Self`, evaluated lazily.
-     - Returns: A new `Injector` with contents of `self` and the newly provided value.
-     */
-    public func providing<Value: Providable>(
-        @autoclosure(escaping) instance: () -> Value,
-        for provider: Provider<Key, Value>) -> Self {
-        return providing(for: provider, usingFactory: { _ in return instance() })
-    }
-    #endif
 }
 
 public extension MutableInjector {
-    #if swift(>=3.0)
     /**
      Additionally provides a value for a given `Provider`.
 
@@ -244,23 +158,9 @@ public extension MutableInjector {
         for provider: Provider<Key, Value>) {
         provide(for: provider, usingFactory: { _ in return instance() })
     }
-    #else
-    /**
-     Additionally provides a value for a given `Provider`.
-
-     - Parameter instance: The provided `Providable`. Depending on `Self`, evaluated lazily.
-     - Parameter provider: The `Provider`, an `InjectedProvider` will be constructed of.
-     */
-    public mutating func provide<Value: Providable>(
-        @autoclosure(escaping) instance: () -> Value,
-        for provider: Provider<Key, Value>) {
-        provide(for: provider, usingFactory: { _ in return instance() })
-    }
-    #endif
 }
 
 public extension MutableInjector where Self: AnyObject {
-    #if swift(>=3.0)
     /**
      Additionally provides a value for a given `Provider`.
 
@@ -273,20 +173,6 @@ public extension MutableInjector where Self: AnyObject {
         var this = self
         this.provide(for: provider, usingFactory: { _ in return instance() })
     }
-    #else
-    /**
-     Additionally provides a value for a given `Provider`.
-
-     - Parameter instance: The provided `Providable`. Depending on `Self`, evaluated lazily.
-     - Parameter provider: The `Provider`, an `InjectedProvider` will be constructed of.
-     */
-    public func provide<Value: Providable>(
-        @autoclosure(escaping) instance: () -> Value,
-        for provider: Provider<Key, Value>) {
-        var this = self
-        this.provide(for: provider, usingFactory: { _ in return instance() })
-    }
-    #endif
 }
 
 /// Stores the result when evaluating a factory provided 
@@ -300,7 +186,6 @@ public enum InjectedProviderResolveState<K: ProvidableKey> {
     /// Contains the constructed value.
     case success(Providable)
 
-    #if swift(>=3.0)
     /// Evaluates the passed factory.
     ///
     /// - Parameter injector: The injector that shall be used.
@@ -317,25 +202,7 @@ public enum InjectedProviderResolveState<K: ProvidableKey> {
             self = .failure(.customError(error))
         }
     }
-    #else
-    /// Evaluates the passed factory.
-    ///
-    /// - Parameter injector: The injector that shall be used.
-    /// - Parameter factory: The factory that shall be evaluated.
-    public init<I: Injector where I.Key == K>(
-        inout withInjector injector: I,
-        from factory: (inout I) throws -> Providable) {
-        do {
-            self = .success(try factory(&injector))
-        } catch let error as InjectionError<K> {
-            self = .failure(error)
-        } catch {
-            self = .failure(.customError(error))
-        }
-    }
-    #endif
 
-    #if swift(>=3.0)
     /// Constructs a factory and returns its `InjectedProviderResolveState`.
     ///
     /// - Parameter injector: The injector that shall be used.
@@ -347,21 +214,7 @@ public enum InjectedProviderResolveState<K: ProvidableKey> {
         for injector: inout I) -> InjectedProviderResolveState where I.Key == K {
         return self.init(withInjector: &injector, from: factory)
     }
-    #else
-    /// Constructs a factory and returns its `InjectedProviderResolveState`.
-    ///
-    /// - Parameter injector: The injector that shall be used.
-    /// - Parameter factory: The factory that shall be evaluated.
-    /// - Returns: `InjectedProviderResolveState.failure` when factory throwed,
-    ///    `InjectedProviderResolveState.success` otherwise.
-    public static func from<I: Injector where I.Key == K>(
-        factory: (inout I) throws -> Providable,
-        inout for injector: I) -> InjectedProviderResolveState {
-        return self.init(withInjector: &injector, from: factory)
-    }
-    #endif
 
-    #if swift(>=3.0)
     /// Either throws or returns the value.
     /// 
     /// - Parameter injector: Will be ignored.
@@ -375,19 +228,4 @@ public enum InjectedProviderResolveState<K: ProvidableKey> {
             return value
         }
     }
-    #else
-    /// Either throws or returns the value.
-    ///
-    /// - Parameter injector: Will be ignored.
-    /// - Throws: On case `InjectedProviderResolveState.failure`.
-    /// - Returns: On case `InjectedProviderResolveState.success`.
-    public func resolve<I: Injector where I.Key == K>(inout withInjector injector: I) throws -> Providable {
-        switch self {
-        case let .failure(error):
-            throw error
-        case let .success(value):
-            return value
-        }
-    }
-    #endif
 }
