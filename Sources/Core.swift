@@ -117,7 +117,6 @@ public protocol MutableInjector: Injector {
 //: Errors
 
 /// Errors, that may occur while resolving from a `Provider`.
-/// - ToDo: Implement `case cyclicDependency`
 public enum InjectionError<Key: ProvidableKey>: Error, Equatable {
     /// There has been no value provided with the `ProvidableKey`.
     case keyNotProvided(Key)
@@ -129,6 +128,9 @@ public enum InjectionError<Key: ProvidableKey>: Error, Equatable {
     /// Any specific Error that may occur in your custom implementations.
     /// Will not be thrown by built-in `Injector`s.
     case customError(Error)
+
+    /// Will be thrown if the dependency graph is recursive.
+    case cyclicDependency(Key)
 
     /// Tests for equality.
     /// Ignores:
@@ -143,6 +145,8 @@ public enum InjectionError<Key: ProvidableKey>: Error, Equatable {
             return le == re
         case (.customError(_), .customError(_)):
             return true
+        case let (.cyclicDependency(lhs), .cyclicDependency(rhs)):
+            return lhs == rhs
         default:
             return false
         }

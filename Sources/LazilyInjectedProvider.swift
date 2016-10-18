@@ -6,6 +6,7 @@ public final class LazilyInjectedProvider<I: Injector>: InjectedProvider {
     private let valueFactory: (inout I) throws -> Providable
     private let key: Key
     private var state: InjectedProviderResolveState<Key>?
+    private var isUnresolved: Bool = false
 
     /// See `InjectedProvider.resolve(withInjector:)`.
     ///
@@ -13,8 +14,13 @@ public final class LazilyInjectedProvider<I: Injector>: InjectedProvider {
     public func resolve(withInjector injector: inout Injected) throws -> Providable {
         if let state = state {
             return try state.resolve(withInjector: &injector)
+        } else if self.isUnresolved {
+            throw InjectionError.cyclicDependency(key)
         } else {
-            state = InjectedProviderResolveState(withInjector: &injector, from: self.valueFactory)
+            self.isUnresolved = true
+            state = InjectedProviderResolveState(withInjector: &injector) { (injected: inout Injected) in
+                return try self.valueFactory(&injected)
+            }
             return try self.resolve(withInjector: &injector)
         }
     }
