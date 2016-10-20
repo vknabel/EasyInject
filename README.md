@@ -46,21 +46,22 @@ In order to inject your dependencies, you first need to prepare your key by impl
 ```swift
 import EasyInject
 
-// As all `String`s are `Hashable`, there's nothing to do here
+enum ServicesKeyType { } // will never be instantiated
+typealias Services = GenericProvidableKey<Services>
 ```
 
 Now we need to define our keys, by setting up `Provider`s with `String`s and our type hints.
 
 ```swift
 extension Provider {
-    static var baseUrl: Provider<String, String> {
-        return Provider<String, String>(for: "baseUrl")
+    static var baseUrl: Provider<Services, String> {
+        return Provider<Services, String>(for: "baseUrl")
     }
-    static var networkService: Provider<String, NetworkService> {
+    static var networkService: Provider<Services, NetworkService> {
         // produces a key of `networkService(...) -> Network`.
         return .derive()
     }
-    static var dataManager: Provider<String, DataManager> {
+    static var dataManager: Provider<Services, DataManager> {
         return .derive()
     }
 }
@@ -73,7 +74,7 @@ extension String: Providable { }
 
 final class NetworkService: Providable {
     let baseUrl: String
-    init<I: Injector where I.Key == String>(injector: inout I) throws {
+    init<I: Injector where I.Key == Services>(injector: inout I) throws {
         print("Start: NetworkService")
         baseUrl = try injector.resolving(from: .baseUrl)
         print("Finish: NetworkService")
@@ -81,7 +82,7 @@ final class NetworkService: Providable {
 }
 final class DataManager: Providable {
     let networkService: NetworkService
-    init<I: Injector where I.Key == String>(injector: inout I) throws {
+    init<I: Injector where I.Key == Services>(injector: inout I) throws {
         print("Start: DataManager")
         networkService = try injector.resolving(from: .networkService)
         print("Finish: DataManager")
@@ -94,7 +95,7 @@ There are some `Injector`s to choose, like a `StrictInjector` or `LazyInjector`.
 Let's pick the lazy one first and provide some values for our keys.
 
 ```swift
-var lazyInjector = LazyInjector<String>()
+var lazyInjector = LazyInjector<Services>() // Only Services keys will fit in here
 lazyInjector.provide(for: .baseUrl, usingFactory: { _ in
     print("Return: BasUrl")
     return "https://my.base.url/"
@@ -125,15 +126,14 @@ Finish: DataManager
 ```
 
 So because of the laziness of out `LazyInjector`, all dependencies will be resolved automatically.
-
-> Currently cyclic dependencies will result in endless recursion.
+Cyclic dependencies throw an error on being resolved to prevent endless recursions.
 
 
 ### StrictInjector
 The previous example would fail when using `StrictInjector`, because we provided `.dataManager` before providing `.networkService`, but `DataManager` requires a `.networkService`.
 
 ```swift
-var strictInjector = StrictInjector<String>()
+var strictInjector = StrictInjector<Services>()
 strictInjector.provide(for: .baseUrl, usingFactory: { _ in
     print("Return: BaseUrl")
     return "https://my.base.url/"
@@ -168,7 +168,7 @@ Finish: DataManager
 ```
 
 ```swift
-strictInjector = StrictInjector<String>()
+strictInjector = StrictInjector<Services>()
 strictInjector.provide(for: .baseUrl, usingFactory: { _ in
     print("Return: BaseUrl")
     return "https://my.base.url/"
