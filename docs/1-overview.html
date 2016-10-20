@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Typealiases  Reference</title>
+    <title>1. Overview  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
   <body>
 
 
-    <a title="Typealiases  Reference"></a>
+    <a title="1. Overview  Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -40,7 +40,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html">EasyInject Reference</a>
       <img class="carat" src="img/carat.png" />
-      Typealiases  Reference
+      1. Overview  Reference
     </p>
 
     <div class="content-wrapper">
@@ -145,47 +145,42 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>Typealiases</h1>
-            <p>The following typealiases are available globally.</p>
+            
+            <a href='#1-overview' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='1-overview'>1. Overview</h1>
+
+<p>First you need to decide which kind of <code>ProvidableKey</code> you want. A plain <code>String</code> might be working, but using the <code>GenericProvidableKey</code> with a typealias will be just fine.</p>
+<pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">ServicesKeyType</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// will never be instantiated</span>
+<span class="kd">typealias</span> <span class="kt">Services</span> <span class="o">=</span> <span class="kt">GenericProvidableKey</span><span class="o">&lt;</span><span class="kt">Services</span><span class="o">&gt;</span>
+
+<span class="k">let</span> <span class="nv">serviceInjector</span> <span class="o">=</span> <span class="kt">LazyInjector</span><span class="o">&lt;</span><span class="kt">Services</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="nf">globalize</span><span class="p">()</span><span class="o">.</span><span class="nf">erase</span><span class="p">()</span>
+<span class="n">serviceInjector</span> <span class="c1">// only Services will fit in here</span>
+</code></pre>
+
+<p>You can use a globalized <code>LazyInjector</code> to provide your global services. This injector will be passed to every <code>ViewController</code>. Thereafter we erase the <code>Injector</code> in order to get rid of generics (<code>Injector where Key = MyKey</code> vs. <code>AnyInjector&lt;MyKey&gt;</code>).</p>
+<pre class="highlight swift"><code><span class="c1">// this will be passed to your RootViewController</span>
+<span class="k">let</span> <span class="nv">appInjector</span> <span class="o">=</span> <span class="kt">LazyInjector</span><span class="o">&lt;</span><span class="kt">Services</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="nf">globalize</span><span class="p">()</span><span class="o">.</span><span class="nf">erase</span><span class="p">()</span>
+</code></pre>
+
+<p>On segues, you can compose the <code>Injector</code> the <code>ViewController</code> received (for your RootViewController: <code>appInjector</code>).</p>
+<pre class="highlight swift"><code><span class="kd">protocol</span> <span class="kt">SessionService</span> <span class="p">{</span> <span class="p">}</span>
+
+<span class="kd">extension</span> <span class="kt">Provider</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">sessionService</span><span class="p">:</span> <span class="kt">Provider</span><span class="o">&lt;</span><span class="kt">Services</span><span class="p">,</span> <span class="kt">SessionService</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">.</span><span class="nf">derive</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// then </span>
+<span class="k">var</span> <span class="nv">segueInjector</span> <span class="o">=</span> <span class="kt">StrictInjector</span><span class="o">&lt;</span><span class="kt">Services</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="n">segueInjector</span><span class="o">.</span><span class="nf">inject</span><span class="p">(</span><span class="n">mySession</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="o">.</span><span class="n">sessionService</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">navInjector</span> <span class="o">=</span> <span class="n">segueInjector</span><span class="o">.</span><span class="nf">compose</span><span class="p">(</span><span class="n">appInjector</span><span class="p">)</span>
+<span class="c1">// All changes will now be performed on segueInjector by default, </span>
+<span class="c1">// but contents of appInjector are available, too</span>
+</code></pre>
 
           </div>
         </section>
 
-        <section class="section">
-          <div class="section-content">
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:10EasyInject13ProvidableKey"></a>
-                    <a name="//apple_ref/swift/Alias/ProvidableKey" class="dashAnchor"></a>
-                    <a class="token" href="#/s:10EasyInject13ProvidableKey">ProvidableKey</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p><code><a href="Protocols.html#/s:P10EasyInject10Providable">Providable</a></code>s will be associated to <code>ProvidableKey</code>s.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ProvidableKey</span> <span class="o">=</span> <span class="kt">Hashable</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
 
       </article>
     </div>

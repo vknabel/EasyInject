@@ -75,7 +75,7 @@ public struct AnyInjector<K : Hashable>: InjectorDerivingFromMutableInjector {
             return (this.injector as! I).providedKeys
         }
     }
-    
+
     /// See `MutableInjector.resolve(key:)`.
     public mutating func resolve(key: K) throws -> Providable {
         return try self.lambdaResolve(&self, key)

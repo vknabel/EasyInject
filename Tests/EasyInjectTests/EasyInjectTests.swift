@@ -22,7 +22,8 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(ComposedInjectorTests.allTests),
         testCase(AnyInjectorTests.allTests),
         testCase(AnyMutableInjectorTests.allTests),
-        testCase(InjectionErrorTests.allTests)
+        testCase(InjectionErrorTests.allTests),
+        testCase(GenericProvidableKeyTests.allTests)
     ]
 }
 #endif

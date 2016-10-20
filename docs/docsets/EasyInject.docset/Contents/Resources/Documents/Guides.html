@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Functions  Reference</title>
+    <title>Guides  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
@@ -12,14 +12,14 @@
   <body>
 
 
-    <a title="Functions  Reference"></a>
+    <a title="Guides  Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
           EasyInject Docs
         </a>
-         (99% documented)
+         (100% documented)
       </p>
     
         <p class="header-col header-col--secondary">
@@ -40,12 +40,26 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html">EasyInject Reference</a>
       <img class="carat" src="img/carat.png" />
-      Functions  Reference
+      Guides  Reference
     </p>
 
     <div class="content-wrapper">
       <nav class="navigation">
         <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Guides.html">Guides</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="1-overview.html">1. Overview</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="changelog.html">CHANGELOG</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="license.html">LICENSE</a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-group-name">
             <a class="nav-group-name-link" href="Classes.html">Classes</a>
             <ul class="nav-group-tasks">
@@ -68,14 +82,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/InjectionError.html">InjectionError</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Functions.html">Functions</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Functions/==(_:_:).html">==(_:_:)</a>
               </li>
             </ul>
           </li>
@@ -109,6 +115,9 @@
                 <a class="nav-group-task-link" href="Structs/ComposedInjector.html">ComposedInjector</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/GenericProvidableKey.html">GenericProvidableKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/LazyInjector.html">LazyInjector</a>
               </li>
               <li class="nav-group-task">
@@ -136,57 +145,22 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>Functions</h1>
-            <p>The following functions are available globally.</p>
+            <h1>Guides</h1>
+            <p>The following guides are available globally.</p>
 
           </div>
         </section>
 
         <section class="section">
           <div class="section-content">
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:ZF10EasyInjectoi2eeuRxs8HashablerFTGOS_14InjectionErrorx_GS1_x__Sb"></a>
-                    <a name="//apple_ref/swift/Function/==(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZF10EasyInjectoi2eeuRxs8HashablerFTGOS_14InjectionErrorx_GS1_x__Sb">==(_:_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Tests for equality.
-Ignores: 
-    - <code>InjectionError.nonMatchingType(provided:expected:)</code>&rsquo;s expected
-    - <code>InjectionError.customError(_)</code>&rsquo;s parameter</p>
-
-                        <a href="Functions/==(_:_:).html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="o">==&lt;</span><span class="kt">K</span><span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt"><a href="Enums/InjectionError.html">InjectionError</a></span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt"><a href="Enums/InjectionError.html">InjectionError</a></span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
           </div>
         </section>
 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-08-23)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-10-20)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

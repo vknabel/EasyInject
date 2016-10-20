@@ -19,7 +19,6 @@ public struct StrictInjector<K: ProvidableKey>: InjectorDerivingFromMutableInjec
         strictProviders[key] = StrictlyInjectedProvider(key: key,
                                                         withInjector: &self,
                                                         usingFactory: factory)
-        /// ToDo: evaluate that there is no problem here (think of dependencies)
     }
 
     /// See `MutableInjector.revoke(key:)`.

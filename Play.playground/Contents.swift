@@ -86,8 +86,7 @@ do {
  ```
  
  So because of the laziness of out `LazyInjector`, all dependencies will be resolved automatically.
-
- > Currently cyclic dependencies will result in endless recursion.
+ Cyclic dependencies will be caught and thrown as an error.
 
  */
 
@@ -95,7 +94,6 @@ do {
  ### StrictInjector
  The previous example would fail when using `StrictInjector`, because we provided `.dataManager` before providing `.networkService`, but `DataManager` requires a `.networkService`.
  */
-
 var strictInjector = StrictInjector<String>()
 strictInjector.provide(for: .baseUrl, usingFactory: { _ in
     print("Return: BaseUrl")

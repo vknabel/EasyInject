@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BA2027BE1D6C9E3600B5C419 /* InjectionErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2027BC1D6C9DBA00B5C419 /* InjectionErrorTests.swift */; };
+		BA6C919B1DB95AE50011F8DC /* GenericProvidableKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C91991DB95A7A0011F8DC /* GenericProvidableKeyTests.swift */; };
 		BA736D4E1D6CAEA70045E862 /* AnyMutableInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA736D4D1D6CAEA70045E862 /* AnyMutableInjectorTests.swift */; };
+		BAA7A3FA1DB89BA600ED56D1 /* GenericProvidableKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA7A3F91DB89BA600ED56D1 /* GenericProvidableKey.swift */; };
 		BAD07A0F1D6BAD5800BEA97D /* LazyInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A0D1D6BAD1300BEA97D /* LazyInjectorTests.swift */; };
 		BAD07A121D6BAE7200BEA97D /* GlobalInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A101D6BAE5A00BEA97D /* GlobalInjectorTests.swift */; };
 		BAD07A141D6BAE8B00BEA97D /* ComposedInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD07A131D6BAE8B00BEA97D /* ComposedInjectorTests.swift */; };
@@ -42,7 +44,9 @@
 
 /* Begin PBXFileReference section */
 		BA2027BC1D6C9DBA00B5C419 /* InjectionErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InjectionErrorTests.swift; sourceTree = "<group>"; };
+		BA6C91991DB95A7A0011F8DC /* GenericProvidableKeyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericProvidableKeyTests.swift; sourceTree = "<group>"; };
 		BA736D4D1D6CAEA70045E862 /* AnyMutableInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyMutableInjectorTests.swift; sourceTree = "<group>"; };
+		BAA7A3F91DB89BA600ED56D1 /* GenericProvidableKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericProvidableKey.swift; sourceTree = "<group>"; };
 		BAD07A0D1D6BAD1300BEA97D /* LazyInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyInjectorTests.swift; sourceTree = "<group>"; };
 		BAD07A101D6BAE5A00BEA97D /* GlobalInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalInjectorTests.swift; sourceTree = "<group>"; };
 		BAD07A131D6BAE8B00BEA97D /* ComposedInjectorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposedInjectorTests.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				__PBXFileRef_Sources/LazyInjector.swift /* LazyInjector.swift */,
 				__PBXFileRef_Sources/StrictInjector.swift /* StrictInjector.swift */,
 				__PBXFileRef_Sources/StrictlyInjectedProvider.swift /* StrictlyInjectedProvider.swift */,
+				BAA7A3F91DB89BA600ED56D1 /* GenericProvidableKey.swift */,
 			);
 			name = EasyInject;
 			path = Sources;
@@ -167,6 +172,7 @@
 				BAD07A151D6BAE9600BEA97D /* AnyInjectorTests.swift */,
 				BA736D4D1D6CAEA70045E862 /* AnyMutableInjectorTests.swift */,
 				BA2027BC1D6C9DBA00B5C419 /* InjectionErrorTests.swift */,
+				BA6C91991DB95A7A0011F8DC /* GenericProvidableKeyTests.swift */,
 			);
 			name = EasyInjectTests;
 			path = Tests/EasyInjectTests;
@@ -250,6 +256,7 @@
 				__src_cc_ref_Sources/AnyInjector.swift /* AnyInjector.swift in Sources */,
 				__src_cc_ref_Sources/ComposedInjector.swift /* ComposedInjector.swift in Sources */,
 				__src_cc_ref_Sources/Core.swift /* Core.swift in Sources */,
+				BAA7A3FA1DB89BA600ED56D1 /* GenericProvidableKey.swift in Sources */,
 				__src_cc_ref_Sources/CoreExtensions.swift /* CoreExtensions.swift in Sources */,
 				__src_cc_ref_Sources/Extensions.swift /* Extensions.swift in Sources */,
 				__src_cc_ref_Sources/GlobalInjector.swift /* GlobalInjector.swift in Sources */,
@@ -265,6 +272,7 @@
 			buildActionMask = 0;
 			files = (
 				BAD07A121D6BAE7200BEA97D /* GlobalInjectorTests.swift in Sources */,
+				BA6C919B1DB95AE50011F8DC /* GenericProvidableKeyTests.swift in Sources */,
 				BA736D4E1D6CAEA70045E862 /* AnyMutableInjectorTests.swift in Sources */,
 				BA2027BE1D6C9E3600B5C419 /* InjectionErrorTests.swift in Sources */,
 				__src_cc_ref_Tests/EasyInjectTests/AbstractInjectorTests.swift /* InjectorTestCase.swift in Sources */,

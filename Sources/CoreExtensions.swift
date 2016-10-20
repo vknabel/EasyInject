@@ -95,8 +95,8 @@ public extension Provider {
     /// - Parameter function: The function where `.derive()` will be called from.
     /// - Returns: A new `Provider` with a `String` as `ProvidableKey`,
     /// containing type information and the caller's `function`.
-    public static func derive<V: Providable>(function: String = #function) -> Provider<String, V> {
-        return Provider<String, V>(for: "\(function)(...) -> \(V.self)")
+    public static func derive<V: Providable, K: ProvidableKey & ExpressibleByStringLiteral>(function: String = #function) -> Provider<K, V> where K.StringLiteralType == String {
+        return Provider<K, V>(for: K(stringLiteral: "\(function)(...) -> \(V.self)"))
     }
 }
 
