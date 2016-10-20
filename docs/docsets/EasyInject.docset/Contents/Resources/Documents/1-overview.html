@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Guides  Reference</title>
+    <title>1. Overview  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
   <body>
 
 
-    <a title="Guides  Reference"></a>
+    <a title="1. Overview  Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
@@ -40,7 +40,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html">EasyInject Reference</a>
       <img class="carat" src="img/carat.png" />
-      Guides  Reference
+      1. Overview  Reference
     </p>
 
     <div class="content-wrapper">
@@ -145,16 +145,79 @@
 
         <section class="section">
           <div class="section-content">
-            <h1>Guides</h1>
-            <p>The following guides are available globally.</p>
+            
+            <a href='#1-overview' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='1-overview'>1. Overview</h1>
+
+<table><thead>
+<tr>
+<th><code>Injector</code></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>AnyInjector</code></td>
+<td>Used to hide all internally used types.</td>
+</tr>
+<tr>
+<td><code>ComposedInjector</code></td>
+<td>Composes two <code>Injectors</code> to act as one.</td>
+</tr>
+<tr>
+<td><code>GlobalInjector</code></td>
+<td>The only class type.</td>
+</tr>
+<tr>
+<td><code>LazyInjector</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>StrictInjector</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<a href='#example' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='example'>Example</h2>
+
+<p>First you need to decide which kind of <code>ProvidableKey</code> you want. For small apps a plain <code>String</code> would work just fine, but if you use injectors as data structures, we recommend to write your own type, which is really easy.</p>
+<pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">MyKey</span><span class="p">:</span> <span class="kt">ProvidableKey</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span>
+
+    <span class="k">var</span> <span class="nv">hashValue</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">hashValue</span>
+    <span class="p">}</span>
+
+    <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">MyKey</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">MyKey</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">lhs</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">rhs</span><span class="o">.</span><span class="n">name</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">extension</span> <span class="kt">MyKey</span><span class="p">:</span> <span class="kt">ExpressibleByStringLiteral</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">stringLiteral</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="n">value</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+<p>You can use a globalized <code>LazyInjector</code> to provide your global services. This injector will be passed to every <code>ViewController</code>. Thereafter we erase the <code>Injector</code> in order to get rid of generics (<code>Injector where Key = MyKey</code> vs. <code>AnyInjector&lt;MyKey&gt;</code>).</p>
+<pre class="highlight swift"><code><span class="c1">// this will be passed to your RootViewController</span>
+<span class="k">let</span> <span class="nv">appInjector</span> <span class="o">=</span> <span class="kt">LazyInjector</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">()</span><span class="o">.</span><span class="nf">globalize</span><span class="p">()</span><span class="o">.</span><span class="nf">erase</span><span class="p">()</span>
+</code></pre>
+
+<p>On segues, you can compose the <code>Injector</code> the <code>ViewController</code> received (for your RootViewController: <code>appInjector</code>).</p>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">Provider</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">userInput</span><span class="p">:</span> <span class="kt">Provider</span><span class="o">&lt;</span><span class="kt">MyKey</span><span class="p">,</span> <span class="kt">Int</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">.</span><span class="nf">derive</span><span class="p">()</span> <span class="c1">// requires MyKey to be ExpressibleByStringLiteral where K.StringLiteralType == String</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// then </span>
+<span class="k">var</span> <span class="nv">segueInjector</span> <span class="o">=</span> <span class="kt">StrictInjector</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="n">segueInjector</span><span class="o">.</span><span class="nf">inject</span><span class="p">(</span><span class="n">userInput</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="o">.</span><span class="n">userInput</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">navInjector</span> <span class="o">=</span> <span class="n">appInjector</span><span class="o">.</span><span class="nf">compose</span><span class="p">(</span><span class="n">segueInjector</span><span class="p">)</span>
+</code></pre>
 
           </div>
         </section>
 
-        <section class="section">
-          <div class="section-content">
-          </div>
-        </section>
 
       </article>
     </div>

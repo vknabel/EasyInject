@@ -3,6 +3,20 @@
 ## 1.0.0
 *Released: 2016-10-18*
 
+### Breaking Changes
+
+- Added new case `InjectionError.cyclicDependency` (#1). - @vknabel
+
+### API Additions
+
+- Added `GenericProvidableKey` which lets you define custom types in a typealias. - @vknabel
+- Detection of cyclic dependencies in `LazyInjector` (#1). - @vknabel
+- `Provider.derive(_:)` will now work for all `ExpressibleByStringLiteral where K.StringLiteralType == String` (previously only for `String`) - @vknabel
+
+### Other Changes
+
+- Added some basic guides to generated Jazzy docs - @vknabel
+
 ## 0.8.1
 *Released: 2016-09-26*
 

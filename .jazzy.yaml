@@ -7,4 +7,4 @@ root_url: https://vknabel.github.io/EasyInject/
 readme: README.md
 output: docs/
 theme: fullwidth
-documentation: Documentation/*
+documentation: Guides/*
