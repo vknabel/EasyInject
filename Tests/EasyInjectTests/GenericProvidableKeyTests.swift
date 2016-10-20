@@ -12,7 +12,10 @@ import XCTest
 class GenericProvidableKeyTests: XCTestCase, LinuxTestCase {
     static var allTests = [
         ("testName", testName),
-        ("testEqual", testEqual)
+        ("testEqual", testEqual),
+        ("testStringLiteral", testStringLiteral),
+        ("testExtendedGraphemeClusterLiteral", testExtendedGraphemeClusterLiteral),
+        ("testUnicodeScalarLiteral", testUnicodeScalarLiteral)
     ]
 
     func testName() {
