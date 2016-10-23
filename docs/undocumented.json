@@ -1,6 +1,12 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/vknabel/Developer/vknabel/EasyInject/Sources/CoreExtensions.swift",
+      "line": 243,
+      "symbol": "Injector.debugDescription",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
   ],
   "source_directory": "/Users/vknabel/Developer/vknabel/EasyInject"
 }
