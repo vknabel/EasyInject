@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.1.0
+*Released: 2016-10-24*
+
+## API Additions
+
+- Implemented `CustomDebugStringConvertible` for `Provider`, `GenericProvidableKey` - @vknabel
+- `GenericProvidableKey` now implemented `CustomStringConvertible` - @vknabel
+
+## Other Changes
+
+- Changed internal representation for `.derive` - @vknabel
+- Replaced protocol `Providable` with an typealias for `Any` (and therefore no adoption is required) - @vknabel
+
 ## 1.0.0
 *Released: 2016-10-18*
 

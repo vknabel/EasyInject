@@ -65,14 +65,8 @@ extension Provider {
         return .derive()
     }
 }
-```
 
-Every type that may be provided, needs to be declared as `Providable`.
-
-```swift
-extension String: Providable { }
-
-final class NetworkService: Providable {
+final class NetworkService {
     let baseUrl: String
     init<I: Injector where I.Key == Services>(injector: inout I) throws {
         print("Start: NetworkService")
@@ -80,7 +74,7 @@ final class NetworkService: Providable {
         print("Finish: NetworkService")
     }
 }
-final class DataManager: Providable {
+final class DataManager {
     let networkService: NetworkService
     init<I: Injector where I.Key == Services>(injector: inout I) throws {
         print("Start: DataManager")

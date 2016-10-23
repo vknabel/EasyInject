@@ -12,7 +12,7 @@
 /// serviceInjector // only Services will fit in here
 /// ```
 ///
-public struct GenericProvidableKey<T>: ProvidableKey, RawRepresentable, ExpressibleByStringLiteral {
+public struct GenericProvidableKey<T>: ProvidableKey, RawRepresentable, ExpressibleByStringLiteral, CustomStringConvertible, CustomDebugStringConvertible {
     /// The name of the represented key.
     public let name: String
 
@@ -21,6 +21,14 @@ public struct GenericProvidableKey<T>: ProvidableKey, RawRepresentable, Expressi
     /// - Parameter name: The name of the key.
     public init(name: String) {
         self.name = name
+    }
+
+    public var description: String {
+        return name
+    }
+
+    public var debugDescription: String {
+        return "\(T.self).\(name)"
     }
 }
 
