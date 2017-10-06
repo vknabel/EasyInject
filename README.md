@@ -9,6 +9,9 @@ Instead of injecting instances for specific types, you provide instances for key
 
 Check out the generated docs at [vknabel.github.io/EasyInject](https://vknabel.github.io/EasyInject/).
 
+EasyInject supports Swift 3 and Swift 4 since version 1.1.0.
+Values can only accessed by subscripts in Swift 4, if you are still using Swift 3, keep using `Injector.resolving(for:)`.
+
 ## Installation
 EasyInject is a Swift only project and supports [Swift Package Manager](https://github.com/apple/swift-package-manager), [Carthage](https://github.com/Carthage/Carthage) and [CocoaPods](https://github.com/CocoaPods/CocoaPods).
 
@@ -76,7 +79,7 @@ final class NetworkService: Providable {
     let baseUrl: String
     init<I: Injector where I.Key == Services>(injector: inout I) throws {
         print("Start: NetworkService")
-        baseUrl = try injector.resolving(from: .baseUrl)
+        baseUrl = try injector[.baseUrl] // or resolving(from: .baseUrl) in Swift 3.x
         print("Finish: NetworkService")
     }
 }
@@ -84,7 +87,7 @@ final class DataManager: Providable {
     let networkService: NetworkService
     init<I: Injector where I.Key == Services>(injector: inout I) throws {
         print("Start: DataManager")
-        networkService = try injector.resolving(from: .networkService)
+        networkService = try injector[.networkService]
         print("Finish: DataManager")
     }
 }
