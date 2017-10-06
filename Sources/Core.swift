@@ -1,5 +1,5 @@
 /// Declares that the type is seen as `Providable` through an `Injector`.
-public protocol Providable { }
+public typealias Providable = Any
 
 /// `Providable`s will be associated to `ProvidableKey`s.
 public typealias ProvidableKey = Hashable
@@ -26,7 +26,7 @@ public struct Provider<K : ProvidableKey, V : Providable> {
 
 /// Implements `Equatable` for all `Provider`s.
 /// :nodoc:
-public func ==<K: Hashable, V: Providable>(lhs: Provider<K, V>, rhs: Provider<K, V>) -> Bool {
+public func ==<K, V: Providable>(lhs: Provider<K, V>, rhs: Provider<K, V>) -> Bool {
     return lhs.key == rhs.key
 }
 
@@ -137,7 +137,7 @@ public enum InjectionError<Key: ProvidableKey>: Error, Equatable {
     ///     - `InjectionError.nonMatchingType(provided:expected:)`'s expected
     ///     - `InjectionError.customError(_)`'s parameter
     /// :nodoc:
-    public static func ==<K: ProvidableKey>(lhs: InjectionError<K>, rhs: InjectionError<K>) -> Bool {
+    public static func ==<K>(lhs: InjectionError<K>, rhs: InjectionError<K>) -> Bool {
         switch (lhs, rhs) {
         case let (.keyNotProvided(lk), .keyNotProvided(rk)):
             return lk == rk

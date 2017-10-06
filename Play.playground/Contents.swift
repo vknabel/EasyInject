@@ -84,7 +84,7 @@ do {
  Finish: NetworkService
  Finish: DataManager
  ```
- 
+
  So because of the laziness of out `LazyInjector`, all dependencies will be resolved automatically.
  Cyclic dependencies will be caught and thrown as an error.
 
@@ -118,9 +118,9 @@ do {
  ```
 
  This behavior may be helpful when debugging your `LazyInjector` in order to detect dependency cycles.
- 
+
  You may fix this error, just by flipping the lines with `.networkService` and `.dataManager`, and that would lead to the following output:
- 
+
  ```
  Return: BaseUrl
  Start: NetworkService
@@ -139,6 +139,9 @@ strictInjector.provide(for: .networkService, usingFactory: NetworkService.init)
 strictInjector.provide(for: .dataManager, usingFactory: DataManager.init)
 do {
     try strictInjector.resolve(from: .dataManager)
+    #if swift(>=4.0)
+    strictInjector[.dataManager]
+    #endif
 } catch {
     print("Error: \(error)")
 }
@@ -163,7 +166,7 @@ if let left = try? globalInjector.resolve(from: .baseUrl),
  A `ComposedInjector` consists of two other `Injector`s.
  The call `.resolve(from:)` will target the `.left` `Injector` and on failure, the `.right` one.
  `.provide(for:,usingFactory:)` defaults to `.provideLeft(for:,usingFactory:)` which will provide the factory only to the `.left` one.
- 
+
  Usually the left `Injector` will be the local one, whereas the right one is a global one. This makes it possible to cascade `ComposedInjector`s from your root controller down to your leaf controllers.
  */
 var composedInjector = ComposedInjector(left: StrictInjector(), right: globalInjector)

@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.0
+*Released: 2017-10-06*
+
+### API Additions
+
+- Generic subscripts for `Injector`. - @vknabel
+
+### Other Changes
+
+- Support for Swift 4.0 while retaining Swift 3 support. - @vknabel
+- `Providable` is now a typealias for `Any`, what shouldn't break but silences Swift 4 warnings. - @vknabel
+
 ## 1.0.0
 *Released: 2016-10-18*
 

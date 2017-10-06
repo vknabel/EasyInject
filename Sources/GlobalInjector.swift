@@ -31,7 +31,6 @@ public final class GlobalInjector<K: ProvidableKey>: InjectorDerivingFromMutable
     public func provide(key: Key, usingFactory factory: @escaping (inout GlobalInjector) throws -> Providable) {
         return self.injector.provide(key: key) { (injector: inout AnyInjector<K>) in
             var this = self
-            defer { self.injector = this.injector }
             return try factory(&this)
         }
     }

@@ -1,5 +1,13 @@
 
 public extension Injector {
+    #if swift(>=4.0)
+    subscript<Value: Providable>(provider: Provider<Key, Value>) -> Value? {
+        get {
+            return try? self.resolving(from: provider)
+        }
+    }
+    #endif
+
     /**
      Resolves `InjectedProvider.value` for a given `Provider`.
 
@@ -69,7 +77,7 @@ public extension MutableInjector {
     /// Revokes the value of a given provider.
     ///
     /// - Parameter provider: The provider that's value shall be revoked.
-    mutating func revoke<Value: Providable>(for provider: Provider<Key, Value>) {
+    mutating func revoke<Value>(for provider: Provider<Key, Value>) {
         revoke(key: provider.key)
     }
 
@@ -80,7 +88,7 @@ public extension MutableInjector {
      - Returns: The previously added `Providable`.
      - Throws: `InjectionError`
      */
-    mutating func resolve<Value: Providable>(from provider: Provider<Key, Value>) throws -> Value {
+    mutating func resolve<Value>(from provider: Provider<Key, Value>) throws -> Value {
         let result = try resolve(key: provider.key)
         if let result = result as? Value {
             return result
@@ -107,7 +115,7 @@ public protocol InjectorDerivingFromMutableInjector: MutableInjector {
 }
 
 public extension InjectorDerivingFromMutableInjector {
-    /// Implements `Injector.providing(key:usingFactory:)` 
+    /// Implements `Injector.providing(key:usingFactory:)`
     /// by using `InjectorDerivingFromMutableInjector.copy()` and `MutableInjector.provide(key:usingFactory:)`.
     public func providing(key: Self.Key, usingFactory factory: @escaping (inout Self) throws -> Providable) -> Self {
         var copy = self.copy()
@@ -175,11 +183,11 @@ public extension MutableInjector where Self: AnyObject {
     }
 }
 
-/// Stores the result when evaluating a factory provided 
+/// Stores the result when evaluating a factory provided
 /// by `Injector.providing(key:usingFactory:)` and similar methods
 /// in order to 'replay' it.
 public enum InjectedProviderResolveState<K: ProvidableKey> {
-    /// When an error occured. 
+    /// When an error occured.
     /// If the error was of type `InjectionError` it will be passed
     /// otherwise it will be wrapped in `InjectionError.customError`.
     case failure(InjectionError<K>)
@@ -207,7 +215,7 @@ public enum InjectedProviderResolveState<K: ProvidableKey> {
     ///
     /// - Parameter injector: The injector that shall be used.
     /// - Parameter factory: The factory that shall be evaluated.
-    /// - Returns: `InjectedProviderResolveState.failure` when factory throwed, 
+    /// - Returns: `InjectedProviderResolveState.failure` when factory throwed,
     ///    `InjectedProviderResolveState.success` otherwise.
     public static func from<I: Injector>(
         factory: (inout I) throws -> Providable,
@@ -216,7 +224,7 @@ public enum InjectedProviderResolveState<K: ProvidableKey> {
     }
 
     /// Either throws or returns the value.
-    /// 
+    ///
     /// - Parameter injector: Will be ignored.
     /// - Throws: On case `InjectedProviderResolveState.failure`.
     /// - Returns: On case `InjectedProviderResolveState.success`.

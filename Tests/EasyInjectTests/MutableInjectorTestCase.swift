@@ -9,10 +9,16 @@
 import XCTest
 @testable import EasyInject
 
+#if swift(>=4.0)
+protocol MutableInjectorTestCase: InjectorTestCase where I: MutableInjector {
+    var newInjector: () -> I { get }
+}
+#else
 protocol MutableInjectorTestCase: InjectorTestCase {
     associatedtype I: MutableInjector
     var newInjector: () -> I { get }
 }
+#endif
 
 extension MutableInjectorTestCase where I.Key == String {
     func runMutableInjectorTestCase() -> Void {
