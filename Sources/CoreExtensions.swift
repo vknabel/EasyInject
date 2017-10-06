@@ -104,7 +104,7 @@ public extension Provider {
     /// - Returns: A new `Provider` with a `String` as `ProvidableKey`,
     /// containing type information and the caller's `function`.
     public static func derive<V: Providable, K: ProvidableKey & ExpressibleByStringLiteral>(function: String = #function) -> Provider<K, V> where K.StringLiteralType == String {
-        return Provider<K, V>(for: K(stringLiteral: "\(function)(...) -> \(V.self)"))
+        return Provider<K, V>(for: K(stringLiteral: "\(function): \(V.self)"))
     }
 }
 
@@ -186,7 +186,7 @@ public extension MutableInjector where Self: AnyObject {
 /// Stores the result when evaluating a factory provided
 /// by `Injector.providing(key:usingFactory:)` and similar methods
 /// in order to 'replay' it.
-public enum InjectedProviderResolveState<K: ProvidableKey> {
+public enum InjectedProviderResolveState<K: ProvidableKey>: CustomDebugStringConvertible {
     /// When an error occured.
     /// If the error was of type `InjectionError` it will be passed
     /// otherwise it will be wrapped in `InjectionError.customError`.
@@ -235,5 +235,34 @@ public enum InjectedProviderResolveState<K: ProvidableKey> {
         case let .success(value):
             return value
         }
+    }
+
+    public var debugDescription: String {
+        switch self {
+        case let .failure(error):
+            return ".failure(\(error))"
+        case let .success(value):
+            return ".success(\(value))"
+        }
+    }
+}
+
+public extension Injector {
+    public var debugDescription: String {
+        let pairs: [(Key, InjectedProviderResolveState<Key>)] = providedKeys.map { key in
+            do {
+                let result = try self.resolving(key: key)
+                return (key, InjectedProviderResolveState.success(result))
+            } catch let error as InjectionError<Key> {
+                return (key, InjectedProviderResolveState.failure(error))
+            } catch {
+                return (key, InjectedProviderResolveState.failure(.customError(error)))
+            }
+        }
+        var dict = [Key: InjectedProviderResolveState<Key>]()
+        for (key, resolved) in pairs {
+            dict[key] = resolved
+        }
+        return dict.debugDescription
     }
 }

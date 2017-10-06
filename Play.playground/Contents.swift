@@ -27,12 +27,7 @@ extension Provider {
     }
 }
 
-/*:
- Every type that may be provided, needs to be declared as `Providable`.
- */
-extension String: Providable { }
-
-final class NetworkService: Providable {
+final class NetworkService {
     let baseUrl: String
     init<I: Injector>(injector: inout I) throws where I.Key == String {
         print("Start: NetworkService")
@@ -40,7 +35,7 @@ final class NetworkService: Providable {
         print("Finish: NetworkService")
     }
 }
-final class DataManager: Providable {
+final class DataManager {
     let networkService: NetworkService
     init<I: Injector>(injector: inout I) throws where I.Key == String {
         print("Start: DataManager")

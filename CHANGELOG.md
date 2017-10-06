@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.0
+## 1.2.0
 *Released: 2017-10-06*
 
 ### API Additions
@@ -10,7 +10,19 @@
 ### Other Changes
 
 - Support for Swift 4.0 while retaining Swift 3 support. - @vknabel
-- `Providable` is now a typealias for `Any`, what shouldn't break but silences Swift 4 warnings. - @vknabel
+
+## 1.1.0
+*Released: 2016-10-24*
+
+## API Additions
+
+- Implemented `CustomDebugStringConvertible` for `Provider`, `GenericProvidableKey` - @vknabel
+- `GenericProvidableKey` now implemented `CustomStringConvertible` - @vknabel
+
+## Other Changes
+
+- Changed internal representation for `.derive` - @vknabel
+- Replaced protocol `Providable` with an typealias for `Any` (and therefore no adoption is required) - @vknabel
 
 ## 1.0.0
 *Released: 2016-10-18*

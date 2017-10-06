@@ -5,7 +5,7 @@ public typealias Providable = Any
 public typealias ProvidableKey = Hashable
 
 /// Adds type information to a `ProvidableKey`.
-public struct Provider<K : ProvidableKey, V : Providable> {
+public struct Provider<K : ProvidableKey, V : Providable>: CustomDebugStringConvertible {
     /// Type of `Providable`s that will be associated with `Provider.key`.
     public typealias Value = V
     /// Type of `ProvidableKey`s that shall be represented.
@@ -21,6 +21,10 @@ public struct Provider<K : ProvidableKey, V : Providable> {
      */
     public init(for key: K) {
         self.key = key
+    }
+
+    public var debugDescription: String {
+        return "\(key): \(V.self)"
     }
 }
 

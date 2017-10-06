@@ -9,7 +9,7 @@ Instead of injecting instances for specific types, you provide instances for key
 
 Check out the generated docs at [vknabel.github.io/EasyInject](https://vknabel.github.io/EasyInject/).
 
-EasyInject supports Swift 3 and Swift 4 since version 1.1.0.
+EasyInject supports Swift 3 and Swift 4 since version 1.2.0.
 Values can only accessed by subscripts in Swift 4, if you are still using Swift 3, keep using `Injector.resolving(for:)`.
 
 ## Installation
@@ -31,7 +31,7 @@ let package = Package(
 ### Carthage
 
 ```ruby
-github "vknabel/EasyInject" ~> 1.0
+github "vknabel/EasyInject" ~> 1.2
 ```
 
 ### CocoaPods
@@ -40,7 +40,7 @@ github "vknabel/EasyInject" ~> 1.0
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-pod 'EasyInject', '~> 1.0'
+pod 'EasyInject', '~> 1.2'
 ```
 
 ## Introduction
@@ -68,14 +68,8 @@ extension Provider {
         return .derive()
     }
 }
-```
 
-Every type that may be provided, needs to be declared as `Providable`.
-
-```swift
-extension String: Providable { }
-
-final class NetworkService: Providable {
+final class NetworkService {
     let baseUrl: String
     init<I: Injector where I.Key == Services>(injector: inout I) throws {
         print("Start: NetworkService")
@@ -83,7 +77,7 @@ final class NetworkService: Providable {
         print("Finish: NetworkService")
     }
 }
-final class DataManager: Providable {
+final class DataManager {
     let networkService: NetworkService
     init<I: Injector where I.Key == Services>(injector: inout I) throws {
         print("Start: DataManager")
@@ -221,8 +215,8 @@ do {
 
 ## Author
 
-Valentin Knabel, develop@vknabel.com
+Valentin Knabel, dev@vknabel.com
 
 ## License
 
-EasyInject is available under the MIT license. See the LICENSE file for more info.
+EasyInject is available under the [MIT](./LICENSE) license.
