@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0
+*Released: 2020-03-14*
+
+- Upgraded to Swift 4-Package-Syntax - @vknabel
+
 ## 1.2.0
 *Released: 2017-10-06*
 
