@@ -1,2 +1,10 @@
 excluded:
   - Play.playground
+disabled_rules:
+  - force_cast
+  - opening_brace
+identifier_name:
+  allowed_symbols: "_"
+  min_length: 2
+  excluded:
+    - id
