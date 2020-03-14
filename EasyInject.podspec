@@ -22,5 +22,5 @@ EasyInject is designed to be an easy to use, lightweight composition and depende
   s.osx.deployment_target = '10.9'
 	s.watchos.deployment_target = "2.0"
   s.tvos.deployment_target = "9.0"
-  s.source_files = 'Sources/*.swift'
+  s.source_files = 'Sources/EasyInject/**/*.swift'
 end
