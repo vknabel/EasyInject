@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Structs  Reference</title>
+    <title>Structures  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
 
+    <a name="//apple_ref/swift/Section/Structures" class="dashAnchor"></a>
 
-    <a title="Structs  Reference"></a>
+    <a title="Structures  Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          EasyInject Docs
+          EasyInject 1.3.0 Docs
         </a>
-         (99% documented)
+         (97% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -30,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel%2Egithub%2Eio%2FEasyInject%2Fdocsets%2FEasyInject%2Exml">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel.github.io%2FEasyInject%2Fdocsets%2FEasyInject.xml">
             <img class="header-icon" src="img/dash.png"/>
             Install in Dash
           </a>
@@ -40,7 +50,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html">EasyInject Reference</a>
       <img class="carat" src="img/carat.png" />
-      Structs  Reference
+      Structures  Reference
     </p>
 
     <div class="content-wrapper">
@@ -72,7 +82,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/ComposedInjectionError.html">ComposedInjectionError</a>
@@ -103,7 +113,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/AnyInjector.html">AnyInjector</a>
@@ -129,13 +139,13 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Typealiases.html">Typealiases</a>
+            <a class="nav-group-name-link" href="Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject10Providable">Providable</a>
+                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject10Providablea">Providable</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a>
+                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a>
               </li>
             </ul>
           </li>
@@ -144,9 +154,9 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
-            <h1>Structs</h1>
-            <p>The following structs are available globally.</p>
+          <div class="section-content top-matter">
+            <h1>Structures</h1>
+            <p>The following structures are available globally.</p>
 
           </div>
         </section>
@@ -158,9 +168,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V10EasyInject11AnyInjector"></a>
+                    <a name="/s:10EasyInject11AnyInjectorV"></a>
                     <a name="//apple_ref/swift/Struct/AnyInjector" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V10EasyInject11AnyInjector">AnyInjector</a>
+                    <a class="token" href="#/s:10EasyInject11AnyInjectorV">AnyInjector</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -168,8 +178,12 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Wraps a given <code><a href="Protocols/Injector.html">Injector</a></code> in order to lose type details, but keeps it mutable.
-- Todo: Replace generic <code>I : Injector</code> with a <code><a href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></code></p>
+                        <p>Wraps a given <code><a href="Protocols/Injector.html">Injector</a></code> in order to lose type details, but keeps it mutable.</p>
+<div class="aside aside-todo">
+    <p class="aside-title">Todo</p>
+    Replace generic <code>I : Injector</code> with a <code><a href="Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a></code>
+
+</div>
 
                         <a href="Structs/AnyInjector.html" class="slightly-smaller">See more</a>
                       </div>
@@ -177,23 +191,19 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AnyInjector</span><span class="o">&lt;</span><span class="kt">K</span> <span class="p">:</span> <span class="kt">Hashable</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/InjectorDerivingFromMutableInjector.html">InjectorDerivingFromMutableInjector</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">AnyInjector</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/InjectorDerivingFromMutableInjector.html">InjectorDerivingFromMutableInjector</a></span> <span class="k">where</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V10EasyInject16ComposedInjector"></a>
+                    <a name="/s:10EasyInject16ComposedInjectorV"></a>
                     <a name="//apple_ref/swift/Struct/ComposedInjector" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V10EasyInject16ComposedInjector">ComposedInjector</a>
+                    <a class="token" href="#/s:10EasyInject16ComposedInjectorV">ComposedInjector</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -202,11 +212,12 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Wraps two given <code><a href="Protocols/MutableInjector.html">MutableInjector</a></code>s into one.
-By default all operations will be first delegated to <code><a href="Structs/ComposedInjector.html#/s:vV10EasyInject16ComposedInjector4leftGVS_11AnyInjectorx_">ComposedInjector.left</a></code> and thereafter to <code><a href="Structs/ComposedInjector.html#/s:vV10EasyInject16ComposedInjector5rightGVS_11AnyInjectorx_">ComposedInjector.right</a></code>.
-May throw <code><a href="Enums/ComposedInjectionError.html">ComposedInjectionError</a></code> as <code><a href="Enums/InjectionError.html#/s:FO10EasyInject14InjectionError11customErroruRxs8HashablerFMGS0_x_FPs5Error_GS0_x_">InjectionError.customError</a></code>.
+By default all operations will be first delegated to <code><a href="Structs/ComposedInjector.html#/s:10EasyInject16ComposedInjectorV4leftAA03AnyD0VyxGvp">ComposedInjector.left</a></code>
+and thereafter to <code><a href="Structs/ComposedInjector.html#/s:10EasyInject16ComposedInjectorV5rightAA03AnyD0VyxGvp">ComposedInjector.right</a></code>.
+May throw <code><a href="Enums/ComposedInjectionError.html">ComposedInjectionError</a></code> as <code>InjectionError.customError</code>.
 If a reference typed MutableInjector will be used,
-a copy will be created on <code><a href="Structs/ComposedInjector.html#/s:FV10EasyInject16ComposedInjector7provideFT3keyx12usingFactoryFzRGS0_x_P__T_">ComposedInjector.provide(key:usingFactory:)</a></code>,
-but there won&rsquo;t be created a copy on <code><a href="Structs/ComposedInjector.html#/s:FV10EasyInject16ComposedInjectorcu0_Rd__S_8Injectord_0_S1_xzwd_0_3Keywd__S2_zwd_0_S2_rFT4leftqd__5rightqd_0__GS0_x_">ComposedInjector.init(left:right:)</a></code>.</p>
+a copy will be created on <code><a href="Structs/ComposedInjector.html#/s:10EasyInject16ComposedInjectorV7provide3key12usingFactoryyx_ypACyxGzKctF">ComposedInjector.provide(key:usingFactory:)</a></code>,
+but there won&rsquo;t be created a copy on <code><a href="Structs/ComposedInjector.html#/s:10EasyInject16ComposedInjectorV4left5rightACyxGqd___qd_0_tc3KeyQyd__RszAA0D0Rd__AaIRd_0_AGQyd_0_AHRSr0_lufc">ComposedInjector.init(left:right:)</a></code>.</p>
 
                         <a href="Structs/ComposedInjector.html" class="slightly-smaller">See more</a>
                       </div>
@@ -214,23 +225,19 @@ but there won&rsquo;t be created a copy on <code><a href="Structs/ComposedInject
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ComposedInjector</span><span class="o">&lt;</span><span class="kt">K</span><span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/InjectorDerivingFromMutableInjector.html">InjectorDerivingFromMutableInjector</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">ComposedInjector</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/InjectorDerivingFromMutableInjector.html">InjectorDerivingFromMutableInjector</a></span> <span class="k">where</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V10EasyInject8Provider"></a>
+                    <a name="/s:10EasyInject8ProviderV"></a>
                     <a name="//apple_ref/swift/Struct/Provider" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V10EasyInject8Provider">Provider</a>
+                    <a class="token" href="#/s:10EasyInject8ProviderV">Provider</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -238,7 +245,7 @@ but there won&rsquo;t be created a copy on <code><a href="Structs/ComposedInject
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds type information to a <code><a href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></code>.</p>
+                        <p>Adds type information to a <code><a href="Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a></code>.</p>
 
                         <a href="Structs/Provider.html" class="slightly-smaller">See more</a>
                       </div>
@@ -246,23 +253,19 @@ but there won&rsquo;t be created a copy on <code><a href="Structs/ComposedInject
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Provider</span><span class="o">&lt;</span><span class="kt">K</span> <span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="p">,</span> <span class="kt">V</span> <span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:10EasyInject10Providable">Providable</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">CustomDebugStringConvertible</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Provider</span><span class="o">&lt;</span><span class="kt">K</span><span class="p">,</span> <span class="kt">V</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">CustomDebugStringConvertible</span> <span class="k">where</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V10EasyInject20GenericProvidableKey"></a>
+                    <a name="/s:10EasyInject20GenericProvidableKeyV"></a>
                     <a name="//apple_ref/swift/Struct/GenericProvidableKey" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V10EasyInject20GenericProvidableKey">GenericProvidableKey</a>
+                    <a class="token" href="#/s:10EasyInject20GenericProvidableKeyV">GenericProvidableKey</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -270,12 +273,11 @@ but there won&rsquo;t be created a copy on <code><a href="Structs/ComposedInject
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A generic implementation of <code><a href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></code>.
+                        <p>A generic implementation of <code><a href="Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a></code>.
 It may be used in your applications to get rid of stringly typed properties or keys.</p>
 
 <p>Typically you will declare empty types for each use case.
 These empty types are only used in order to fulfill constraints.</p>
-
 <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">ServicesKeyType</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// will never be instantiated</span>
 <span class="kd">typealias</span> <span class="kt">Services</span> <span class="o">=</span> <span class="kt">GenericProvidableKey</span><span class="o">&lt;</span><span class="kt">Services</span><span class="o">&gt;</span>
 
@@ -289,23 +291,20 @@ These empty types are only used in order to fulfill constraints.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GenericProvidableKey</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="p">,</span> <span class="kt">RawRepresentable</span><span class="p">,</span> <span class="kt">ExpressibleByStringLiteral</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">CustomDebugStringConvertible</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GenericProvidableKey</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a></span><span class="p">,</span> <span class="kt">RawRepresentable</span><span class="p">,</span> <span class="kt">ExpressibleByStringLiteral</span><span class="p">,</span>
+  <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">CustomDebugStringConvertible</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V10EasyInject12LazyInjector"></a>
+                    <a name="/s:10EasyInject12LazyInjectorV"></a>
                     <a name="//apple_ref/swift/Struct/LazyInjector" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V10EasyInject12LazyInjector">LazyInjector</a>
+                    <a class="token" href="#/s:10EasyInject12LazyInjectorV">LazyInjector</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -321,23 +320,19 @@ These empty types are only used in order to fulfill constraints.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LazyInjector</span><span class="o">&lt;</span><span class="kt">K</span><span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/InjectorDerivingFromMutableInjector.html">InjectorDerivingFromMutableInjector</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">LazyInjector</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/InjectorDerivingFromMutableInjector.html">InjectorDerivingFromMutableInjector</a></span> <span class="k">where</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V10EasyInject14StrictInjector"></a>
+                    <a name="/s:10EasyInject14StrictInjectorV"></a>
                     <a name="//apple_ref/swift/Struct/StrictInjector" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V10EasyInject14StrictInjector">StrictInjector</a>
+                    <a class="token" href="#/s:10EasyInject14StrictInjectorV">StrictInjector</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -353,23 +348,19 @@ These empty types are only used in order to fulfill constraints.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StrictInjector</span><span class="o">&lt;</span><span class="kt">K</span><span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/InjectorDerivingFromMutableInjector.html">InjectorDerivingFromMutableInjector</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StrictInjector</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/InjectorDerivingFromMutableInjector.html">InjectorDerivingFromMutableInjector</a></span> <span class="k">where</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:V10EasyInject24StrictlyInjectedProvider"></a>
+                    <a name="/s:10EasyInject24StrictlyInjectedProviderV"></a>
                     <a name="//apple_ref/swift/Struct/StrictlyInjectedProvider" class="dashAnchor"></a>
-                    <a class="token" href="#/s:V10EasyInject24StrictlyInjectedProvider">StrictlyInjectedProvider</a>
+                    <a class="token" href="#/s:10EasyInject24StrictlyInjectedProviderV">StrictlyInjectedProvider</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -379,7 +370,7 @@ These empty types are only used in order to fulfill constraints.</p>
                       <div class="abstract">
                         <p>The <code><a href="Protocols/InjectedProvider.html">InjectedProvider</a></code> for <code><a href="Structs/StrictInjector.html">StrictInjector</a></code>.
 All factories will be evaluated immediately.
-If the factory throws an error, it will be stored and throwed on <code><a href="Structs/StrictlyInjectedProvider.html#/s:FV10EasyInject24StrictlyInjectedProvider7resolveFzT12withInjectorRx_P_">StrictlyInjectedProvider.resolve(withInjector:)</a></code>.</p>
+If the factory throws an error, it will be stored and throwed on <code><a href="Structs/StrictlyInjectedProvider.html#/s:10EasyInject24StrictlyInjectedProviderV7resolve12withInjectorypxz_tKF">StrictlyInjectedProvider.resolve(withInjector:)</a></code>.</p>
 
                         <a href="Structs/StrictlyInjectedProvider.html" class="slightly-smaller">See more</a>
                       </div>
@@ -387,7 +378,7 @@ If the factory throws an error, it will be stored and throwed on <code><a href="
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StrictlyInjectedProvider</span><span class="o">&lt;</span><span class="kt">I</span><span class="p">:</span> <span class="kt"><a href="Protocols/Injector.html">Injector</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="Protocols/InjectedProvider.html">InjectedProvider</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">StrictlyInjectedProvider</span><span class="o">&lt;</span><span class="kt">I</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="Protocols/InjectedProvider.html">InjectedProvider</a></span> <span class="k">where</span> <span class="kt">I</span> <span class="p">:</span> <span class="kt"><a href="Protocols/Injector.html">Injector</a></span></code></pre>
 
                         </div>
                       </div>
@@ -402,8 +393,8 @@ If the factory throws an error, it will be stored and throwed on <code><a href="
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-10-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2020-12-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

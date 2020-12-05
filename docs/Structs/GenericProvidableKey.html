@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>GenericProvidableKey Struct Reference</title>
+    <title>GenericProvidableKey Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
 
     <a name="//apple_ref/swift/Struct/GenericProvidableKey" class="dashAnchor"></a>
 
-    <a title="GenericProvidableKey Struct Reference"></a>
+    <a title="GenericProvidableKey Structure Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          EasyInject Docs
+          EasyInject 1.3.0 Docs
         </a>
-         (99% documented)
+         (97% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -31,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel%2Egithub%2Eio%2FEasyInject%2Fdocsets%2FEasyInject%2Exml">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel.github.io%2FEasyInject%2Fdocsets%2FEasyInject.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -41,7 +50,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">EasyInject Reference</a>
       <img class="carat" src="../img/carat.png" />
-      GenericProvidableKey Struct Reference
+      GenericProvidableKey Structure Reference
     </p>
 
     <div class="content-wrapper">
@@ -73,7 +82,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ComposedInjectionError.html">ComposedInjectionError</a>
@@ -104,7 +113,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/AnyInjector.html">AnyInjector</a>
@@ -130,13 +139,13 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Typealiases.html">Typealiases</a>
+            <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a>
               </li>
             </ul>
           </li>
@@ -145,20 +154,21 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>GenericProvidableKey</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GenericProvidableKey</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="p">,</span> <span class="kt">RawRepresentable</span><span class="p">,</span> <span class="kt">ExpressibleByStringLiteral</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">CustomDebugStringConvertible</span></code></pre>
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">GenericProvidableKey</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a></span><span class="p">,</span> <span class="kt">RawRepresentable</span><span class="p">,</span> <span class="kt">ExpressibleByStringLiteral</span><span class="p">,</span>
+  <span class="kt">CustomStringConvertible</span><span class="p">,</span> <span class="kt">CustomDebugStringConvertible</span></code></pre>
 
                 </div>
               </div>
-            <p>A generic implementation of <code><a href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></code>.
+            <p>A generic implementation of <code><a href="../Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a></code>.
 It may be used in your applications to get rid of stringly typed properties or keys.</p>
 
 <p>Typically you will declare empty types for each use case.
 These empty types are only used in order to fulfill constraints.</p>
-
 <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">ServicesKeyType</span> <span class="p">{</span> <span class="p">}</span> <span class="c1">// will never be instantiated</span>
 <span class="kd">typealias</span> <span class="kt">Services</span> <span class="o">=</span> <span class="kt">GenericProvidableKey</span><span class="o">&lt;</span><span class="kt">Services</span><span class="o">&gt;</span>
 
@@ -176,9 +186,9 @@ These empty types are only used in order to fulfill constraints.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vV10EasyInject20GenericProvidableKey4nameSS"></a>
+                    <a name="/s:10EasyInject20GenericProvidableKeyV4nameSSvp"></a>
                     <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vV10EasyInject20GenericProvidableKey4nameSS">name</a>
+                    <a class="token" href="#/s:10EasyInject20GenericProvidableKeyV4nameSSvp">name</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -193,7 +203,7 @@ These empty types are only used in order to fulfill constraints.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>
@@ -203,9 +213,9 @@ These empty types are only used in order to fulfill constraints.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FV10EasyInject20GenericProvidableKeycFT4nameSS_GS0_x_"></a>
+                    <a name="/s:10EasyInject20GenericProvidableKeyV4nameACyxGSS_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(name:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FV10EasyInject20GenericProvidableKeycFT4nameSS_GS0_x_">init(name:)</a>
+                    <a class="token" href="#/s:10EasyInject20GenericProvidableKeyV4nameACyxGSS_tcfc">init(name:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -215,18 +225,12 @@ These empty types are only used in order to fulfill constraints.</p>
                       <div class="abstract">
                         <p>Initializes a new <code>GenericProvidableKey</code>.</p>
 
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter name: The name of the key.
-
-</div>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -243,7 +247,6 @@ These empty types are only used in order to fulfill constraints.</p>
                               <td>
                                 <div>
                                   <p>The name of the key.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -256,9 +259,9 @@ These empty types are only used in order to fulfill constraints.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vPs23CustomStringConvertible11descriptionSS"></a>
+                    <a name="/s:s23CustomStringConvertibleP11descriptionSSvp"></a>
                     <a name="//apple_ref/swift/Property/description" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vPs23CustomStringConvertible11descriptionSS">description</a>
+                    <a class="token" href="#/s:s23CustomStringConvertibleP11descriptionSSvp">description</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -266,20 +269,13 @@ These empty types are only used in order to fulfill constraints.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code>GenericProvidableKey</code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter name: The name of the key.
-
-</div>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">description</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -289,9 +285,9 @@ These empty types are only used in order to fulfill constraints.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vPs28CustomDebugStringConvertible16debugDescriptionSS"></a>
+                    <a name="/s:s28CustomDebugStringConvertibleP16debugDescriptionSSvp"></a>
                     <a name="//apple_ref/swift/Property/debugDescription" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vPs28CustomDebugStringConvertible16debugDescriptionSS">debugDescription</a>
+                    <a class="token" href="#/s:s28CustomDebugStringConvertibleP16debugDescriptionSSvp">debugDescription</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -299,36 +295,25 @@ These empty types are only used in order to fulfill constraints.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code>GenericProvidableKey</code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter name: The name of the key.
-
-</div>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">debugDescription</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">debugDescription</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vPs16RawRepresentable8rawValuewx8RawValue"></a>
+                    <a name="/s:SY8rawValue03RawB0Qzvp"></a>
                     <a name="//apple_ref/swift/Property/rawValue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vPs16RawRepresentable8rawValuewx8RawValue">rawValue</a>
+                    <a class="token" href="#/s:SY8rawValue03RawB0Qzvp">rawValue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -336,20 +321,13 @@ These empty types are only used in order to fulfill constraints.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code>GenericProvidableKey</code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter name: The name of the key.
-
-</div>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rawValue</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rawValue</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -359,9 +337,9 @@ These empty types are only used in order to fulfill constraints.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FPs16RawRepresentablecFT8rawValuewx8RawValue_GSqx_"></a>
+                    <a name="/s:SY8rawValuexSg03RawB0Qz_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(rawValue:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FPs16RawRepresentablecFT8rawValuewx8RawValue_GSqx_">init(rawValue:)</a>
+                    <a class="token" href="#/s:SY8rawValuexSg03RawB0Qz_tcfc">init(rawValue:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -369,56 +347,25 @@ These empty types are only used in order to fulfill constraints.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code>GenericProvidableKey</code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter name: The name of the key.
-
-</div>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">rawValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">?(</span><span class="nv">rawValue</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>rawValue</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The raw value to use for the new instance.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vPs8Hashable9hashValueSi"></a>
+                    <a name="/s:SH9hashValueSivp"></a>
                     <a name="//apple_ref/swift/Property/hashValue" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vPs8Hashable9hashValueSi">hashValue</a>
+                    <a class="token" href="#/s:SH9hashValueSivp">hashValue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -426,20 +373,13 @@ These empty types are only used in order to fulfill constraints.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code>GenericProvidableKey</code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter name: The name of the key.
-
-</div>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hashValue</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">hashValue</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -449,9 +389,9 @@ These empty types are only used in order to fulfill constraints.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:ZFPs9Equatableoi2eeFTxx_Sb"></a>
+                    <a name="/s:SQ2eeoiySbx_xtFZ"></a>
                     <a name="//apple_ref/swift/Method/==(_:_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:ZFPs9Equatableoi2eeFTxx_Sb">==(_:_:)</a>
+                    <a class="token" href="#/s:SQ2eeoiySbx_xtFZ">==(_:<wbr>_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -459,69 +399,25 @@ These empty types are only used in order to fulfill constraints.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code>GenericProvidableKey</code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter name: The name of the key.
-
-</div>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span><span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">GenericProvidableKey</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">GenericProvidableKey</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="o">==</span> <span class="p">(</span><span class="nv">lhs</span><span class="p">:</span> <span class="kt">GenericProvidableKey</span><span class="p">,</span> <span class="nv">rhs</span><span class="p">:</span> <span class="kt">GenericProvidableKey</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>lhs</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>A value to compare.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>rhs</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Another value to compare.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FPs26ExpressibleByStringLiteralcFT13stringLiteralwx17StringLiteralType_x"></a>
+                    <a name="/s:s26ExpressibleByStringLiteralP06stringD0x0cD4TypeQz_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(stringLiteral:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FPs26ExpressibleByStringLiteralcFT13stringLiteralwx17StringLiteralType_x">init(stringLiteral:)</a>
+                    <a class="token" href="#/s:s26ExpressibleByStringLiteralP06stringD0x0cD4TypeQz_tcfc">init(stringLiteral:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -529,20 +425,13 @@ These empty types are only used in order to fulfill constraints.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code>GenericProvidableKey</code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter name: The name of the key.
-
-</div>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">stringLiteral</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">stringLiteral</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -552,9 +441,9 @@ These empty types are only used in order to fulfill constraints.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FPs43ExpressibleByExtendedGraphemeClusterLiteralcFT30extendedGraphemeClusterLiteralwx34ExtendedGraphemeClusterLiteralType_x"></a>
+                    <a name="/s:s43ExpressibleByExtendedGraphemeClusterLiteralP08extendeddeF0x0cdeF4TypeQz_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(extendedGraphemeClusterLiteral:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FPs43ExpressibleByExtendedGraphemeClusterLiteralcFT30extendedGraphemeClusterLiteralwx34ExtendedGraphemeClusterLiteralType_x">init(extendedGraphemeClusterLiteral:)</a>
+                    <a class="token" href="#/s:s43ExpressibleByExtendedGraphemeClusterLiteralP08extendeddeF0x0cdeF4TypeQz_tcfc">init(extendedGraphemeClusterLiteral:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -562,20 +451,13 @@ These empty types are only used in order to fulfill constraints.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code>GenericProvidableKey</code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter name: The name of the key.
-
-</div>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">extendedGraphemeClusterLiteral</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">extendedGraphemeClusterLiteral</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -585,9 +467,9 @@ These empty types are only used in order to fulfill constraints.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FPs33ExpressibleByUnicodeScalarLiteralcFT20unicodeScalarLiteralwx24UnicodeScalarLiteralType_x"></a>
+                    <a name="/s:s33ExpressibleByUnicodeScalarLiteralP07unicodedE0x0cdE4TypeQz_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(unicodeScalarLiteral:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FPs33ExpressibleByUnicodeScalarLiteralcFT20unicodeScalarLiteralwx24UnicodeScalarLiteralType_x">init(unicodeScalarLiteral:)</a>
+                    <a class="token" href="#/s:s33ExpressibleByUnicodeScalarLiteralP07unicodedE0x0cdE4TypeQz_tcfc">init(unicodeScalarLiteral:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -595,20 +477,13 @@ These empty types are only used in order to fulfill constraints.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes a new <code>GenericProvidableKey</code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter name: The name of the key.
-
-</div>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="n">unicodeScalarLiteral</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">unicodeScalarLiteral</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -623,8 +498,8 @@ These empty types are only used in order to fulfill constraints.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-10-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2020-12-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -8,18 +8,28 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
 
+    <a name="//apple_ref/swift/Section/Guides" class="dashAnchor"></a>
 
     <a title="Guides  Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          EasyInject Docs
+          EasyInject 1.3.0 Docs
         </a>
-         (99% documented)
+         (97% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -30,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel%2Egithub%2Eio%2FEasyInject%2Fdocsets%2FEasyInject%2Exml">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel.github.io%2FEasyInject%2Fdocsets%2FEasyInject.xml">
             <img class="header-icon" src="img/dash.png"/>
             Install in Dash
           </a>
@@ -72,7 +82,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/ComposedInjectionError.html">ComposedInjectionError</a>
@@ -103,7 +113,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/AnyInjector.html">AnyInjector</a>
@@ -129,13 +139,13 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Typealiases.html">Typealiases</a>
+            <a class="nav-group-name-link" href="Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject10Providable">Providable</a>
+                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject10Providablea">Providable</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a>
+                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a>
               </li>
             </ul>
           </li>
@@ -144,7 +154,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>Guides</h1>
             <p>The following guides are available globally.</p>
 
@@ -153,14 +163,45 @@
 
         <section class="section">
           <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/documentation.LICENSE"></a>
+                    <a name="//apple_ref/swift/Guide/LICENSE" class="dashAnchor"></a>
+                    <a class="direct-link" href="license.html">LICENSE</a>
+                    </code>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/documentation.CHANGELOG"></a>
+                    <a name="//apple_ref/swift/Guide/CHANGELOG" class="dashAnchor"></a>
+                    <a class="direct-link" href="changelog.html">CHANGELOG</a>
+                    </code>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/documentation.1. Overview"></a>
+                    <a name="//apple_ref/swift/Guide/1. Overview" class="dashAnchor"></a>
+                    <a class="direct-link" href="1-overview.html">1. Overview</a>
+                    </code>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-10-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2020-12-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

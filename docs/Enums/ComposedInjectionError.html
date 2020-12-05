@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ComposedInjectionError Enum Reference</title>
+    <title>ComposedInjectionError Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
 
     <a name="//apple_ref/swift/Enum/ComposedInjectionError" class="dashAnchor"></a>
 
-    <a title="ComposedInjectionError Enum Reference"></a>
+    <a title="ComposedInjectionError Enumeration Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          EasyInject Docs
+          EasyInject 1.3.0 Docs
         </a>
-         (99% documented)
+         (97% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -31,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel%2Egithub%2Eio%2FEasyInject%2Fdocsets%2FEasyInject%2Exml">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel.github.io%2FEasyInject%2Fdocsets%2FEasyInject.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -41,7 +50,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">EasyInject Reference</a>
       <img class="carat" src="../img/carat.png" />
-      ComposedInjectionError Enum Reference
+      ComposedInjectionError Enumeration Reference
     </p>
 
     <div class="content-wrapper">
@@ -73,7 +82,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ComposedInjectionError.html">ComposedInjectionError</a>
@@ -104,7 +113,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/AnyInjector.html">AnyInjector</a>
@@ -130,13 +139,13 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Typealiases.html">Typealiases</a>
+            <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a>
               </li>
             </ul>
           </li>
@@ -145,11 +154,12 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>ComposedInjectionError</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ComposedInjectionError</span><span class="o">&lt;</span><span class="kt">Key</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Error</span></code></pre>
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ComposedInjectionError</span><span class="o">&lt;</span><span class="kt">Key</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Error</span> <span class="k">where</span> <span class="kt">Key</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                 </div>
               </div>
@@ -166,9 +176,9 @@ This error will always be embedded within <code><a href="../Enums/InjectionError
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO10EasyInject22ComposedInjectionError8composeduRxs8HashablerFMGS0_x_FTPs5Error_PS2___GS0_x_"></a>
-                    <a name="//apple_ref/swift/Element/composed" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO10EasyInject22ComposedInjectionError8composeduRxs8HashablerFMGS0_x_FTPs5Error_PS2___GS0_x_">composed</a>
+                    <a name="/s:10EasyInject22ComposedInjectionErrorO8composedyACyxGs0E0_p_sAF_ptcAEmSHRzlF"></a>
+                    <a name="//apple_ref/swift/Element/composed(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject22ComposedInjectionErrorO8composedyACyxGs0E0_p_sAF_ptcAEmSHRzlF">composed(_:<wbr>_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -184,7 +194,7 @@ Will only be thrown if both fail.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">composed</span><span class="p">(</span><span class="kt">Error</span><span class="p">,</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">composed</span><span class="p">(</span><span class="kt">Error</span><span class="p">,</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -199,8 +209,8 @@ Will only be thrown if both fail.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-10-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2020-12-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

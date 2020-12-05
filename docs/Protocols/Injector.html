@@ -8,6 +8,9 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
 
@@ -18,9 +21,15 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          EasyInject Docs
+          EasyInject 1.3.0 Docs
         </a>
-         (99% documented)
+         (97% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -31,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel%2Egithub%2Eio%2FEasyInject%2Fdocsets%2FEasyInject%2Exml">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel.github.io%2FEasyInject%2Fdocsets%2FEasyInject.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -73,7 +82,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ComposedInjectionError.html">ComposedInjectionError</a>
@@ -104,7 +113,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/AnyInjector.html">AnyInjector</a>
@@ -130,13 +139,13 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Typealiases.html">Typealiases</a>
+            <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a>
               </li>
             </ul>
           </li>
@@ -145,15 +154,16 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>Injector</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Injector</span></code></pre>
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Injector</span></code></pre>
 
                 </div>
               </div>
-            <p>Stores <code><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></code>s associated for corredponding <code><a href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></code>s
+            <p>Stores <code><a href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a></code>s associated for corredponding <code><a href="../Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a></code>s
 using <code><a href="../Structs/Provider.html">Provider</a></code>s and internally <code><a href="../Protocols/InjectedProvider.html">InjectedProvider</a></code>s.</p>
 
           </div>
@@ -166,9 +176,9 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP10EasyInject8Injector9resolvingFzT3keywx3Key_P_"></a>
-                    <a name="//apple_ref/swift/Method/resolving(key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP10EasyInject8Injector9resolvingFzT3keywx3Key_P_">resolving(key:)</a>
+                    <a name="/s:10EasyInject8InjectorP3KeyQa"></a>
+                    <a name="//apple_ref/swift/Alias/Key" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject8InjectorP3KeyQa">Key</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -176,20 +186,34 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Resolves <code>InjectedProvider.value</code> for a given <code><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></code>.</p>
+                        <p>The required <code><a href="../Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a></code> for injection.</p>
 
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter key: The <code><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></code> that has been used previously.
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">Key</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
-</div>
-
-<div class="aside aside-returns">
-    <p class="aside-title">Returns</p>
-    The previously added <code><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></code>.
-
-</div>
-
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10EasyInject8InjectorP9resolving3keyyp3KeyQz_tKF"></a>
+                    <a name="//apple_ref/swift/Method/resolving(key:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject8InjectorP9resolving3keyyp3KeyQz_tKF">resolving(key:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Resolves <code>InjectedProvider.value</code> for a given <code><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></code>.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     <code><a href="../Enums/InjectionError.html">InjectionError</a></code>
@@ -201,7 +225,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">resolving</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resolving</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -217,8 +241,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>Key</code> that has been used previously.</p>
-
+                                  <p>The <code><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></code> that has been used previously.</p>
                                 </div>
                               </td>
                             </tr>
@@ -227,8 +250,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>The previously added <code><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></code>.</p>
-
+                        <p>The previously added <code><a href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a></code>.</p>
                       </div>
                     </section>
                   </div>
@@ -236,36 +258,9 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:P10EasyInject8Injector3Key"></a>
-                    <a name="//apple_ref/swift/Alias/Key" class="dashAnchor"></a>
-                    <a class="token" href="#/s:P10EasyInject8Injector3Key">Key</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The required <code><a href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></code> for injection.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">associatedtype</span> <span class="kt">Key</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FP10EasyInject8Injector9providingFT3keywx3Key12usingFactoryFzRxP__x"></a>
+                    <a name="/s:10EasyInject8InjectorP9providing3key12usingFactoryx3KeyQz_ypxzKctF"></a>
                     <a name="//apple_ref/swift/Method/providing(key:usingFactory:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP10EasyInject8Injector9providingFT3keywx3Key12usingFactoryFzRxP__x">providing(key:usingFactory:)</a>
+                    <a class="token" href="#/s:10EasyInject8InjectorP9providing3key12usingFactoryx3KeyQz_ypxzKctF">providing(key:<wbr>usingFactory:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -273,29 +268,10 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates an instance providing a value as a factory for a given <code><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></code>.</p>
-
+                        <p>Creates an instance providing a value as a factory for a given <code><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></code>.</p>
 <div class="aside aside-to-do">
     <p class="aside-title">To do</p>
-    <p>Improve markup for <code>factory</code>&rsquo;s parameter</p>
-
-</div>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    <p>Parameter key: The <code><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></code>, an <code><a href="../Protocols/InjectedProvider.html">InjectedProvider</a></code> is constructed of.</p>
-
-</div>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    <p>Parameter factory: Creates a value out of a new <code>Injector</code>.</p>
-
-</div>
-
-<div class="aside aside-returns">
-    <p class="aside-title">Returns</p>
-    <p>A new <code>Injector</code> with contents of <code>self</code> and the newly provided value.</p>
+    <p>Improve markup for <code>factory</code>&lsquo;s parameter</p>
 
 </div>
 
@@ -304,7 +280,8 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">providing</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">,</span> <span class="n">usingFactory</span> <span class="nv">factory</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">inout</span> <span class="k">Self</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">providing</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">,</span> <span class="n">usingFactory</span> <span class="nv">factory</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">inout</span> <span class="k">Self</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a></span><span class="p">)</span>
+  <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -320,8 +297,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>Key</code>, an <code>InjectedProvider</code> is constructed of.</p>
-
+                                  <p>The <code><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></code>, an <code><a href="../Protocols/InjectedProvider.html">InjectedProvider</a></code> is constructed of.</p>
                                 </div>
                               </td>
                             </tr>
@@ -334,7 +310,6 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                               <td>
                                 <div>
                                   <p>Creates a value out of a new <code>Injector</code>.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -344,7 +319,6 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                       <div>
                         <h4>Return Value</h4>
                         <p>A new <code>Injector</code> with contents of <code>self</code> and the newly provided value.</p>
-
                       </div>
                     </section>
                   </div>
@@ -352,9 +326,9 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP10EasyInject8Injector8revokingFT3keywx3Key_x"></a>
+                    <a name="/s:10EasyInject8InjectorP8revoking3keyx3KeyQz_tF"></a>
                     <a name="//apple_ref/swift/Method/revoking(key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP10EasyInject8Injector8revokingFT3keywx3Key_x">revoking(key:)</a>
+                    <a class="token" href="#/s:10EasyInject8InjectorP8revoking3keyx3KeyQz_tF">revoking(key:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -364,24 +338,12 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                       <div class="abstract">
                         <p>Creates a new instance that provides all keys except the given one.</p>
 
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter key: The key that shall be removed.
-
-</div>
-
-<div class="aside aside-returns">
-    <p class="aside-title">Returns</p>
-    A copy that doesn&rsquo;t contain key.
-
-</div>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">revoking</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">revoking</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
 
                         </div>
                       </div>
@@ -398,7 +360,6 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                               <td>
                                 <div>
                                   <p>The key that shall be removed.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -407,8 +368,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A copy that doesn’t contain key.</p>
-
+                        <p>A copy that doesn&rsquo;t contain key.</p>
                       </div>
                     </section>
                   </div>
@@ -416,9 +376,9 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vP10EasyInject8Injector12providedKeysGSawx3Key_"></a>
+                    <a name="/s:10EasyInject8InjectorP12providedKeysSay3KeyQzGvp"></a>
                     <a name="//apple_ref/swift/Property/providedKeys" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vP10EasyInject8Injector12providedKeysGSawx3Key_">providedKeys</a>
+                    <a class="token" href="#/s:10EasyInject8InjectorP12providedKeysSay3KeyQzGvp">providedKeys</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -433,275 +393,7 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">providedKeys</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">]</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FE10EasyInjectPS_8Injector9resolvingurFzT4fromGVS_8Providerwx3Keyqd____qd__"></a>
-                    <a name="//apple_ref/swift/Method/resolving(from:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FE10EasyInjectPS_8Injector9resolvingurFzT4fromGVS_8Providerwx3Keyqd____qd__">resolving(from:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Resolves <code>InjectedProvider.value</code> for a given <code><a href="../Structs/Provider.html">Provider</a></code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter provider: The <code><a href="../Structs/Provider.html">Provider</a></code> that has been used previously.
-
-</div>
-
-<div class="aside aside-returns">
-    <p class="aside-title">Returns</p>
-    The previously added <code><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></code>.
-
-</div>
-
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    <code><a href="../Enums/InjectionError.html">InjectionError</a></code>
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">resolving</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Value</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>provider</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>Provider</code> that has been used previously.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>The previously added <code><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></code>.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FE10EasyInjectPS_8Injector9providingurFT3forGVS_8Providerwx3Keyqd___12usingFactoryFzRxqd___x"></a>
-                    <a name="//apple_ref/swift/Method/providing(for:usingFactory:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FE10EasyInjectPS_8Injector9providingurFT3forGVS_8Providerwx3Keyqd___12usingFactoryFzRxqd___x">providing(for:usingFactory:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Creates an instance providing a value as a factory for a given <code><a href="../Structs/Provider.html">Provider</a></code>.</p>
-
-<div class="aside aside-to-do">
-    <p class="aside-title">To do</p>
-    <p>Improve markup for <code>factory</code>&rsquo;s parameter</p>
-
-</div>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    <p>Parameter provider: The <code><a href="../Structs/Provider.html">Provider</a></code>, an <code><a href="../Protocols/InjectedProvider.html">InjectedProvider</a></code> is constructed of.</p>
-
-</div>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    <p>Parameter factory: Creates a value out of a new <code>Injector</code>.</p>
-
-</div>
-
-<div class="aside aside-returns">
-    <p class="aside-title">Returns</p>
-    <p>A new <code>Injector</code> with contents of <code>self</code> and the newly provided value.</p>
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">providing</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></span><span class="o">&gt;</span><span class="p">(</span>
-        <span class="k">for</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span><span class="p">,</span>
-        <span class="n">usingFactory</span> <span class="nv">factory</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">inout</span> <span class="k">Self</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>provider</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>Provider</code>, an <code>InjectedProvider</code> is constructed of.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>factory</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>Creates a value out of a new <code>Injector</code>.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>A new <code>Injector</code> with contents of <code>self</code> and the newly provided value.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FE10EasyInjectPS_8Injector8revokingurFT3forGVS_8Providerwx3Keyqd____x"></a>
-                    <a name="//apple_ref/swift/Method/revoking(for:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FE10EasyInjectPS_8Injector8revokingurFT3forGVS_8Providerwx3Keyqd____x">revoking(for:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Revokes the value of a given provider.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter provider: The provider that&rsquo;s value shall be revoked.
-
-</div>
-
-<div class="aside aside-returns">
-    <p class="aside-title">Returns</p>
-    A new instance without any value for the provider.
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">revoking</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></span><span class="o">&gt;</span><span class="p">(</span><span class="k">for</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>provider</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The provider that’s value shall be revoked.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>A new instance without any value for the provider.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FE10EasyInjectPS_8Injector4copyFT_x"></a>
-                    <a name="//apple_ref/swift/Method/copy()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FE10EasyInjectPS_8Injector4copyFT_x">copy()</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>By default implements <code><a href="../Protocols/InjectorDerivingFromMutableInjector.html#/s:FP10EasyInject35InjectorDerivingFromMutableInjector4copyFT_x">InjectorDerivingFromMutableInjector.copy()</a></code> for all value types by just returning self.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">copy</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">providedKeys</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -711,172 +403,9 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FE10EasyInjectPS_8Injector8containsFwx3KeySb"></a>
-                    <a name="//apple_ref/swift/Method/contains(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FE10EasyInjectPS_8Injector8containsFwx3KeySb">contains(_:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Determines wether a specific key has been provided.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter key: The key that shall be tested for.
-
-</div>
-
-<div class="aside aside-returns">
-    <p class="aside-title">Returns</p>
-    true if provided. Will also return true if the key cannot be resolved properly.
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">contains</span><span class="p">(</span><span class="n">_</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>key</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The key that shall be tested for.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>true if provided. Will also return true if the key cannot be resolved properly.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:FE10EasyInjectPS_8Injector9providingurFTKT_qd__3forGVS_8Providerwx3Keyqd____x"></a>
-                    <a name="//apple_ref/swift/Method/providing(_:for:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FE10EasyInjectPS_8Injector9providingurFTKT_qd__3forGVS_8Providerwx3Keyqd____x">providing(_:for:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Creates an instance providing a value for a given <code><a href="../Structs/Provider.html">Provider</a></code>.</p>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter provider: The <code><a href="../Structs/Provider.html">Provider</a></code>, an <code><a href="../Protocols/InjectedProvider.html">InjectedProvider</a></code> is constructed of.
-
-</div>
-
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter instance: The provided <code><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></code>. Depending on <code>Self</code>, evaluated lazily.
-
-</div>
-
-<div class="aside aside-returns">
-    <p class="aside-title">Returns</p>
-    A new <code>Injector</code> with contents of <code>self</code> and the newly provided value.
-
-</div>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">providing</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></span><span class="o">&gt;</span><span class="p">(</span>
-        <span class="n">_</span> <span class="nv">instance</span><span class="p">:</span> <span class="kd">@autoclosure</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Value</span><span class="p">,</span>
-        <span class="k">for</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>provider</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The <code>Provider</code>, an <code>InjectedProvider</code> is constructed of.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>instance</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The provided <code>Providable</code>. Depending on <code>Self</code>, evaluated lazily.</p>
-
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>A new <code>Injector</code> with contents of <code>self</code> and the newly provided value.</p>
-
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:vE10EasyInjectPS_8Injector16debugDescriptionSS"></a>
-                    <a name="//apple_ref/swift/Property/debugDescription" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vE10EasyInjectPS_8Injector16debugDescriptionSS">debugDescription</a>
+                    <a name="/s:10EasyInject8InjectorPAAEyqd__SgAA8ProviderVy3KeyQzqd__Gcluip"></a>
+                    <a name="//apple_ref/swift/Method/subscript(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject8InjectorPAAEyqd__SgAA8ProviderVy3KeyQzqd__Gcluip">subscript(_:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -894,23 +423,384 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">Injector</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">subscript</span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Value</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FE10EasyInjectPS_8Injector10globalizedFT_GCS_14GlobalInjectorwx3Key_"></a>
+                    <a name="/s:10EasyInject8InjectorPAAE9resolving4fromqd__AA8ProviderVy3KeyQzqd__G_tKlF"></a>
+                    <a name="//apple_ref/swift/Method/resolving(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject8InjectorPAAE9resolving4fromqd__AA8ProviderVy3KeyQzqd__G_tKlF">resolving(from:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Resolves <code>InjectedProvider.value</code> for a given <code><a href="../Structs/Provider.html">Provider</a></code>.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <code><a href="../Enums/InjectionError.html">InjectionError</a></code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">resolving</span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Value</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>provider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code><a href="../Structs/Provider.html">Provider</a></code> that has been used previously.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The previously added <code><a href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a></code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10EasyInject8InjectorPAAE9providing3for12usingFactoryxAA8ProviderVy3KeyQzqd__G_qd__xzKctlF"></a>
+                    <a name="//apple_ref/swift/Method/providing(for:usingFactory:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject8InjectorPAAE9providing3for12usingFactoryxAA8ProviderVy3KeyQzqd__G_qd__xzKctlF">providing(for:<wbr>usingFactory:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an instance providing a value as a factory for a given <code><a href="../Structs/Provider.html">Provider</a></code>.</p>
+<div class="aside aside-to-do">
+    <p class="aside-title">To do</p>
+    <p>Improve markup for <code>factory</code>&lsquo;s parameter</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">providing</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a></span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="k">for</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="n">usingFactory</span> <span class="nv">factory</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">inout</span> <span class="k">Self</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Value</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>provider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code><a href="../Structs/Provider.html">Provider</a></code>, an <code><a href="../Protocols/InjectedProvider.html">InjectedProvider</a></code> is constructed of.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>factory</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Creates a value out of a new <code>Injector</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new <code>Injector</code> with contents of <code>self</code> and the newly provided value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10EasyInject8InjectorPAAE8revoking3forxAA8ProviderVy3KeyQzqd__G_tlF"></a>
+                    <a name="//apple_ref/swift/Method/revoking(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject8InjectorPAAE8revoking3forxAA8ProviderVy3KeyQzqd__G_tlF">revoking(for:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Revokes the value of a given provider.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">revoking</span><span class="o">&lt;</span><span class="kt">Value</span><span class="o">&gt;</span><span class="p">(</span><span class="k">for</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>provider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The provider that&rsquo;s value shall be revoked.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new instance without any value for the provider.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10EasyInject8InjectorPAAE4copyxyF"></a>
+                    <a name="//apple_ref/swift/Method/copy()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject8InjectorPAAE4copyxyF">copy()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>By default implements <code><a href="../Protocols/InjectorDerivingFromMutableInjector.html#/s:10EasyInject027InjectorDerivingFromMutableC0P4copyxyF">InjectorDerivingFromMutableInjector.copy()</a></code> for all value types by just returning self.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">copy</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10EasyInject8InjectorPAAE8containsySb3KeyQzF"></a>
+                    <a name="//apple_ref/swift/Method/contains(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject8InjectorPAAE8containsySb3KeyQzF">contains(_:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Determines wether a specific key has been provided.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">contains</span><span class="p">(</span><span class="n">_</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that shall be tested for.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>true if provided. Will also return true if the key cannot be resolved properly.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10EasyInject8InjectorPAAE9providing_3forxqd__yXA_AA8ProviderVy3KeyQzqd__GtlF"></a>
+                    <a name="//apple_ref/swift/Method/providing(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject8InjectorPAAE9providing_3forxqd__yXA_AA8ProviderVy3KeyQzqd__GtlF">providing(_:<wbr>for:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an instance providing a value for a given <code><a href="../Structs/Provider.html">Provider</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">providing</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a></span><span class="o">&gt;</span><span class="p">(</span>
+  <span class="n">_</span> <span class="nv">instance</span><span class="p">:</span> <span class="kd">@autoclosure</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Value</span><span class="p">,</span>
+  <span class="k">for</span> <span class="nv">provider</span><span class="p">:</span> <span class="kt"><a href="../Structs/Provider.html">Provider</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">,</span> <span class="kt">Value</span><span class="o">&gt;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>provider</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <code><a href="../Structs/Provider.html">Provider</a></code>, an <code><a href="../Protocols/InjectedProvider.html">InjectedProvider</a></code> is constructed of.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>instance</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The provided <code><a href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a></code>. Depending on <code>Self</code>, evaluated lazily.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new <code>Injector</code> with contents of <code>self</code> and the newly provided value.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10EasyInject8InjectorPAAE16debugDescriptionSSvp"></a>
+                    <a name="//apple_ref/swift/Property/debugDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject8InjectorPAAE16debugDescriptionSSvp">debugDescription</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">debugDescription</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10EasyInject8InjectorPAAE10globalizedAA06GlobalC0Cy3KeyQzGyF"></a>
                     <a name="//apple_ref/swift/Method/globalized()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FE10EasyInjectPS_8Injector10globalizedFT_GCS_14GlobalInjectorwx3Key_">globalized()</a>
+                    <a class="token" href="#/s:10EasyInject8InjectorPAAE10globalizedAA06GlobalC0Cy3KeyQzGyF">globalized()</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -923,25 +813,18 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                       <div class="abstract">
                         <p>Wraps <code>self</code> into a <code><a href="../Classes/GlobalInjector.html">GlobalInjector</a></code>.</p>
 
-<div class="aside aside-returns">
-    <p class="aside-title">Returns</p>
-    <code><a href="../Classes/GlobalInjector.html">GlobalInjector</a></code> that wraps <code>self</code>.
-
-</div>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">globalized</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GlobalInjector.html">GlobalInjector</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">globalized</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/GlobalInjector.html">GlobalInjector</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
                       <div>
                         <h4>Return Value</h4>
                         <p><code><a href="../Classes/GlobalInjector.html">GlobalInjector</a></code> that wraps <code>self</code>.</p>
-
                       </div>
                     </section>
                   </div>
@@ -949,9 +832,9 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FE10EasyInjectPS_8Injector6erasedFT_GVS_11AnyInjectorwx3Key_"></a>
+                    <a name="/s:10EasyInject8InjectorPAAE6erasedAA03AnyC0Vy3KeyQzGyF"></a>
                     <a name="//apple_ref/swift/Method/erased()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FE10EasyInjectPS_8Injector6erasedFT_GVS_11AnyInjectorwx3Key_">erased()</a>
+                    <a class="token" href="#/s:10EasyInject8InjectorPAAE6erasedAA03AnyC0Vy3KeyQzGyF">erased()</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -964,25 +847,18 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                       <div class="abstract">
                         <p>Erases the specific <code>Injector</code> Type.</p>
 
-<div class="aside aside-returns">
-    <p class="aside-title">Returns</p>
-    <code><a href="../Structs/AnyInjector.html">AnyInjector</a></code> that wraps <code>self</code>.
-
-</div>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">erased</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyInjector.html">AnyInjector</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="o">&gt;</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">erased</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/AnyInjector.html">AnyInjector</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="o">&gt;</span></code></pre>
 
                         </div>
                       </div>
                       <div>
                         <h4>Return Value</h4>
                         <p><code><a href="../Structs/AnyInjector.html">AnyInjector</a></code> that wraps <code>self</code>.</p>
-
                       </div>
                     </section>
                   </div>
@@ -990,9 +866,9 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FE10EasyInjectPS_8Injector8composeduRd__S0_wx3Keyzwd__S1_rFqd__GVS_16ComposedInjectorwxS1__"></a>
+                    <a name="/s:10EasyInject8InjectorPAAE8composedyAA08ComposedC0Vy3KeyQzGqd__AaBRd__AGQyd__AHRSlF"></a>
                     <a name="//apple_ref/swift/Method/composed(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FE10EasyInjectPS_8Injector8composeduRd__S0_wx3Keyzwd__S1_rFqd__GVS_16ComposedInjectorwxS1__">composed(_:)</a>
+                    <a class="token" href="#/s:10EasyInject8InjectorPAAE8composedyAA08ComposedC0Vy3KeyQzGqd__AaBRd__AGQyd__AHRSlF">composed(_:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -1005,24 +881,12 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                       <div class="abstract">
                         <p>Composes <code>self</code> with another given <code>Injector</code>.</p>
 
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter right: The secondary <code>Injector</code>.
-
-</div>
-
-<div class="aside aside-returns">
-    <p class="aside-title">Returns</p>
-    <code><a href="../Structs/AnyInjector.html">AnyInjector</a></code> that wraps <code>self</code>.
-
-</div>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="n">composed</span><span class="o">&lt;</span><span class="kt">I</span><span class="p">:</span> <span class="kt">Injector</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">right</span><span class="p">:</span> <span class="kt">I</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ComposedInjector.html">ComposedInjector</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">I</span><span class="o">.</span><span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span> <span class="o">==</span> <span class="kt"><a href="../Protocols/Injector.html#/s:P10EasyInject8Injector3Key">Key</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">composed</span><span class="o">&lt;</span><span class="kt">I</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">right</span><span class="p">:</span> <span class="kt">I</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ComposedInjector.html">ComposedInjector</a></span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">I</span> <span class="p">:</span> <span class="kt">Injector</span><span class="p">,</span> <span class="k">Self</span><span class="o">.</span><span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span> <span class="o">==</span> <span class="kt">I</span><span class="o">.</span><span class="kt"><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1039,7 +903,6 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                               <td>
                                 <div>
                                   <p>The secondary <code>Injector</code>.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -1049,7 +912,6 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
                       <div>
                         <h4>Return Value</h4>
                         <p><code><a href="../Structs/AnyInjector.html">AnyInjector</a></code> that wraps <code>self</code>.</p>
-
                       </div>
                     </section>
                   </div>
@@ -1062,8 +924,8 @@ using <code><a href="../Structs/Provider.html">Provider</a></code>s and internal
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-10-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2020-12-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Enums  Reference</title>
+    <title>Enumerations  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset="utf-8">
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
 
+    <a name="//apple_ref/swift/Section/Enumerations" class="dashAnchor"></a>
 
-    <a title="Enums  Reference"></a>
+    <a title="Enumerations  Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          EasyInject Docs
+          EasyInject 1.3.0 Docs
         </a>
-         (99% documented)
+         (97% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -30,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel%2Egithub%2Eio%2FEasyInject%2Fdocsets%2FEasyInject%2Exml">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel.github.io%2FEasyInject%2Fdocsets%2FEasyInject.xml">
             <img class="header-icon" src="img/dash.png"/>
             Install in Dash
           </a>
@@ -40,7 +50,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="index.html">EasyInject Reference</a>
       <img class="carat" src="img/carat.png" />
-      Enums  Reference
+      Enumerations  Reference
     </p>
 
     <div class="content-wrapper">
@@ -72,7 +82,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/ComposedInjectionError.html">ComposedInjectionError</a>
@@ -103,7 +113,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/AnyInjector.html">AnyInjector</a>
@@ -129,13 +139,13 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Typealiases.html">Typealiases</a>
+            <a class="nav-group-name-link" href="Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject10Providable">Providable</a>
+                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject10Providablea">Providable</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a>
+                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a>
               </li>
             </ul>
           </li>
@@ -144,9 +154,9 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
-            <h1>Enums</h1>
-            <p>The following enums are available globally.</p>
+          <div class="section-content top-matter">
+            <h1>Enumerations</h1>
+            <p>The following enumerations are available globally.</p>
 
           </div>
         </section>
@@ -158,9 +168,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:O10EasyInject22ComposedInjectionError"></a>
+                    <a name="/s:10EasyInject22ComposedInjectionErrorO"></a>
                     <a name="//apple_ref/swift/Enum/ComposedInjectionError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O10EasyInject22ComposedInjectionError">ComposedInjectionError</a>
+                    <a class="token" href="#/s:10EasyInject22ComposedInjectionErrorO">ComposedInjectionError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -177,23 +187,19 @@ This error will always be embedded within <code><a href="Enums/InjectionError.ht
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ComposedInjectionError</span><span class="o">&lt;</span><span class="kt">Key</span><span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Error</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ComposedInjectionError</span><span class="o">&lt;</span><span class="kt">Key</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Error</span> <span class="k">where</span> <span class="kt">Key</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:O10EasyInject14InjectionError"></a>
+                    <a name="/s:10EasyInject14InjectionErrorO"></a>
                     <a name="//apple_ref/swift/Enum/InjectionError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O10EasyInject14InjectionError">InjectionError</a>
+                    <a class="token" href="#/s:10EasyInject14InjectionErrorO">InjectionError</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -209,23 +215,19 @@ This error will always be embedded within <code><a href="Enums/InjectionError.ht
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">InjectionError</span><span class="o">&lt;</span><span class="kt">Key</span><span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">InjectionError</span><span class="o">&lt;</span><span class="kt">Key</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span> <span class="k">where</span> <span class="kt">Key</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:O10EasyInject28InjectedProviderResolveState"></a>
+                    <a name="/s:10EasyInject28InjectedProviderResolveStateO"></a>
                     <a name="//apple_ref/swift/Enum/InjectedProviderResolveState" class="dashAnchor"></a>
-                    <a class="token" href="#/s:O10EasyInject28InjectedProviderResolveState">InjectedProviderResolveState</a>
+                    <a class="token" href="#/s:10EasyInject28InjectedProviderResolveStateO">InjectedProviderResolveState</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -233,8 +235,8 @@ This error will always be embedded within <code><a href="Enums/InjectionError.ht
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stores the result when evaluating a factory provided 
-by <code><a href="Protocols/Injector.html#/s:FP10EasyInject8Injector9providingFT3keywx3Key12usingFactoryFzRxP__x">Injector.providing(key:usingFactory:)</a></code> and similar methods
+                        <p>Stores the result when evaluating a factory provided
+by <code><a href="Protocols/Injector.html#/s:10EasyInject8InjectorP9providing3key12usingFactoryx3KeyQz_ypxzKctF">Injector.providing(key:usingFactory:)</a></code> and similar methods
 in order to &lsquo;replay&rsquo; it.</p>
 
                         <a href="Enums/InjectedProviderResolveState.html" class="slightly-smaller">See more</a>
@@ -243,7 +245,7 @@ in order to &lsquo;replay&rsquo; it.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">InjectedProviderResolveState</span><span class="o">&lt;</span><span class="kt">K</span><span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">CustomDebugStringConvertible</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">InjectedProviderResolveState</span><span class="o">&lt;</span><span class="kt">K</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">CustomDebugStringConvertible</span> <span class="k">where</span> <span class="kt">K</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
@@ -258,8 +260,8 @@ in order to &lsquo;replay&rsquo; it.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-10-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2020-12-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

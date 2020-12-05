@@ -8,6 +8,9 @@
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
 
@@ -18,9 +21,15 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          EasyInject Docs
+          EasyInject 1.3.0 Docs
         </a>
-         (99% documented)
+         (97% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -31,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel%2Egithub%2Eio%2FEasyInject%2Fdocsets%2FEasyInject%2Exml">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel.github.io%2FEasyInject%2Fdocsets%2FEasyInject.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -73,7 +82,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ComposedInjectionError.html">ComposedInjectionError</a>
@@ -104,7 +113,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/AnyInjector.html">AnyInjector</a>
@@ -130,13 +139,13 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Typealiases.html">Typealiases</a>
+            <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a>
               </li>
             </ul>
           </li>
@@ -145,11 +154,13 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>GlobalInjector</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">GlobalInjector</span><span class="o">&lt;</span><span class="kt">K</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/InjectorDerivingFromMutableInjector.html">InjectorDerivingFromMutableInjector</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/MutableInjector.html">MutableInjector</a></span></code></pre>
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="kt">GlobalInjector</span><span class="o">&lt;</span><span class="kt">K</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt"><a href="../Protocols/InjectorDerivingFromMutableInjector.html">InjectorDerivingFromMutableInjector</a></span><span class="p">,</span>
+  <span class="kt"><a href="../Protocols/MutableInjector.html">MutableInjector</a></span></code></pre>
 
                 </div>
               </div>
@@ -165,9 +176,35 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10EasyInject14GlobalInjectorcuRd__S_8Injectorxzwd__3KeyrFT8injectorqd___GS0_x_"></a>
+                    <a name="/s:10EasyInject8InjectorP3KeyQa"></a>
+                    <a name="//apple_ref/swift/Alias/Key" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject8InjectorP3KeyQa">Key</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Key</span> <span class="o">=</span> <span class="kt">K</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:10EasyInject14GlobalInjectorC8injectorACyxGqd___tc3KeyQyd__RszAA0D0Rd__lufc"></a>
                     <a name="//apple_ref/swift/Method/init(injector:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10EasyInject14GlobalInjectorcuRd__S_8Injectorxzwd__3KeyrFT8injectorqd___GS0_x_">init(injector:)</a>
+                    <a class="token" href="#/s:10EasyInject14GlobalInjectorC8injectorACyxGqd___tc3KeyQyd__RszAA0D0Rd__lufc">init(injector:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -177,18 +214,12 @@
                       <div class="abstract">
                         <p>Initializes <code><a href="../Structs/AnyInjector.html">AnyInjector</a></code> with a given <code><a href="../Protocols/Injector.html">Injector</a></code>.</p>
 
-<div class="aside aside-parameter">
-    <p class="aside-title">Parameter</p>
-    Parameter injector: The <code><a href="../Protocols/Injector.html">Injector</a></code> that shall be wrapped.
-
-</div>
-
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">I</span><span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html">Injector</a></span><span class="o">&gt;</span><span class="p">(</span><span class="nv">injector</span><span class="p">:</span> <span class="kt">I</span><span class="p">)</span> <span class="k">where</span> <span class="kt">I</span><span class="o">.</span><span class="kt">Key</span> <span class="o">==</span> <span class="kt">Key</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">I</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">injector</span><span class="p">:</span> <span class="kt">I</span><span class="p">)</span> <span class="k">where</span> <span class="kt">K</span> <span class="o">==</span> <span class="kt">I</span><span class="o">.</span><span class="kt"><a href="../Classes/GlobalInjector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">,</span> <span class="kt">I</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Injector.html">Injector</a></span></code></pre>
 
                         </div>
                       </div>
@@ -204,8 +235,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The <code>Injector</code> that shall be wrapped.</p>
-
+                                  <p>The <code><a href="../Protocols/Injector.html">Injector</a></code> that shall be wrapped.</p>
                                 </div>
                               </td>
                             </tr>
@@ -218,9 +248,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10EasyInject14GlobalInjector4copyFT_GS0_x_"></a>
+                    <a name="/s:10EasyInject14GlobalInjectorC4copyACyxGyF"></a>
                     <a name="//apple_ref/swift/Method/copy()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10EasyInject14GlobalInjector4copyFT_GS0_x_">copy()</a>
+                    <a class="token" href="#/s:10EasyInject14GlobalInjectorC4copyACyxGyF">copy()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -229,27 +259,20 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a deep copy of <code>GlobalInjector</code> with the same contents.
-Overrides default <code><a href="../Protocols/InjectorDerivingFromMutableInjector.html#/s:FP10EasyInject35InjectorDerivingFromMutableInjector4copyFT_x">InjectorDerivingFromMutableInjector.copy()</a></code>.</p>
-
-<div class="aside aside-returns">
-    <p class="aside-title">Returns</p>
-    A new <code>GlobalInjector</code>.
-
-</div>
+Overrides default <code><a href="../Protocols/InjectorDerivingFromMutableInjector.html#/s:10EasyInject027InjectorDerivingFromMutableC0P4copyxyF">InjectorDerivingFromMutableInjector.copy()</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">copy</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">GlobalInjector</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">copy</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">GlobalInjector</span></code></pre>
 
                         </div>
                       </div>
                       <div>
                         <h4>Return Value</h4>
                         <p>A new <code>GlobalInjector</code>.</p>
-
                       </div>
                     </section>
                   </div>
@@ -257,9 +280,9 @@ Overrides default <code><a href="../Protocols/InjectorDerivingFromMutableInjecto
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10EasyInject14GlobalInjector7resolveFzT3keyx_P_"></a>
+                    <a name="/s:10EasyInject14GlobalInjectorC7resolve3keyypx_tKF"></a>
                     <a name="//apple_ref/swift/Method/resolve(key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10EasyInject14GlobalInjector7resolveFzT3keyx_P_">resolve(key:)</a>
+                    <a class="token" href="#/s:10EasyInject14GlobalInjectorC7resolve3keyypx_tKF">resolve(key:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -267,14 +290,14 @@ Overrides default <code><a href="../Protocols/InjectorDerivingFromMutableInjecto
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Implements <code><a href="../Protocols/MutableInjector.html#/s:FP10EasyInject15MutableInjector7resolveFzT3keywx3Key_P_">MutableInjector.resolve(key:)</a></code></p>
+                        <p>Implements <code><a href="../Protocols/MutableInjector.html#/s:10EasyInject15MutableInjectorP7resolve3keyyp3KeyQz_tKF">MutableInjector.resolve(key:)</a></code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">resolve</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">Key</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">resolve</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Classes/GlobalInjector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -284,9 +307,9 @@ Overrides default <code><a href="../Protocols/InjectorDerivingFromMutableInjecto
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10EasyInject14GlobalInjector7provideFT3keyx12usingFactoryFzRGS0_x_P__T_"></a>
+                    <a name="/s:10EasyInject14GlobalInjectorC7provide3key12usingFactoryyx_ypACyxGzKctF"></a>
                     <a name="//apple_ref/swift/Method/provide(key:usingFactory:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10EasyInject14GlobalInjector7provideFT3keyx12usingFactoryFzRGS0_x_P__T_">provide(key:usingFactory:)</a>
+                    <a class="token" href="#/s:10EasyInject14GlobalInjectorC7provide3key12usingFactoryyx_ypACyxGzKctF">provide(key:<wbr>usingFactory:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -294,14 +317,16 @@ Overrides default <code><a href="../Protocols/InjectorDerivingFromMutableInjecto
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Implements <code><a href="../Protocols/MutableInjector.html#/s:FP10EasyInject15MutableInjector7provideFT3keywx3Key12usingFactoryFzRxP__T_">MutableInjector.provide(key:usingFactory:)</a></code></p>
+                        <p>Implements <code><a href="../Protocols/MutableInjector.html#/s:10EasyInject15MutableInjectorP7provide3key12usingFactoryy3KeyQz_ypxzKctF">MutableInjector.provide(key:usingFactory:)</a></code></p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">provide</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">Key</span><span class="p">,</span> <span class="n">usingFactory</span> <span class="nv">factory</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">inout</span> <span class="kt">GlobalInjector</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">provide</span><span class="p">(</span>
+  <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Classes/GlobalInjector.html#/s:10EasyInject8InjectorP3KeyQa">Key</a></span><span class="p">,</span> <span class="n">usingFactory</span> <span class="nv">factory</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="k">inout</span> <span class="kt">GlobalInjector</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a></span>
+<span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -311,9 +336,9 @@ Overrides default <code><a href="../Protocols/InjectorDerivingFromMutableInjecto
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10EasyInject14GlobalInjector6revokeFT3keyx_T_"></a>
+                    <a name="/s:10EasyInject14GlobalInjectorC6revoke3keyyx_tF"></a>
                     <a name="//apple_ref/swift/Method/revoke(key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10EasyInject14GlobalInjector6revokeFT3keyx_T_">revoke(key:)</a>
+                    <a class="token" href="#/s:10EasyInject14GlobalInjectorC6revoke3keyyx_tF">revoke(key:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -321,14 +346,14 @@ Overrides default <code><a href="../Protocols/InjectorDerivingFromMutableInjecto
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>See <code><a href="../Protocols/MutableInjector.html#/s:FP10EasyInject15MutableInjector6revokeFT3keywx3Key_T_">MutableInjector.revoke(key:)</a></code>.</p>
+                        <p>See <code><a href="../Protocols/MutableInjector.html#/s:10EasyInject15MutableInjectorP6revoke3keyy3KeyQz_tF">MutableInjector.revoke(key:)</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">revoke</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">K</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">revoke</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">K</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -338,9 +363,9 @@ Overrides default <code><a href="../Protocols/InjectorDerivingFromMutableInjecto
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC10EasyInject14GlobalInjector12providedKeysGSax_"></a>
+                    <a name="/s:10EasyInject14GlobalInjectorC12providedKeysSayxGvp"></a>
                     <a name="//apple_ref/swift/Property/providedKeys" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC10EasyInject14GlobalInjector12providedKeysGSax_">providedKeys</a>
+                    <a class="token" href="#/s:10EasyInject14GlobalInjectorC12providedKeysSayxGvp">providedKeys</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -348,30 +373,26 @@ Overrides default <code><a href="../Protocols/InjectorDerivingFromMutableInjecto
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Implements <code><a href="../Protocols/Injector.html#/s:vP10EasyInject8Injector12providedKeysGSawx3Key_">Injector.providedKeys</a></code> by passing the internal provided keys.</p>
+                        <p>Implements <code><a href="../Protocols/Injector.html#/s:10EasyInject8InjectorP12providedKeysSay3KeyQzGvp">Injector.providedKeys</a></code> by passing the internal provided keys.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">providedKeys</span><span class="p">:</span> <span class="p">[</span><span class="kt">K</span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">providedKeys</span><span class="p">:</span> <span class="p">[</span><span class="kt">K</span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC10EasyInject14GlobalInjectorcFT_GS0_x_"></a>
+                    <a name="/s:10EasyInject14GlobalInjectorCACyxGycfc"></a>
                     <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC10EasyInject14GlobalInjectorcFT_GS0_x_">init()</a>
+                    <a class="token" href="#/s:10EasyInject14GlobalInjectorCACyxGycfc">init()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -386,7 +407,7 @@ Overrides default <code><a href="../Protocols/InjectorDerivingFromMutableInjecto
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -401,8 +422,8 @@ Overrides default <code><a href="../Protocols/InjectorDerivingFromMutableInjecto
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-10-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2020-12-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

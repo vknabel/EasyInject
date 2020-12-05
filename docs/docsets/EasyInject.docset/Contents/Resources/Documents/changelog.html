@@ -8,6 +8,9 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
 
@@ -17,9 +20,15 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          EasyInject Docs
+          EasyInject 1.3.0 Docs
         </a>
-         (99% documented)
+         (97% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -30,7 +39,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel%2Egithub%2Eio%2FEasyInject%2Fdocsets%2FEasyInject%2Exml">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel.github.io%2FEasyInject%2Fdocsets%2FEasyInject.xml">
             <img class="header-icon" src="img/dash.png"/>
             Install in Dash
           </a>
@@ -72,7 +81,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Enums/ComposedInjectionError.html">ComposedInjectionError</a>
@@ -103,7 +112,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/AnyInjector.html">AnyInjector</a>
@@ -129,13 +138,13 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="Typealiases.html">Typealiases</a>
+            <a class="nav-group-name-link" href="Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject10Providable">Providable</a>
+                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject10Providablea">Providable</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a>
+                <a class="nav-group-task-link" href="Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a>
               </li>
             </ul>
           </li>
@@ -144,158 +153,185 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             
-            <a href='#changelog' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='changelog'>Changelog</h1>
-<a href='#1-1-0' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='1-1-0'>1.1.0</h2>
+            <h1 id='changelog' class='heading'>Changelog</h1>
+<h2 id='1-4-0' class='heading'>1.4.0</h2>
 
-<p><em>Released: 2016-10-24</em></p>
-<a href='#api-additions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='api-additions'>API Additions</h2>
+<p><em>Released: 2020-10-03</em></p>
 
 <ul>
-<li>Implemented <code>CustomDebugStringConvertible</code> for <code>Provider</code>, <code>GenericProvidableKey</code> - @vknabel</li>
-<li><code>GenericProvidableKey</code> now implemented <code>CustomStringConvertible</code> - @vknabel</li>
+<li>Upgraded to Swift 5-Package-Syntax - @vknabel</li>
 </ul>
-<a href='#other-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='other-changes'>Other Changes</h2>
+<h2 id='1-3-0' class='heading'>1.3.0</h2>
+
+<p><em>Released: 2020-03-14</em></p>
+
+<ul>
+<li>Upgraded to Swift 4-Package-Syntax - @vknabel</li>
+</ul>
+<h2 id='1-2-0' class='heading'>1.2.0</h2>
+
+<p><em>Released: 2017-10-06</em></p>
+<h3 id='api-additions' class='heading'>API Additions</h3>
+
+<ul>
+<li>Generic subscripts for <code><a href="Protocols/Injector.html">Injector</a></code>. - @vknabel</li>
+</ul>
+<h3 id='other-changes' class='heading'>Other Changes</h3>
+
+<ul>
+<li>Support for Swift 4.0 while retaining Swift 3 support. - @vknabel</li>
+</ul>
+<h2 id='1-1-0' class='heading'>1.1.0</h2>
+
+<p><em>Released: 2016-10-24</em></p>
+<h2 id='api-additions' class='heading'>API Additions</h2>
+
+<ul>
+<li>Implemented <code>CustomDebugStringConvertible</code> for <code><a href="Structs/Provider.html">Provider</a></code>, <code><a href="Structs/GenericProvidableKey.html">GenericProvidableKey</a></code> - @vknabel</li>
+<li><code><a href="Structs/GenericProvidableKey.html">GenericProvidableKey</a></code> now implemented <code>CustomStringConvertible</code> - @vknabel</li>
+</ul>
+<h2 id='other-changes' class='heading'>Other Changes</h2>
 
 <ul>
 <li>Changed internal representation for <code>.derive</code> - @vknabel</li>
-<li>Replaced protocol <code>Providable</code> with an typealias for <code>Any</code> (and therefore no adoption is required) - @vknabel</li>
+<li>Replaced protocol <code><a href="Typealiases.html#/s:10EasyInject10Providablea">Providable</a></code> with an typealias for <code>Any</code> (and therefore no adoption is required) - @vknabel</li>
 </ul>
-<a href='#1-0-0' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='1-0-0'>1.0.0</h2>
+<h2 id='1-0-0' class='heading'>1.0.0</h2>
 
 <p><em>Released: 2016-10-18</em></p>
-<a href='#breaking-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='breaking-changes'>Breaking Changes</h3>
+<h3 id='breaking-changes' class='heading'>Breaking Changes</h3>
 
 <ul>
 <li>Added new case <code>InjectionError.cyclicDependency</code> (#1). - @vknabel</li>
 </ul>
-<a href='#api-additions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='api-additions'>API Additions</h3>
+<h3 id='api-additions' class='heading'>API Additions</h3>
 
 <ul>
-<li>Added <code>GenericProvidableKey</code> which lets you define custom types in a typealias. - @vknabel</li>
-<li>Detection of cyclic dependencies in <code>LazyInjector</code> (#1). - @vknabel</li>
+<li>Added <code><a href="Structs/GenericProvidableKey.html">GenericProvidableKey</a></code> which lets you define custom types in a typealias. - @vknabel</li>
+<li>Detection of cyclic dependencies in <code><a href="Structs/LazyInjector.html">LazyInjector</a></code> (#1). - @vknabel</li>
 <li><code>Provider.derive(_:)</code> will now work for all <code>ExpressibleByStringLiteral where K.StringLiteralType == String</code> (previously only for <code>String</code>) - @vknabel</li>
 </ul>
-<a href='#other-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='other-changes'>Other Changes</h3>
+<h3 id='other-changes' class='heading'>Other Changes</h3>
 
 <ul>
 <li>Added some basic guides to generated Jazzy docs - @vknabel</li>
 </ul>
-<a href='#0-8-1' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='0-8-1'>0.8.1</h2>
+<h2 id='0-8-1' class='heading'>0.8.1</h2>
 
 <p><em>Released: 2016-09-26</em></p>
-<a href='#other-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='other-changes'>Other Changes</h3>
+<h3 id='other-changes' class='heading'>Other Changes</h3>
 
 <ul>
 <li>Updated Docs - @vknabel</li>
 </ul>
-<a href='#0-8-0' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='0-8-0'>0.8.0</h2>
+<h2 id='0-8-0' class='heading'>0.8.0</h2>
 
 <p><em>Released: 2016-09-08</em></p>
-<a href='#breaking-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='breaking-changes'>Breaking Changes</h3>
+<h3 id='breaking-changes' class='heading'>Breaking Changes</h3>
 
 <ul>
 <li>Dropped Swift 2.x Support - @vknabel</li>
 </ul>
-<a href='#0-7-0' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='0-7-0'>0.7.0</h2>
+<h2 id='0-7-0' class='heading'>0.7.0</h2>
 
 <p><em>Released: 23/08/2016</em></p>
-<a href='#breaking-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='breaking-changes'>Breaking Changes</h3>
+<h3 id='breaking-changes' class='heading'>Breaking Changes</h3>
 
 <ul>
-<li><code>ComposedInjector</code> throws an aggregated <code>InjectionError.keyNotFound(_)</code> as expected - @vknabel</li>
+<li><code><a href="Structs/ComposedInjector.html">ComposedInjector</a></code> throws an aggregated <code>InjectionError.keyNotFound(_)</code> as expected - @vknabel</li>
 <li>Removed enum case <code>InjectionError.invalidInjection(key:injected:expected:)</code> - @vknabel</li>
 </ul>
-<a href='#api-additions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='api-additions'>API Additions</h3>
+<h3 id='api-additions' class='heading'>API Additions</h3>
 
 <ul>
-<li>Added convenience <code>GlobalInjector.init()</code> - @vknabel</li>
-<li>Added <code>Injector.revoking(for:)</code> that takes a <code>Provider</code> - @vknabel</li>
-<li>Added <code>Injector.revoke(for:)</code> that takes a <code>Provider</code> - @vknabel</li>
+<li>Added convenience <code><a href="Classes/GlobalInjector.html#/s:10EasyInject14GlobalInjectorCACyxGycfc">GlobalInjector.init()</a></code> - @vknabel</li>
+<li>Added <code><a href="Protocols/Injector.html#/s:10EasyInject8InjectorPAAE8revoking3forxAA8ProviderVy3KeyQzqd__G_tlF">Injector.revoking(for:)</a></code> that takes a <code><a href="Structs/Provider.html">Provider</a></code> - @vknabel</li>
+<li>Added <code>Injector.revoke(for:)</code> that takes a <code><a href="Structs/Provider.html">Provider</a></code> - @vknabel</li>
 </ul>
-<a href='#other-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='other-changes'>Other Changes</h3>
+<h3 id='other-changes' class='heading'>Other Changes</h3>
 
 <ul>
 <li>Added Unit Tests - @vknabel</li>
 <li>Set up Travis CI - @vknabel</li>
 </ul>
-<a href='#0-6-0' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='0-6-0'>0.6.0</h2>
+<h2 id='0-6-0' class='heading'>0.6.0</h2>
 
 <p><em>Released: 16/08/2016</em></p>
-<a href='#breaking-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='breaking-changes'>Breaking Changes</h3>
+<h3 id='breaking-changes' class='heading'>Breaking Changes</h3>
 
 <ul>
 <li>Updated Swift 3.0 to Beta 6 - @vknabel</li>
 </ul>
-<a href='#other-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='other-changes'>Other Changes</h3>
+<h3 id='other-changes' class='heading'>Other Changes</h3>
 
 <ul>
 <li>Fixes some warnings in Swift 2 and 3 - @vknabel</li>
 </ul>
-<a href='#0-5-0' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='0-5-0'>0.5.0</h2>
+<h2 id='0-5-0' class='heading'>0.5.0</h2>
 
 <p><em>Released: 10/08/2016</em></p>
-<a href='#breaking-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='breaking-changes'>Breaking Changes</h3>
+<h3 id='breaking-changes' class='heading'>Breaking Changes</h3>
 
 <ul>
-<li>Added <code>Injector.revoking(key:)</code> - @vknabel</li>
-<li>Added <code>MutableInjector.revoke(key:)</code> - @vknabel</li>
+<li>Added <code><a href="Protocols/Injector.html#/s:10EasyInject8InjectorP8revoking3keyx3KeyQz_tF">Injector.revoking(key:)</a></code> - @vknabel</li>
+<li>Added <code><a href="Protocols/MutableInjector.html#/s:10EasyInject15MutableInjectorP6revoke3keyy3KeyQz_tF">MutableInjector.revoke(key:)</a></code> - @vknabel</li>
 </ul>
-<a href='#api-additions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='api-additions'>API Additions</h3>
+<h3 id='api-additions' class='heading'>API Additions</h3>
 
 <ul>
-<li><code>Injector.revoking(key:)</code> will be implemented by <code>InjectorDerivingFromMutableInjector</code> - @vknabel</li>
-<li>Added <code>revoke{Left|Right|Both}(key:)</code> and <code>revoking{Left|Right|Both}(key:)</code> to <code>ComposedInjector</code> - @vknabel</li>
+<li><code><a href="Protocols/Injector.html#/s:10EasyInject8InjectorP8revoking3keyx3KeyQz_tF">Injector.revoking(key:)</a></code> will be implemented by <code><a href="Protocols/InjectorDerivingFromMutableInjector.html">InjectorDerivingFromMutableInjector</a></code> - @vknabel</li>
+<li>Added <code>revoke{Left|Right|Both}(key:)</code> and <code>revoking{Left|Right|Both}(key:)</code> to <code><a href="Structs/ComposedInjector.html">ComposedInjector</a></code> - @vknabel</li>
 </ul>
-<a href='#other-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='other-changes'>Other Changes</h3>
+<h3 id='other-changes' class='heading'>Other Changes</h3>
 
 <ul>
 <li>Updated descriptions in <code>README.md</code>, <code>EasyInject.podspec</code> and <code>Play.playground</code> - @vknabel</li>
 </ul>
-<a href='#0-4-0' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='0-4-0'>0.4.0</h2>
+<h2 id='0-4-0' class='heading'>0.4.0</h2>
 
 <p><em>Released: 09/08/2016</em></p>
-<a href='#breaking-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='breaking-changes'>Breaking Changes</h3>
+<h3 id='breaking-changes' class='heading'>Breaking Changes</h3>
 
 <ul>
-<li>Added <code>Injector.providedKeys</code> - @vknabel</li>
+<li>Added <code><a href="Protocols/Injector.html#/s:10EasyInject8InjectorP12providedKeysSay3KeyQzGvp">Injector.providedKeys</a></code> - @vknabel</li>
 </ul>
-<a href='#api-additions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='api-additions'>API Additions</h3>
+<h3 id='api-additions' class='heading'>API Additions</h3>
 
 <ul>
-<li>Added default implementation for value type for <code>InjectorDerivingFromMutableInjector.copy()</code> - @vknabel</li>
+<li>Added default implementation for value type for <code><a href="Protocols/InjectorDerivingFromMutableInjector.html#/s:10EasyInject027InjectorDerivingFromMutableC0P4copyxyF">InjectorDerivingFromMutableInjector.copy()</a></code> - @vknabel</li>
 </ul>
-<a href='#other-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='other-changes'>Other Changes</h3>
+<h3 id='other-changes' class='heading'>Other Changes</h3>
 
 <ul>
 <li>Documented 100% - @vknabel</li>
 <li>Renamed <code>Changelog.md</code> to <code>CHANGELOG.md</code> - @vknabel</li>
 </ul>
-<a href='#0-3-0' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='0-3-0'>0.3.0</h2>
+<h2 id='0-3-0' class='heading'>0.3.0</h2>
 
 <p><em>Released: 04/08/2016</em></p>
-<a href='#breaking-api-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='breaking-api-changes'>Breaking API Changes</h3>
+<h3 id='breaking-api-changes' class='heading'>Breaking API Changes</h3>
 
 <ul>
-<li>Removed <code>AnyMutableInjector</code>, instead use <code>AnyInjector</code> - @vknabel</li>
-<li><code>AnyInjector</code>, <code>GlobalInjector</code>, <code>ComposedInjector</code> now only depend on the <code>ProvidableKey</code> instead of complete <code>Injector</code>s - @vknabel</li>
-<li><code>Injector</code> now requires <code>resolving(key:)</code> and <code>providing(key:,usingFactory:)</code> - @vknabel</li>
-<li><code>MutableInjector</code> now requires <code>resolve(key:)</code> and <code>provide(key:,usingFactory:)</code> - @vknabel</li>
+<li>Removed <code>AnyMutableInjector</code>, instead use <code><a href="Structs/AnyInjector.html">AnyInjector</a></code> - @vknabel</li>
+<li><code><a href="Structs/AnyInjector.html">AnyInjector</a></code>, <code><a href="Classes/GlobalInjector.html">GlobalInjector</a></code>, <code><a href="Structs/ComposedInjector.html">ComposedInjector</a></code> now only depend on the <code><a href="Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a></code> instead of complete <code><a href="Protocols/Injector.html">Injector</a></code>s - @vknabel</li>
+<li><code><a href="Protocols/Injector.html">Injector</a></code> now requires <code>resolving(key:)</code> and <code>providing(key:,usingFactory:)</code> - @vknabel</li>
+<li><code><a href="Protocols/MutableInjector.html">MutableInjector</a></code> now requires <code>resolve(key:)</code> and <code>provide(key:,usingFactory:)</code> - @vknabel</li>
 </ul>
-<a href='#api-additions' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='api-additions'>API Additions</h3>
+<h3 id='api-additions' class='heading'>API Additions</h3>
 
 <ul>
-<li><code>AnyInjector</code> additionally conforms to <code>MutableInjector</code> - @vknabel</li>
-<li>Added <code>globalize()</code>, <code>erase()</code>, <code>compose(_:)</code> that wrap a <code>MutableInjector</code> into another one - @vknabel</li>
-<li>Added <code>globalized()</code>, <code>erased()</code>, <code>composed(_:)</code> that wrap a <code>Injector</code> into another one - @vknabel</li>
+<li><code><a href="Structs/AnyInjector.html">AnyInjector</a></code> additionally conforms to <code><a href="Protocols/MutableInjector.html">MutableInjector</a></code> - @vknabel</li>
+<li>Added <code>globalize()</code>, <code>erase()</code>, <code>compose(_:)</code> that wrap a <code><a href="Protocols/MutableInjector.html">MutableInjector</a></code> into another one - @vknabel</li>
+<li>Added <code>globalized()</code>, <code>erased()</code>, <code>composed(_:)</code> that wrap a <code><a href="Protocols/Injector.html">Injector</a></code> into another one - @vknabel</li>
 </ul>
-<a href='#other-changes' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='other-changes'>Other Changes</h3>
+<h3 id='other-changes' class='heading'>Other Changes</h3>
 
 <ul>
 <li>The old methods <code>resolving(from:)</code>, <code>providing(for:,usingFactory:)</code> have been moved to an extension - @vknabel</li>
 <li>The old methods <code>resolve(from:)</code>, <code>provide(for:,usingFactory:)</code> have been moved to an extension - @vknabel</li>
-<li><code>GlobalInjector</code> and <code>ComposedInjector</code> now use <code>AnyInjector</code> internally - @vknabel</li>
+<li><code><a href="Classes/GlobalInjector.html">GlobalInjector</a></code> and <code><a href="Structs/ComposedInjector.html">ComposedInjector</a></code> now use <code><a href="Structs/AnyInjector.html">AnyInjector</a></code> internally - @vknabel</li>
 <li>Reincluded docs into the repo - @vknabel</li>
 </ul>
 
@@ -306,8 +342,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-10-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2020-12-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

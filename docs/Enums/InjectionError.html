@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>InjectionError Enum Reference</title>
+    <title>InjectionError Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset="utf-8">
     <script src="../js/jquery.min.js" defer></script>
     <script src="../js/jazzy.js" defer></script>
     
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
 
     <a name="//apple_ref/swift/Enum/InjectionError" class="dashAnchor"></a>
 
-    <a title="InjectionError Enum Reference"></a>
+    <a title="InjectionError Enumeration Reference"></a>
 
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          EasyInject Docs
+          EasyInject 1.3.0 Docs
         </a>
-         (99% documented)
+         (97% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
       </p>
     
         <p class="header-col header-col--secondary">
@@ -31,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel%2Egithub%2Eio%2FEasyInject%2Fdocsets%2FEasyInject%2Exml">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fvknabel.github.io%2FEasyInject%2Fdocsets%2FEasyInject.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -41,7 +50,7 @@
     <p class="breadcrumbs">
       <a class="breadcrumb" href="../index.html">EasyInject Reference</a>
       <img class="carat" src="../img/carat.png" />
-      InjectionError Enum Reference
+      InjectionError Enumeration Reference
     </p>
 
     <div class="content-wrapper">
@@ -73,7 +82,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Enums.html">Enums</a>
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Enums/ComposedInjectionError.html">ComposedInjectionError</a>
@@ -104,7 +113,7 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Structs.html">Structs</a>
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/AnyInjector.html">AnyInjector</a>
@@ -130,13 +139,13 @@
             </ul>
           </li>
           <li class="nav-group-name">
-            <a class="nav-group-name-link" href="../Typealiases.html">Typealiases</a>
+            <a class="nav-group-name-link" href="../Typealiases.html">Type Aliases</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a>
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a>
               </li>
             </ul>
           </li>
@@ -145,11 +154,12 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>InjectionError</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">InjectionError</span><span class="o">&lt;</span><span class="kt">Key</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+                  
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">InjectionError</span><span class="o">&lt;</span><span class="kt">Key</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">Equatable</span> <span class="k">where</span> <span class="kt">Key</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                 </div>
               </div>
@@ -165,9 +175,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO10EasyInject14InjectionError14keyNotProvideduRxs8HashablerFMGS0_x_FxGS0_x_"></a>
-                    <a name="//apple_ref/swift/Element/keyNotProvided" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO10EasyInject14InjectionError14keyNotProvideduRxs8HashablerFMGS0_x_FxGS0_x_">keyNotProvided</a>
+                    <a name="/s:10EasyInject14InjectionErrorO14keyNotProvidedyACyxGxcAEmSHRzlF"></a>
+                    <a name="//apple_ref/swift/Element/keyNotProvided(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject14InjectionErrorO14keyNotProvidedyACyxGxcAEmSHRzlF">keyNotProvided(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -175,30 +185,26 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>There has been no value provided with the <code><a href="../Typealiases.html#/s:10EasyInject13ProvidableKey">ProvidableKey</a></code>.</p>
+                        <p>There has been no value provided with the <code><a href="../Typealiases.html#/s:10EasyInject13ProvidableKeya">ProvidableKey</a></code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">keyNotProvided</span><span class="p">(</span><span class="kt">Key</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">keyNotProvided</span><span class="p">(</span><span class="kt">Key</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO10EasyInject14InjectionError15nonMatchingTypeuRxs8HashablerFMGS0_x_FT8providedP_8expectedPMP__GS0_x_"></a>
-                    <a name="//apple_ref/swift/Element/nonMatchingType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO10EasyInject14InjectionError15nonMatchingTypeuRxs8HashablerFMGS0_x_FT8providedP_8expectedPMP__GS0_x_">nonMatchingType</a>
+                    <a name="/s:10EasyInject14InjectionErrorO15nonMatchingTypeyACyxGyp_ypXptcAEmSHRzlF"></a>
+                    <a name="//apple_ref/swift/Element/nonMatchingType(provided:expected:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject14InjectionErrorO15nonMatchingTypeyACyxGyp_ypXptcAEmSHRzlF">nonMatchingType(provided:<wbr>expected:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -206,32 +212,32 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The given <code><a href="../Structs/Provider.html">Provider</a></code>&rsquo;s <code>Value</code>-type did not match with the stored one.
-- Note: When issue arised, you probably have defined two different <code><a href="../Structs/Provider.html">Provider</a></code>s
-using the same <code>key</code>, but a different <code>Value</code>-Type.</p>
+                        <p>The given <code><a href="../Structs/Provider.html">Provider</a></code>&lsquo;s <code>Value</code>-type did not match with the stored one.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    When issue arised, you probably have defined two different <code><a href="../Structs/Provider.html">Provider</a></code>s
+using the same <code>key</code>, but a different <code>Value</code>-Type.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">nonMatchingType</span><span class="p">(</span><span class="nv">provided</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span> <span class="nv">expected</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providable">Providable</a></span><span class="o">.</span><span class="k">Type</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">nonMatchingType</span><span class="p">(</span><span class="nv">provided</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span> <span class="nv">expected</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:10EasyInject10Providablea">Providable</a></span><span class="o">.</span><span class="k">Type</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO10EasyInject14InjectionError11customErroruRxs8HashablerFMGS0_x_FPs5Error_GS0_x_"></a>
-                    <a name="//apple_ref/swift/Element/customError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO10EasyInject14InjectionError11customErroruRxs8HashablerFMGS0_x_FPs5Error_GS0_x_">customError</a>
+                    <a name="/s:10EasyInject14InjectionErrorO06customD0yACyxGs0D0_pcAEmSHRzlF"></a>
+                    <a name="//apple_ref/swift/Element/customError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject14InjectionErrorO06customD0yACyxGs0D0_pcAEmSHRzlF">customError(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -247,23 +253,19 @@ Will not be thrown by built-in <code><a href="../Protocols/Injector.html">Inject
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">customError</span><span class="p">(</span><span class="kt">Error</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">customError</span><span class="p">(</span><span class="kt">Error</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FO10EasyInject14InjectionError16cyclicDependencyuRxs8HashablerFMGS0_x_FxGS0_x_"></a>
-                    <a name="//apple_ref/swift/Element/cyclicDependency" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FO10EasyInject14InjectionError16cyclicDependencyuRxs8HashablerFMGS0_x_FxGS0_x_">cyclicDependency</a>
+                    <a name="/s:10EasyInject14InjectionErrorO16cyclicDependencyyACyxGxcAEmSHRzlF"></a>
+                    <a name="//apple_ref/swift/Element/cyclicDependency(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:10EasyInject14InjectionErrorO16cyclicDependencyyACyxGxcAEmSHRzlF">cyclicDependency(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -278,7 +280,7 @@ Will not be thrown by built-in <code><a href="../Protocols/Injector.html">Inject
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="k">case</span> <span class="nf">cyclicDependency</span><span class="p">(</span><span class="kt">Key</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">cyclicDependency</span><span class="p">(</span><span class="kt">Key</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -293,8 +295,8 @@ Will not be thrown by built-in <code><a href="../Protocols/Injector.html">Inject
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2016 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2016-10-24)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://twitter.com/vknabel" target="_blank" rel="external">Valentin Knabel</a>. All rights reserved. (Last updated: 2020-12-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

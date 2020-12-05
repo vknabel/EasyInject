@@ -1,12 +1,33 @@
 {
   "warnings": [
     {
-      "file": "/Users/vknabel/Developer/vknabel/EasyInject/Sources/CoreExtensions.swift",
-      "line": 243,
+      "file": "/Users/vknabel/dev/EasyInject/Sources/EasyInject/CoreExtensions.swift",
+      "line": 3,
+      "symbol": "Injector.subscript(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.subscript",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vknabel/dev/EasyInject/Sources/EasyInject/CoreExtensions.swift",
+      "line": 260,
       "symbol": "Injector.debugDescription",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vknabel/dev/EasyInject/Sources/EasyInject/LazilyInjectedProvider.swift",
+      "line": 3,
+      "symbol": "LazilyInjectedProvider.Key",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/vknabel/dev/EasyInject/Sources/EasyInject/StrictlyInjectedProvider.swift",
+      "line": 5,
+      "symbol": "StrictlyInjectedProvider.Key",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/vknabel/Developer/vknabel/EasyInject"
+  "source_directory": "/Users/vknabel/dev/EasyInject"
 }
